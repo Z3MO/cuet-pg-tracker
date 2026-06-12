@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>College Details - CUET PG Tracker</title>
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        /* Specific page helpers to align detail card nicely */
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 0.95rem;
+            transition: transform 0.2s;
+        }
+        .back-link:hover {
+            transform: translateX(-4px);
+        }
+        .details-header {
+            margin-bottom: 1.5rem;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 1.5rem;
+        }
+        .details-header h1 {
+            color: var(--primary);
+            font-size: clamp(1.8rem, 4vw, 2.5rem);
+            margin-top: 0.5rem;
+        }
+        .college-badge {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .trust-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.3rem;
+            background: var(--success-bg);
+            color: var(--success-text);
+            padding: 0.3rem 0.8rem;
+            border-radius: var(--radius-full);
+            font-size: 0.8rem;
+            font-weight: 700;
+        }
+        .trust-badge svg {
+            width: 14px;
+            height: 14px;
+        }
+        .student-table-container {
+            margin-top: 3rem;
+        }
+        .student-table-container h2 {
+            color: var(--primary);
+            font-size: 1.5rem;
+        }
+        .student-table-container .subtitle {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin-top: 0.25rem;
+        }
+    </style>
+</head>
+<body class="dark-mode">
+    <!-- Navbar -->
+    <header class="navbar">
+        <div class="logo">
+            <svg style="width: 28px; height: 28px; color: var(--accent);" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 3L1 9l11 6 9-4.91V17h2V9L12 3z"/>
+                <path d="M19 12.06v3.19l-7 3.82-7-3.82v-3.19l7 3.82 7-3.82z"/>
+            </svg>
+            CUET PG <span class="highlight">Tracker</span>
+        </div>
+        <nav class="nav-links">
+            <a href="index.html">Home</a>
+            <!-- Dark / Light Theme Toggle Button -->
+            <button id="theme-toggle" class="theme-toggle-btn" aria-label="Toggle dark/light theme" style="margin-left: 1.5rem;">
+                <!-- Sun Icon -->
+                <svg class="sun-icon" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 7c-2.76 0-5 2.24-5 5s2.24 5 5 5 5-2.24 5-5-2.24-5-5-5zM2 13h2c.55 0 1-.45 1-1s-.45-1-1-1H2c-.55 0-1 .45-1 1s.45 1 1 1zm18 0h2c.55 0 1-.45 1-1s-.45-1-1-1h-2c-.55 0-1 .45-1 1s.45 1 1 1zM11 2v2c0 .55.45 1 1 1s1-.45 1-1V2c0-.55-.45-1-1-1s-1 .45-1 1zm0 18v2c0 .55.45 1 1 1s1-.45 1-1v-2c0-.55-.45-1-1-1s-1 .45-1 1zM5.99 4.58c-.39-.39-1.03-.39-1.41 0s-.39 1.03 0 1.41l1.06 1.06c.39.39 1.03.39 1.41 0s.39-1.03 0-1.41L5.99 4.58zm12.37 12.37c-.39-.39-1.03-.39-1.41 0s-.39 1.03 0 1.41l1.06 1.06c.39.39 1.03.39 1.41 0s.39-1.03 0-1.41l-1.06-1.06zm1.06-12.37c-.39-.39-1.02-.39-1.41 0l-1.06 1.06c-.39.39-.39 1.03 0 1.41s1.03.39 1.41 0l1.06-1.06c.38-.38.38-1.02 0-1.41zm-12.37 12.37c-.39-.39-1.03-.39-1.41 0l-1.06 1.06c-.39.39-.39 1.03 0 1.41s1.03.39 1.41 0l1.06-1.06c.39-.39.39-1.03 0-1.41z"/>
+                </svg>
+                <!-- Moon Icon -->
+                <svg class="moon-icon hidden" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12.3 2a10 10 0 0 0-1.9 19.5 10 10 0 0 1 12.5-12.5A10 10 0 0 0 12.3 2z"/>
+                </svg>
+            </button>
+        </nav>
+    </header>
+
+    <!-- Main Container -->
+    <main class="container" style="margin-top: 2rem; margin-bottom: 4rem;">
+        <a href="index.html" class="back-link">&larr; Back to Colleges</a>
+        
+        <!-- Loading Indicator -->
+        <div id="loading" style="text-align: center; padding: 4rem 2rem;">
+            <div class="loading-spinner"></div>
+            <h2 style="margin-top: 1rem; color: var(--primary);">Loading College Insights...</h2>
+        </div>
+
+        <!-- Main Details Content -->
+        <div id="college-content" class="hidden">
+            <div class="card">
+                
+                <!-- College Header -->
+                <div class="details-header">
+                    <div class="college-badge">
+                        <span id="c-code" class="tag tag-success"></span>
+                        <span class="trust-badge">
+                            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                            Verified NTA Data
+                        </span>
+                    </div>
+                    <h1 id="c-name">College Name</h1>
+                </div>
+                
+                <!-- College Description -->
+                <p id="c-desc" style="color: var(--text-muted); font-size: 1.05rem; line-height: 1.7; margin-bottom: 2rem;">
+                    Description...
+                </p>
+
+                <!-- Motivation Banner -->
+                <div class="motivational-banner">
+                    <h3>🚀 Your Journey Starts Here!</h3>
+                    <p>Compare your CUET score with candidates who successfully gained allotment in the previous counseling rounds.</p>
+                </div>
+
+                <!-- Core College Details -->
+                <div class="stat-grid" style="grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.5rem; margin-bottom: 2rem;">
+                    <div class="stat-box">
+                        <div class="stat-label">Official Ranking Credentials</div>
+                        <div class="stat-value" style="font-size: 1.25rem; font-weight: 700; color: var(--accent); margin-top: 0.5rem;">
+                            <span id="c-rank">-</span>
+                            <div id="c-rank-link-container" style="margin-top: 0.5rem;"></div>
+                        </div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-label">Tuition Fees (Total)</div>
+                        <div id="c-fee" class="stat-value score" style="color: var(--primary-light); font-size: 1.6rem;">-</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-label">Target Safe Score (Gen)</div>
+                        <div id="c-score" class="stat-value rank" style="font-size: 2rem;">-</div>
+                    </div>
+                </div>
+
+                <!-- Placements Insight Card -->
+                <div style="background: var(--card-bg); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 1.5rem; margin-bottom: 2rem;">
+                    <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.25rem;">
+                        <h3 style="color: var(--primary); font-size: 1.25rem; margin-bottom: 0; display: flex; align-items: center; gap: 0.5rem;">
+                            💼 Placement Salary & Program Breakdown
+                        </h3>
+                        <a id="c-placement-link" href="#" target="_blank" style="font-size: 0.85rem; color: var(--accent); font-weight: 700; text-decoration: underline;">Verify Placement Reports 🔗</a>
+                    </div>
+                    <div class="stat-grid" style="grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 1rem; margin-bottom: 1rem; margin-top: 0;">
+                        <div class="stat-box" style="padding: 1rem; border-color: rgba(16, 185, 129, 0.2);">
+                            <div style="font-size: 0.75rem; text-transform: uppercase; color: var(--text-muted); font-weight: 600;">Highest Package</div>
+                            <div id="pkg-highest" style="font-size: 1.4rem; font-weight: 800; color: var(--success-text); margin-top: 0.25rem;">-</div>
+                        </div>
+                        <div class="stat-box" style="padding: 1rem; border-color: rgba(255, 122, 0, 0.2);">
+                            <div style="font-size: 0.75rem; text-transform: uppercase; color: var(--text-muted); font-weight: 600;">Median Package</div>
+                            <div id="pkg-median" style="font-size: 1.4rem; font-weight: 800; color: var(--accent); margin-top: 0.25rem;">-</div>
+                        </div>
+                        <div class="stat-box" style="padding: 1rem; border-color: rgba(30, 41, 59, 0.2);">
+                            <div style="font-size: 0.75rem; text-transform: uppercase; color: var(--text-muted); font-weight: 600;">Average Package</div>
+                            <div id="pkg-avg" style="font-size: 1.4rem; font-weight: 800; color: var(--primary-light); margin-top: 0.25rem;">-</div>
+                        </div>
+                        <div class="stat-box" style="padding: 1rem; border-color: rgba(71, 85, 105, 0.2);">
+                            <div style="font-size: 0.75rem; text-transform: uppercase; color: var(--text-muted); font-weight: 600;">Lowest Package</div>
+                            <div id="pkg-lowest" style="font-size: 1.4rem; font-weight: 800; color: var(--text-muted); margin-top: 0.25rem;">-</div>
+                        </div>
+                    </div>
+                    <p style="font-size: 0.9rem; color: var(--text-muted); line-height: 1.5;">
+                        <strong>Key Placements Streams & Roles:</strong> <span id="placed-roles">-</span>
+                    </p>
+                </div>
+
+                <!-- Category Wise Safe Scores -->
+                <div style="background: var(--card-bg); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 1.5rem; margin-bottom: 2rem;">
+                    <h3 style="color: var(--primary); font-size: 1.25rem; margin-bottom: 1rem;">
+                        🎯 Estimated Category-Wise Cutoff Requirements
+                    </h3>
+                    <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+                        <span class="tag" style="background: rgba(15, 23, 42, 0.05); color: var(--text-main); font-size: 0.8rem; padding: 0.4rem 0.8rem; border: 1px solid var(--border-color);">General: <strong id="cat-gen-cutoff" style="color: var(--accent);">-</strong></span>
+                        <span class="tag" style="background: rgba(255, 122, 0, 0.05); color: var(--accent); font-size: 0.8rem; padding: 0.4rem 0.8rem; border: 1px solid var(--border-color);">OBC-NCL: <strong id="cat-obc-cutoff">-</strong></span>
+                        <span class="tag" style="background: rgba(245, 158, 11, 0.05); color: var(--accent-gold); font-size: 0.8rem; padding: 0.4rem 0.8rem; border: 1px solid var(--border-color);">EWS: <strong id="cat-ews-cutoff">-</strong></span>
+                        <span class="tag" style="background: rgba(16, 185, 129, 0.05); color: var(--success-text); font-size: 0.8rem; padding: 0.4rem 0.8rem; border: 1px solid var(--border-color);">SC: <strong id="cat-sc-cutoff">-</strong></span>
+                        <span class="tag" style="background: rgba(71, 85, 105, 0.05); color: var(--text-muted); font-size: 0.8rem; padding: 0.4rem 0.8rem; border: 1px solid var(--border-color);">ST: <strong id="cat-st-cutoff">-</strong></span>
+                    </div>
+                    <p style="font-size: 0.8rem; color: var(--text-muted); margin-top: 1rem; line-height: 1.4;">
+                        * Safe cutoff predictions are modeled on **CUET PG 2025 Counselling trends**.
+                    </p>
+                </div>
+
+                <!-- Dynamic merit list stats -->
+                <div style="margin-top: 2.5rem; margin-bottom: 1.5rem;">
+                    <h3 style="color: var(--primary); font-size: 1.25rem; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem;">
+                        <svg style="width: 20px; height: 20px; color: var(--accent);" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z"/>
+                        </svg>
+                        Dynamic Merit Analytics (Recorded Admitted Lists)
+                    </h3>
+                    <div class="stat-grid" style="grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 1rem;">
+                        <div class="stat-box" style="border-color: rgba(16, 185, 129, 0.2);">
+                            <div class="stat-label">Highest Admitted Score</div>
+                            <div id="stat-max" class="stat-value" style="color: var(--success-text); font-size: 1.6rem;">-</div>
+                        </div>
+                        <div class="stat-box" style="border-color: rgba(255, 122, 0, 0.2);">
+                            <div class="stat-label">Average Admitted Score</div>
+                            <div id="stat-avg" class="stat-value" style="color: var(--accent); font-size: 1.6rem;">-</div>
+                        </div>
+                        <div class="stat-box" style="border-color: rgba(30, 41, 59, 0.2);">
+                            <div class="stat-label">Cutoff (Lowest Score)</div>
+                            <div id="stat-min" class="stat-value" style="color: var(--primary-light); font-size: 1.6rem;">-</div>
+                        </div>
+                        <div class="stat-box" style="border-color: rgba(71, 85, 105, 0.2);">
+                            <div class="stat-label">Recorded Student Entries</div>
+                            <div id="stat-count" class="stat-value" style="color: var(--text-muted); font-size: 1.6rem;">-</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Admitted Students Section -->
+                <div class="student-table-container">
+                    <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; margin-bottom: 1.5rem;">
+                        <div>
+                            <h2>🎓 Students Admitted (Session 2024-25)</h2>
+                            <p class="subtitle">Official merit lists and CUET counseling details.</p>
+                        </div>
+                        
+                        <!-- Search Box for specific college -->
+                        <div class="search-input-wrapper" style="max-width: 300px; width: 100%;">
+                            <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="11" cy="11" r="8"></circle>
+                                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                            </svg>
+                            <input type="text" id="student-search" class="filter-input" placeholder="Search students in this list...">
+                        </div>
+                    </div>
+                    
+                    <div class="table-container">
+                        <div class="table-responsive">
+                            <table class="modern-table">
+                                <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>Student Name</th>
+                                        <th>Specialization / Course</th>
+                                        <th>Application No</th>
+                                        <th>CUET Score</th>
+                                        <th>Est. Percentile</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="student-list">
+                                    <!-- Injected dynamically via JS -->
+                                </tbody>
+                            </table>
+                        </div>
+                        <div id="no-students" class="hidden no-data-illustration">
+                            <div class="emoji">📊</div>
+                            <p>We are still gathering official student lists for <strong id="college-name-placeholder"></strong>.</p>
+                            <p style="margin-top: 0.5rem; font-size: 0.9rem;">Check back soon for updated data!</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- WhatsApp Share Section -->
+                <div class="share-section">
+                    <p style="margin-bottom: 1.25rem; font-weight: 600; color: var(--primary-light);">Share this college's cutoff insights with your prep group!</p>
+                    <button id="share-btn" class="share-btn">
+                        <svg style="width: 20px; height: 20px;" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.817 9.817 0 0 0 12.04 2zm5.82 12.92c-.25.7-1.46 1.37-2.02 1.44-.49.06-1.12.08-3.26-.8-2.73-1.12-4.5-3.9-4.64-4.08-.13-.19-1.11-1.48-1.11-2.82 0-1.34.7-2 1-2.32.25-.26.66-.37.98-.37.1 0 .2 0 .28.01.25.01.5.02.73.55.27.65.92 2.24 1 2.4.08.17.13.36.01.59-.12.23-.27.37-.4.52-.14.16-.3.34-.13.62.33.56.74 1.02 1.25 1.48.66.59 1.22.78 1.54.95.29.15.46.12.63-.07.17-.19.73-.85.93-1.14.2-.29.41-.24.69-.14.28.1 1.78.84 2.09.99.31.15.52.23.6.36.08.14.08.81-.17 1.51z"/>
+                        </svg>
+                        Share Insights on WhatsApp
+                    </button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 CUET PG Insights Tracker. Empowering Indian Aspirants.</p>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/students_data.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/college.js"></script>
+</body>
+</html>

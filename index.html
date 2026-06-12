@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CUET PG Admissions Tracker & Rank Predictor</title>
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Calculate safe scores, find accurate percentiles, and browse admitted student lists for CUET PG COQP11 (General) and COQP12 (MBA) courses.">
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="dark-mode"> <!-- Default to Dark Mode as it matches the high-tech, premium student dashboard style -->
+
+    <!-- Navigation Bar -->
+    <header class="navbar">
+        <div class="logo">
+            <svg style="width: 28px; height: 28px; color: var(--accent);" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 3L1 9l11 6 9-4.91V17h2V9L12 3z"/>
+                <path d="M19 12.06v3.19l-7 3.82-7-3.82v-3.19l7 3.82 7-3.82z"/>
+            </svg>
+            CUET PG <span class="highlight">Tracker</span>
+        </div>
+        <nav class="nav-links">
+            <a href="#predictor">Rank Predictor</a>
+            <a href="#colleges">Top Colleges</a>
+            <a href="#comparison">Compare Matrix</a>
+            <a href="#explorer">Merit Lists</a>
+            
+            <!-- Dark / Light Theme Toggle Button -->
+            <button id="theme-toggle" class="theme-toggle-btn" aria-label="Toggle dark/light theme">
+                <!-- Sun Icon -->
+                <svg class="sun-icon" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 7c-2.76 0-5 2.24-5 5s2.24 5 5 5 5-2.24 5-5-2.24-5-5-5zM2 13h2c.55 0 1-.45 1-1s-.45-1-1-1H2c-.55 0-1 .45-1 1s.45 1 1 1zm18 0h2c.55 0 1-.45 1-1s-.45-1-1-1h-2c-.55 0-1 .45-1 1s.45 1 1 1zM11 2v2c0 .55.45 1 1 1s1-.45 1-1V2c0-.55-.45-1-1-1s-1 .45-1 1zm0 18v2c0 .55.45 1 1 1s1-.45 1-1v-2c0-.55-.45-1-1-1s-1 .45-1 1zM5.99 4.58c-.39-.39-1.03-.39-1.41 0s-.39 1.03 0 1.41l1.06 1.06c.39.39 1.03.39 1.41 0s.39-1.03 0-1.41L5.99 4.58zm12.37 12.37c-.39-.39-1.03-.39-1.41 0s-.39 1.03 0 1.41l1.06 1.06c.39.39 1.03.39 1.41 0s.39-1.03 0-1.41l-1.06-1.06zm1.06-12.37c-.39-.39-1.02-.39-1.41 0l-1.06 1.06c-.39.39-.39 1.03 0 1.41s1.03.39 1.41 0l1.06-1.06c.38-.38.38-1.02 0-1.41zm-12.37 12.37c-.39-.39-1.03-.39-1.41 0l-1.06 1.06c-.39.39-.39 1.03 0 1.41s1.03.39 1.41 0l1.06-1.06c.39-.39.39-1.03 0-1.41z"/>
+                </svg>
+                <!-- Moon Icon -->
+                <svg class="moon-icon hidden" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12.3 2a10 10 0 0 0-1.9 19.5 10 10 0 0 1 12.5-12.5A10 10 0 0 0 12.3 2z"/>
+                </svg>
+            </button>
+        </nav>
+    </header>
+
+    <!-- Main Container -->
+    <main class="container">
+        
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="badge">
+                <span class="pulse-dot"></span>
+                Session 2024-25 Data Active
+            </div>
+            <h1>Nail Your <span class="highlight animate-gradient">CUET PG</span> Admissions</h1>
+            <p>Calculate safe scores, evaluate estimated percentiles, and compare top programs (MBA/LLM/Analytics/Computer Science) using real admitted student lists. <strong style="color: var(--accent);">Data modeled on CUET PG 2025 Counselling trends.</strong></p>
+            
+            <div class="hero-actions">
+                <a href="#predictor" class="cta-button">Predict My Rank 🎯</a>
+                <a href="#explorer" class="cta-button secondary-btn">Explore Admitted Students 🎓</a>
+            </div>
+
+            <div class="hero-stats">
+                <div class="hero-stat-card">
+                    <span class="num">COQP12</span>
+                    <span class="label">Exams Covered</span>
+                </div>
+                <div class="hero-stat-card">
+                    <span class="num">2</span>
+                    <span class="label">Top Institutions</span>
+                </div>
+                <div class="hero-stat-card">
+                    <span class="num">338</span>
+                    <span class="label">Verified Score Records</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Predictor and Colleges Grid -->
+        <section id="predictor" class="tools-grid">
+            
+            <!-- Rank & Safe Score Predictor -->
+            <div class="card predictor-card shadow-hover">
+                <div class="card-header">
+                    <h2>🎯 Percentile & Standing Predictor</h2>
+                    <p>Enter your score out of 300 to see your percentile standing and institution eligibility.</p>
+                </div>
+                
+                <form id="rank-form">
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem;">
+                        <div class="form-group" style="margin-bottom: 0;">
+                            <label for="paper-code">Target Exam Paper</label>
+                            <select id="paper-code" required>
+                                <option value="COQP12">COQP12 - MBA / General Management</option>
+                                <option value="COQP11">COQP11 - General (LLM, etc.)</option>
+                            </select>
+                        </div>
+                        <div class="form-group" style="margin-bottom: 0;">
+                            <label for="category">Counselling Category</label>
+                            <select id="category" required>
+                                <option value="GEN">General (UR)</option>
+                                <option value="OBC">OBC-NCL</option>
+                                <option value="EWS">EWS</option>
+                                <option value="SC">SC (Scheduled Caste)</option>
+                                <option value="ST">ST (Scheduled Tribe)</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="score">Expected Marks (out of 300)</label>
+                        <input type="number" id="score" min="0" max="300" placeholder="Enter your raw score (e.g., 215)" required>
+                    </div>
+
+                    <p style="font-size: 0.8rem; color: var(--text-muted); margin-bottom: 1.25rem; font-weight: 500;">
+                        ⚠️ *Note: Standing calculations and university safe zones are modeled based on <strong>CUET PG 2025 counselling data</strong>.
+                    </p>
+
+                    <button type="submit" class="submit-button">Predict My Standing</button>
+                </form>
+
+                <div id="result-box" class="result-box hidden">
+                    <!-- Dynamic Results (Percentile dial and stats) Injected Here -->
+                </div>
+            </div>
+
+            <!-- College Comparison Grid -->
+            <div id="colleges" class="card shadow-hover">
+                <div class="card-header">
+                    <h2>🏛️ Target Universities</h2>
+                    <p>Click on any card to view dynamic cutoffs, packages, and detailed specialization lists.</p>
+                </div>
+                
+                <div id="college-grid" class="college-grid">
+                    <!-- Colleges Injected Dynamically via JS -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Interactive Comparison Matrix -->
+        <section id="comparison" class="explorer-section">
+            <div class="explorer-header">
+                <h2>📊 Live Comparison Matrix</h2>
+                <p>Analyse admission metrics side-by-side to evaluate ROI, target scores, and course offerings.</p>
+            </div>
+            
+            <div class="table-container">
+                <div class="table-responsive">
+                    <table class="modern-table comparison-matrix-table">
+                        <thead>
+                            <tr>
+                                <th>University</th>
+                                <th>Exam Code</th>
+                                <th>Safe Target Score</th>
+                                <th>Median Package</th>
+                                <th>Course Specializations Offered</th>
+                                <th>Approx. Fees</th>
+                                <th>Rank</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong style="color: var(--text-main);">TISS Mumbai</strong></td>
+                                <td><span class="tag tag-tiss">COQP12</span></td>
+                                <td><span class="score-badge" style="background: rgba(255, 122, 0, 0.15); color: var(--accent);">235+</span></td>
+                                <td><strong style="color: var(--success-text);">28.00 LPA</strong></td>
+                                <td style="white-space: normal; font-size: 0.85rem; line-height: 1.4;">
+                                    Social Entrepreneurship, Labour Studies, Disaster Management, MA/MSc Analytics
+                                </td>
+                                <td>₹1.85 - 3.2 Lakhs</td>
+                                <td>NIRF Rank #72 (University)</td>
+                            </tr>
+                            <tr>
+                                <td><strong style="color: var(--text-main);">IIIT Lucknow</strong></td>
+                                <td><span class="tag tag-iiitl">COQP12</span></td>
+                                <td><span class="score-badge" style="background: rgba(255, 122, 0, 0.15); color: var(--accent);">161+</span></td>
+                                <td><strong style="color: var(--success-text);">11.00 LPA</strong></td>
+                                <td style="white-space: normal; font-size: 0.85rem; line-height: 1.4;">
+                                    MBA in Digital Business
+                                </td>
+                                <td>₹3.02 - 4.64 Lakhs</td>
+                                <td>Top Emerging Tech B-School</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- Consolidated Student Explorer Section -->
+        <section id="explorer" class="explorer-section">
+            <div class="explorer-header">
+                <h2>🏆 Admitted Student Directory & Merit Explorer</h2>
+                <p>Analyze official admission data and see what marks got students into their target programs.</p>
+            </div>
+
+            <!-- Interactive Score Density Distribution Chart -->
+            <div class="density-chart-container">
+                <div class="density-chart-title">
+                    <span>📊 Candidate Score Density (Based on Admitted Candidates)</span>
+                    <span class="info-tag">Click any score band below to filter the merit explorer</span>
+                </div>
+                <div id="density-chart-bars">
+                    <!-- Chart rows injected dynamically -->
+                </div>
+            </div>
+
+            <!-- Advanced Filter Bar -->
+            <div class="filters-bar">
+                <div class="search-input-wrapper">
+                    <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                    </svg>
+                    <input type="text" id="explorer-search" class="filter-input" placeholder="Search by name, app no, or course...">
+                </div>
+
+                <div>
+                    <select id="explorer-college" class="filter-input no-icon">
+                        <option value="all">All Colleges</option>
+                        <option value="tiss">TISS Mumbai</option>
+                        <option value="iiitl">IIIT Lucknow</option>
+                    </select>
+                </div>
+
+                <div>
+                    <select id="explorer-paper" class="filter-input no-icon">
+                        <option value="all">All Paper Codes</option>
+                        <option value="COQP12">COQP12 (MBA)</option>
+                    </select>
+                </div>
+
+                <div>
+                    <select id="explorer-score" class="filter-input no-icon">
+                        <option value="all">All Score Ranges</option>
+                        <option value="250">250+ (Top Tier)</option>
+                        <option value="200">200+ (High Marks)</option>
+                        <option value="150">150+ (Average Range)</option>
+                        <option value="100">100+ (Secondary cutoff)</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Results Table -->
+            <div class="table-container">
+                <div class="table-responsive">
+                    <table class="modern-table">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Student Name</th>
+                                <th>College</th>
+                                <th>Course / Specialization</th>
+                                <th>Exam Code</th>
+                                <th>Application No</th>
+                                <th>CUET Score</th>
+                                <th>Est. Percentile</th>
+                            </tr>
+                        </thead>
+                        <tbody id="explorer-list">
+                            <!-- Injected dynamically via JS -->
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Empty State -->
+                <div id="explorer-no-data" class="hidden no-data-illustration">
+                    <div class="emoji">🔍</div>
+                    <h3>No Students Match Your Filters</h3>
+                    <p>Try clearing your filters or entering a different search keyword.</p>
+                </div>
+            </div>
+
+            <!-- Pagination bar -->
+            <div class="pagination-controls">
+                <div class="pagination-info" id="explorer-info">
+                    Showing 0 to 0 of 0 students
+                </div>
+                <div style="display: flex; gap: 0.5rem;">
+                    <button id="explorer-prev" class="pagination-btn" disabled>&larr; Previous</button>
+                    <button id="explorer-next" class="pagination-btn" disabled>Next &rarr;</button>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 CUET PG Insights Tracker. Empowering Indian Aspirants.</p>
+        <p style="font-size: 0.8rem; margin-top: 0.5rem; opacity: 0.7;">Cross-referenced with official NTA scores & counselling sheets.</p>
+    </footer>
+
+    <!-- Floating Back to Top Button -->
+    <button id="back-to-top-btn" class="back-to-top" aria-label="Back to top">
+        <svg style="width: 24px; height: 24px;" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"/>
+        </svg>
+    </button>
+
+    <!-- Floating Compare Drawer -->
+    <div id="compare-drawer" class="compare-drawer">
+        <span class="compare-info">⚖️ <span id="compare-count">0</span> / 4 Selected for Comparison</span>
+        <div style="display: flex; gap: 0.75rem;">
+            <button id="compare-btn" class="compare-btn">Compare Now</button>
+            <button id="clear-compare-btn" class="clear-compare-btn">Clear</button>
+        </div>
+    </div>
+
+    <!-- Comparison Modal -->
+    <div id="compare-modal" class="modal-overlay">
+        <div class="modal-content">
+            <button id="close-modal" class="close-modal-btn">&times;</button>
+            <h2 style="font-size: 1.8rem; margin-bottom: 0.5rem; color: var(--accent);">🏛️ Side-by-Side College Comparison Matrix</h2>
+            <p style="color: var(--text-muted); margin-bottom: 1.5rem; font-size: 0.95rem;">Direct ROI assessment, packages breakdown, target scores, and ranking references (CUET PG 2025 Data).</p>
+            
+            <div class="table-responsive">
+                <table class="modern-table compare-table" style="width: 100%;">
+                    <thead id="compare-table-head">
+                        <!-- Injected dynamically -->
+                    </thead>
+                    <tbody id="compare-table-body">
+                        <!-- Injected dynamically -->
+                    </tbody>
+                </table>
+            </div>
+            <p style="font-size: 0.8rem; color: var(--text-muted); margin-top: 1.5rem; line-height: 1.4;">
+                * **ROI Score Index** is computed as `(Median Annual Placement Salary / Program Tuition Fee) * 10` for an immediate evaluation of financial returns.<br>
+                * **Rankings Credentials:** NIRF Management ranks represent official Ministry of Education standing. Program links connect directly to university verification portals.
+            </p>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/students_data.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
