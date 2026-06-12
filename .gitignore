@@ -1,2 +1,27 @@
+# Source/Developer Documents (Huge PDFs)
+CUET MBA RANKING.pdf
+*.pdf
+
+# Python Utility Scripts & Cache
+data_extractor.py
+ocr_processor.py
+*.py
+__pycache__/
+
+# OCR & Raw Data extraction folders
+TISS/
+IIITL/
+tiss/
+iiitl/
+
+# Developer markdown files
 Agents.md
+
+# Large raw database JSON (the site uses js/students_data.js instead)
 admitted_students.json
+
+# Local system configuration & cache files
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
