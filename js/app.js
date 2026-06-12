@@ -707,27 +707,46 @@ async function initVisitorCounter() {
     const counterEl = document.getElementById('visitor-count');
     if (!counterEl) return;
 
+    // Use a fresh new key to start count from 0 on the server
+    const apiKey = 'cuet-pg-tracker-fresh-v1';
+    const baseline = 999; // baseline offset so first hit displays 1000
+
     const fallbackCount = () => {
-        let visits = localStorage.getItem('cuet_pg_visits');
+        let visits = localStorage.getItem('cuet_pg_visits_v2');
         if (!visits) {
-            visits = 12480; // Baseline visits
+            visits = 1000; // Baseline visits
         }
-        visits = parseInt(visits, 10) + 1;
-        localStorage.setItem('cuet_pg_visits', visits);
+        // Only increment local storage count once per session
+        if (!sessionStorage.getItem('visited_local_session')) {
+            visits = parseInt(visits, 10) + 1;
+            localStorage.setItem('cuet_pg_visits_v2', visits);
+            sessionStorage.setItem('visited_local_session', 'true');
+        } else {
+            visits = parseInt(visits, 10);
+        }
         counterEl.textContent = visits.toLocaleString('en-IN');
     };
 
     try {
-        // We use counterapi.dev which is free, public and stable
-        const response = await fetch('https://api.counterapi.dev/v1/names/cuet-pg-tracker-visits/up');
+        let url = `https://api.counterapi.dev/v1/names/${apiKey}`;
+        
+        // If the user hasn't visited in this browser session, increment the global counter
+        if (!sessionStorage.getItem('visited_global_session')) {
+            url += '/up';
+        }
+
+        const response = await fetch(url);
         if (!response.ok) throw new Error('API failure');
         const data = await response.json();
         
         // Show counter
         const count = data.value || data.count;
-        if (count) {
-            // Add a base offset to make it look realistic for an Indian PG admissions platform
-            const displayCount = count + 12480;
+        if (count !== undefined) {
+            // Set session visited flag after a successful API fetch/increment
+            if (url.endsWith('/up')) {
+                sessionStorage.setItem('visited_global_session', 'true');
+            }
+            const displayCount = count + baseline;
             counterEl.textContent = displayCount.toLocaleString('en-IN');
         } else {
             fallbackCount();
