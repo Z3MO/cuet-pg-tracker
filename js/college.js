@@ -134,7 +134,8 @@ document.addEventListener('DOMContentLoaded', async () => {
                     const nameVal = student.name || 'Candidate';
                     const appVal = student.app || 'N/A';
                     const scoreVal = student.score !== undefined ? student.score : '-';
-                    const percentileVal = getEstimatedPercentile(student.score, college.code);
+                    const isSAUET = student.score === 'N/A';
+                    const percentileVal = isSAUET ? 'N/A' : getEstimatedPercentile(student.score, college.code);
 
                     tr.innerHTML = `
                         <td>#${index + 1}</td>
@@ -147,7 +148,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                         <td style="font-weight: 500; color: var(--text-main); font-size: 0.9rem;">${student.course || 'General'}</td>
                         <td class="hide-mobile" style="color: var(--text-muted); font-family: monospace; font-size: 0.9rem;">${appVal}</td>
                         <td><span class="score-badge">${scoreVal}</span></td>
-                        <td style="font-weight: 700; color: var(--accent);">${percentileVal.toFixed(2)} %ile</td>
+                        <td style="font-weight: 700; color: var(--accent);">${typeof percentileVal === 'number' ? percentileVal.toFixed(2) + ' %ile' : 'N/A'}</td>
                     `;
                     tbody.appendChild(tr);
                 });
@@ -175,14 +176,18 @@ document.addEventListener('DOMContentLoaded', async () => {
         collegeStudents = data[college.id] || [];
         
         if (collegeStudents.length > 0) {
-            // Sort by score descending (highest marks first)
-            collegeStudents.sort((a, b) => b.score - a.score);
+            // Sort by score descending (highest marks first), placing N/A at the bottom
+            collegeStudents.sort((a, b) => {
+                const scoreA = typeof a.score === 'number' ? a.score : -1;
+                const scoreB = typeof b.score === 'number' ? b.score : -1;
+                return scoreB - scoreA;
+            });
 
-            // Compute dynamic statistics
-            const scores = collegeStudents.map(s => s.score);
-            const maxScore = Math.max(...scores);
-            const minScore = Math.min(...scores);
-            const avgScore = Math.round(scores.reduce((sum, val) => sum + val, 0) / scores.length);
+            // Compute dynamic statistics (filtering out N/A scores)
+            const numericScores = collegeStudents.map(s => s.score).filter(s => typeof s === 'number');
+            const maxScore = numericScores.length > 0 ? Math.max(...numericScores) : 'N/A';
+            const minScore = numericScores.length > 0 ? Math.min(...numericScores) : 'N/A';
+            const avgScore = numericScores.length > 0 ? Math.round(numericScores.reduce((sum, val) => sum + val, 0) / numericScores.length) : 'N/A';
             
             setElementText('stat-max', maxScore);
             setElementText('stat-avg', avgScore);

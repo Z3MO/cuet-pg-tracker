@@ -2033,154 +2033,280 @@ window.admittedStudents = {
     ],
     "sau": [
         {
-            "app": "253510472650",
-            "name": "VIKRAM KUMAR",
-            "score": 221,
-            "course": "M.A. Economics"
+            "app": "E106930",
+            "name": "BHAGWANTPREET SINGH SEKHON",
+            "score": "N/A",
+            "course": "MBA"
         },
         {
-            "app": "253510433533",
-            "name": "SUNITA NAIR",
-            "score": 217,
-            "course": "Master of Laws (LL.M.)"
+            "app": "253510500588",
+            "name": "TIA DHIMAN",
+            "score": 161,
+            "course": "MBA"
         },
         {
-            "app": "253510653877",
-            "name": "KAVITA BANERJEE",
-            "score": 211,
-            "course": "M.A. International Relations"
-        },
-        {
-            "app": "253510812440",
-            "name": "SNEHA BASU",
-            "score": 210,
-            "course": "Master of Laws (LL.M.)"
-        },
-        {
-            "app": "253510247033",
-            "name": "DEEPIKA ROY",
-            "score": 209,
-            "course": "Master of Laws (LL.M.)"
-        },
-        {
-            "app": "253510289135",
-            "name": "AMIT SINGH",
-            "score": 202,
-            "course": "M.A. Economics"
-        },
-        {
-            "app": "253510400220",
-            "name": "KAVITA TIWARI",
-            "score": 195,
-            "course": "M.A. Economics"
-        },
-        {
-            "app": "253510694463",
-            "name": "AMIT YADAV",
+            "app": "253510260612",
+            "name": "SAURABH KUMAR",
             "score": 189,
-            "course": "M.Sc. Computer Science"
+            "course": "MBA"
         },
         {
-            "app": "253510141769",
-            "name": "PRIYA CHOUDHARY",
-            "score": 185,
-            "course": "M.Sc. Computer Science"
+            "app": "253510005528",
+            "name": "ATHARV MISHRA",
+            "score": 91,
+            "course": "MBA"
         },
         {
-            "app": "253510295459",
-            "name": "SNEHA JHA",
-            "score": 178,
-            "course": "M.A. International Relations"
+            "app": "E106093",
+            "name": "NAVNEEDHI MEENA",
+            "score": "N/A",
+            "course": "MBA"
         },
         {
-            "app": "253510227979",
-            "name": "ANANYA SHARMA",
-            "score": 173,
-            "course": "Master of Laws (LL.M.)"
-        },
-        {
-            "app": "253510222893",
-            "name": "KARAN BASU",
-            "score": 167,
-            "course": "M.A. International Relations"
-        },
-        {
-            "app": "253510146139",
-            "name": "SUNITA BASU",
-            "score": 154,
-            "course": "M.A. Economics"
-        },
-        {
-            "app": "253510292831",
-            "name": "VIKRAM YADAV",
-            "score": 147,
-            "course": "M.Sc. Computer Science"
-        },
-        {
-            "app": "253510791892",
-            "name": "ABHISHEK PATEL",
-            "score": 147,
-            "course": "M.A. International Relations"
-        },
-        {
-            "app": "253510463511",
-            "name": "NEHA NAIR",
-            "score": 143,
-            "course": "M.Sc. Computer Science"
-        },
-        {
-            "app": "253510407387",
-            "name": "PRIYA SINHA",
-            "score": 138,
-            "course": "M.A. International Relations"
-        },
-        {
-            "app": "253510537721",
-            "name": "AMIT BANERJEE",
-            "score": 137,
-            "course": "M.A. Economics"
-        },
-        {
-            "app": "253510956450",
-            "name": "ROHAN JHA",
+            "app": "253510169003",
+            "name": "ARUN KUMAR",
             "score": 134,
-            "course": "M.A. International Relations"
+            "course": "MBA"
         },
         {
-            "app": "253510644016",
-            "name": "SNEHA JOSHI",
-            "score": 133,
-            "course": "Master of Laws (LL.M.)"
+            "app": "253510252340",
+            "name": "NITIKA GUPTA",
+            "score": 72,
+            "course": "MBA"
         },
         {
-            "app": "253510420272",
-            "name": "ARJUN SINGH",
-            "score": 133,
-            "course": "M.A. International Relations"
+            "app": "253510510774",
+            "name": "HARSH KUMAR",
+            "score": 158,
+            "course": "MBA"
         },
         {
-            "app": "253510666164",
-            "name": "RAHUL GUPTA",
-            "score": 130,
-            "course": "M.A. International Relations"
+            "app": "253510455030",
+            "name": "PIYUSH YADAV",
+            "score": 155,
+            "course": "MBA"
         },
         {
-            "app": "253510504783",
-            "name": "SANYA CHOUDHARY",
-            "score": 126,
-            "course": "M.A. Economics"
-        },
-        {
-            "app": "253510138184",
-            "name": "PRIYA BASU",
+            "app": "253510162349",
+            "name": "SHIVANSH PANDEY",
             "score": 121,
-            "course": "M.A. International Relations"
+            "course": "MBA"
         },
         {
-            "app": "253510651957",
-            "name": "RAKESH MEHTA",
-            "score": 119,
-            "course": "M.A. International Relations"
+            "app": "E100419",
+            "name": "DEEPANSHU BAISOYA",
+            "score": "N/A",
+            "course": "MBA"
+        },
+        {
+            "app": "253510319173",
+            "name": "ANJALI SHARMA",
+            "score": 148,
+            "course": "MBA"
+        },
+        {
+            "app": "E106938",
+            "name": "TEJAS SACHDEV",
+            "score": "N/A",
+            "course": "MBA"
+        },
+        {
+            "app": "253510230535",
+            "name": "SURAMYA SHRIVASTAVA",
+            "score": 85,
+            "course": "MBA"
+        },
+        {
+            "app": "253510070350",
+            "name": "SNEHA CHOUDHARY",
+            "score": 99,
+            "course": "MBA"
+        },
+        {
+            "app": "E107541",
+            "name": "KREETI SARMA",
+            "score": "N/A",
+            "course": "MBA"
+        },
+        {
+            "app": "E100525",
+            "name": "DRISHAY ARORA",
+            "score": "N/A",
+            "course": "MBA"
+        },
+        {
+            "app": "E106455",
+            "name": "VARTIKA GAUTAM",
+            "score": "N/A",
+            "course": "MBA"
+        },
+        {
+            "app": "253510522602",
+            "name": "SAYESHA ALI KHAN",
+            "score": 143,
+            "course": "MBA"
+        },
+        {
+            "app": "E101874",
+            "name": "EKTA KUMARI",
+            "score": "N/A",
+            "course": "MBA"
+        },
+        {
+            "app": "253510079621",
+            "name": "MD IMRAN ALAM",
+            "score": 64,
+            "course": "MBA"
+        },
+        {
+            "app": "253510313074",
+            "name": "RAJAT PATEL",
+            "score": 44,
+            "course": "MBA"
+        },
+        {
+            "app": "253510304777",
+            "name": "AMIT KUMAR",
+            "score": 213,
+            "course": "MBA"
+        },
+        {
+            "app": "253510366034",
+            "name": "GOURAV BEHURA",
+            "score": 30,
+            "course": "MBA"
+        },
+        {
+            "app": "E100783",
+            "name": "AMULYA GAUR",
+            "score": "N/A",
+            "course": "MBA"
+        },
+        {
+            "app": "253510042615",
+            "name": "JAIDEEP SINGH",
+            "score": 75,
+            "course": "MBA"
+        },
+        {
+            "app": "E104960",
+            "name": "ANSHIKA LUTHRA",
+            "score": "N/A",
+            "course": "MBA"
+        },
+        {
+            "app": "253510289433",
+            "name": "NAVYA RAI",
+            "score": 71,
+            "course": "MBA"
+        },
+        {
+            "app": "253510403737",
+            "name": "ABHISHEK MISHRA",
+            "score": 167,
+            "course": "MBA"
+        },
+        {
+            "app": "253510172046",
+            "name": "DISHA KAPILA",
+            "score": 53,
+            "course": "MBA"
+        },
+        {
+            "app": "E105262",
+            "name": "VIOLINA SARMA",
+            "score": "N/A",
+            "course": "MBA"
+        },
+        {
+            "app": "E106661",
+            "name": "ARYAN MANDAHR",
+            "score": "N/A",
+            "course": "MBA"
+        },
+        {
+            "app": "253510221659",
+            "name": "TANISHA AHUJA",
+            "score": 95,
+            "course": "MBA"
+        },
+        {
+            "app": "253510473208",
+            "name": "CHAKRAPANI MADHUSUDAN MISHRA",
+            "score": 88,
+            "course": "MBA"
+        },
+        {
+            "app": "E107145",
+            "name": "AARUSHI POKHRIYAL",
+            "score": "N/A",
+            "course": "MBA"
+        },
+        {
+            "app": "253510276045",
+            "name": "AKANKSHA KUMARI",
+            "score": 147,
+            "course": "MBA"
+        },
+        {
+            "app": "E107032",
+            "name": "RIA CHHABRA",
+            "score": "N/A",
+            "course": "MBA"
+        },
+        {
+            "app": "253510223601",
+            "name": "AKRITI SINGH",
+            "score": 103,
+            "course": "MBA"
+        },
+        {
+            "app": "253510280367",
+            "name": "SIDDHANT KUMAR",
+            "score": 110,
+            "course": "MBA"
+        },
+        {
+            "app": "E102769",
+            "name": "MD SHAHID AHMAD TAQUI",
+            "score": "N/A",
+            "course": "MBA"
+        },
+        {
+            "app": "E107320",
+            "name": "VIVEK KUMAR ROSHAN",
+            "score": "N/A",
+            "course": "MBA"
+        },
+        {
+            "app": "E100579",
+            "name": "PAWAN SONI",
+            "score": "N/A",
+            "course": "MBA"
+        },
+        {
+            "app": "253510002809",
+            "name": "ADARSH SINGH",
+            "score": 182,
+            "course": "MBA"
+        },
+        {
+            "app": "E106354",
+            "name": "KAUSTUBH MANI NANDA",
+            "score": "N/A",
+            "course": "MBA"
+        },
+        {
+            "app": "253510382207",
+            "name": "RAJAT JAIN",
+            "score": 82,
+            "course": "MBA"
+        },
+        {
+            "app": "E103107",
+            "name": "AIMAN SAAD",
+            "score": "N/A",
+            "course": "MBA"
         }
     ],
     "dav": [

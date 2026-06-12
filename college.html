@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>College Details - CUET PG Tracker</title>
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- Stylesheets -->
     <link rel="stylesheet" href="css/styles.css">
     <style>
@@ -151,7 +153,7 @@
                 <div style="background: var(--card-bg); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 1.5rem; margin-bottom: 2rem;">
                     <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.25rem;">
                         <h3 style="color: var(--primary); font-size: 1.25rem; margin-bottom: 0; display: flex; align-items: center; gap: 0.5rem;">
-                            💼 Placement Salary & Program Breakdown
+                            <i class="fa-solid fa-briefcase" style="color: var(--accent); margin-right: 0.25rem;"></i>Placement Packages & Program Breakdown
                         </h3>
                         <a id="c-placement-link" href="#" target="_blank" style="font-size: 0.85rem; color: var(--accent); font-weight: 700; text-decoration: underline;">Verify Placement Reports 🔗</a>
                     </div>
@@ -180,8 +182,8 @@
 
                 <!-- Category Wise Safe Scores -->
                 <div style="background: var(--card-bg); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 1.5rem; margin-bottom: 2rem;">
-                    <h3 style="color: var(--primary); font-size: 1.25rem; margin-bottom: 1rem;">
-                        🎯 Estimated Category-Wise Cutoff Requirements
+                    <h3 style="color: var(--primary); font-size: 1.25rem; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem;">
+                        <i class="fa-solid fa-bullseye" style="color: var(--accent); margin-right: 0.25rem;"></i>Estimated Category-Wise Cutoff Requirements
                     </h3>
                     <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
                         <span class="tag" style="background: rgba(15, 23, 42, 0.05); color: var(--text-main); font-size: 0.8rem; padding: 0.4rem 0.8rem; border: 1px solid var(--border-color);">General: <strong id="cat-gen-cutoff" style="color: var(--accent);">-</strong></span>
@@ -190,8 +192,8 @@
                         <span class="tag" style="background: rgba(16, 185, 129, 0.05); color: var(--success-text); font-size: 0.8rem; padding: 0.4rem 0.8rem; border: 1px solid var(--border-color);">SC: <strong id="cat-sc-cutoff">-</strong></span>
                         <span class="tag" style="background: rgba(71, 85, 105, 0.05); color: var(--text-muted); font-size: 0.8rem; padding: 0.4rem 0.8rem; border: 1px solid var(--border-color);">ST: <strong id="cat-st-cutoff">-</strong></span>
                     </div>
-                    <p style="font-size: 0.8rem; color: var(--text-muted); margin-top: 1rem; line-height: 1.4;">
-                        * Safe cutoff predictions are modeled on **CUET PG 2025 Counselling trends**.
+                    <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 1rem; line-height: 1.4;">
+                        * <strong>Note:</strong> Estimated category-wise cutoffs and percentile indicators are predicted based on last year's (CUET PG 2025) official NTA score and counseling data to help you evaluate your chances for admission in your dream colleges.
                     </p>
                 </div>
 
@@ -227,8 +229,8 @@
                 <div class="student-table-container">
                     <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; margin-bottom: 1.5rem;">
                         <div>
-                            <h2>🎓 Students Admitted (Session 2024-25)</h2>
-                            <p class="subtitle">Official merit lists and CUET counseling details.</p>
+                            <h2><i class="fa-solid fa-graduation-cap" style="color: var(--accent); margin-right: 0.6rem;"></i>Admitted Candidates & Counseling Allotments</h2>
+                            <p class="subtitle">Official NTA score distribution and recorded student entries.</p>
                         </div>
                         
                         <!-- Search Box for specific college -->
@@ -241,6 +243,9 @@
                         </div>
                     </div>
                     
+                    <div class="mobile-scroll-hint">
+                        <i class="fa-solid fa-right-left"></i> Swipe horizontally to view full allotment details
+                    </div>
                     <div class="table-container">
                         <div class="table-responsive">
                             <table class="modern-table">
@@ -283,11 +288,11 @@
 
     <!-- Footer -->
     <footer>
-        <div class="footer-counter" style="margin-bottom: 1.25rem; display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.4rem 1rem; background: rgba(255, 255, 255, 0.05); border-radius: var(--radius-full); border: 1px solid var(--border-color); font-size: 0.8rem; font-weight: 600; color: var(--text-main);">
+        <div class="footer-counter" style="margin-bottom: 1.25rem; display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.4rem 1rem; background: rgba(255, 255, 255, 0.08); border-radius: var(--radius-full); border: 1px solid rgba(255, 255, 255, 0.15); font-size: 0.8rem; font-weight: 600; color: rgba(255, 255, 255, 0.95);">
             <span class="pulse-dot"></span>
             <span>Live Dashboard Visits: <strong id="visitor-count" style="color: var(--accent);">Loading...</strong></span>
         </div>
-        <p>&copy; 2024 CUET PG Insights Tracker. Empowering Indian Aspirants.</p>
+        <p>&copy; 2026 CUET PG Calculator. Empowering Indian Aspirants.</p>
     </footer>
 
     <!-- Scripts -->

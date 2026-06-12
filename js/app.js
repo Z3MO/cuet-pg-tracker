@@ -19,6 +19,24 @@ const collegesData = [
         description: 'Premier institute known for its incredible ROI and flagship COQP12 programs: Social Entrepreneurship, Labour Studies & Practice, Disaster Management, and Analytics. Extremely competitive.'
     },
     {
+        id: 'sau',
+        name: 'South Asian University',
+        code: 'COQP12',
+        rank: 'Intergovernmental SAARC University | Top 20 Indian Universities (IIRF)',
+        rankUrl: 'https://sau.int/',
+        placementUrl: 'https://sau.int/academics/faculties/faculty-of-management/',
+        fee: '₹3.20 Lakhs (Tuition) | ₹4.0 Lakhs (with Hostel)',
+        safeScore: 210,
+        packages: {
+            highest: '12.00 LPA',
+            average: '6.00 LPA',
+            median: '5.50 LPA',
+            lowest: '4.00 LPA'
+        },
+        roles: 'Business Analyst, Operations Manager, Corporate Consultant, Research Analyst',
+        description: 'International SAARC university in New Delhi. Known for multicultural exposure, highly subsidized international-standard education, and strong foundation in research and management.'
+    },
+    {
         id: 'iiitl',
         name: 'IIIT Lucknow',
         code: 'COQP12',
@@ -203,13 +221,13 @@ document.addEventListener('DOMContentLoaded', () => {
             });
             
             if (score >= 250) {
-                feedbackMsg = `Outstanding! You are in the top 0.15% safe zone for Category [${category}]. Admission to TISS Mumbai / top courses is highly probable.`;
+                feedbackMsg = `Outstanding! You are in the top 0.15% safe zone for Category [${category}]. Admission to TISS Mumbai is highly probable.`;
             } else if (score >= 210) {
-                feedbackMsg = `Excellent score! High likelihood of securing admission to DAVV and top counselling allotment lists for Category [${category}].`;
+                feedbackMsg = `Excellent score! High likelihood of securing admission to TISS Mumbai, SAU, or IIIT Lucknow for Category [${category}].`;
             } else if (score >= 170) {
-                feedbackMsg = `Great effort! You stand a solid chance at South Asian University (SAU) or IIIT Lucknow for Category [${category}].`;
+                feedbackMsg = `Great effort! You stand a solid chance at SAU, IIIT Lucknow, or subsequent counseling lists for TISS Mumbai for Category [${category}].`;
             } else if (score >= 104) {
-                feedbackMsg = `Decent score! Monitor subsequent cutoff rounds for IIIT Lucknow and spot counselling rounds for Category [${category}].`;
+                feedbackMsg = `Decent score! Monitor subsequent cutoff rounds or spot rounds for SAU or IIIT Lucknow for Category [${category}].`;
             } else {
                 feedbackMsg = `Safe option: target category allocations, spot selection lists, or prepare for category merit lists.`;
             }
@@ -396,8 +414,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (attr.key === 'roi') {
                     // Calculate ROI Score
                     const medVal = parseFloat(c.packages.median);
-                    // TISS: 1.85 tuition fee, IIITL: 3.02 tuition fee
-                    const feeVal = c.id === 'tiss' ? 1.85 : 3.02;
+                    // TISS: 1.85, IIITL: 3.02, SAU: 3.20 tuition fee
+                    const feeVal = c.id === 'tiss' ? 1.85 : (c.id === 'sau' ? 3.20 : 3.02);
                     cellVal = ((medVal / feeVal) * 10).toFixed(1) + " / 10";
                 } else if (attr.key.includes('.')) {
                     const keys = attr.key.split('.');
@@ -463,6 +481,7 @@ async function loadStudentsData() {
             
             const studentsList = data[collegeId];
             studentsList.forEach(student => {
+                const isSAUET = student.score === 'N/A';
                 allStudents.push({
                     name: student.name,
                     app: student.app,
@@ -470,14 +489,18 @@ async function loadStudentsData() {
                     course: student.course || 'General',
                     collegeId: collegeId,
                     collegeName: college.name,
-                    paperCode: college.code,
-                    percentile: getEstimatedPercentile(student.score, college.code)
+                    paperCode: isSAUET ? 'SAU-ET' : college.code,
+                    percentile: isSAUET ? 0 : getEstimatedPercentile(student.score, college.code)
                 });
             });
         }
         
-        // Sort by score descending
-        allStudents.sort((a, b) => b.score - a.score);
+        // Sort by score descending, placing N/A at the bottom
+        allStudents.sort((a, b) => {
+            const scoreA = typeof a.score === 'number' ? a.score : -1;
+            const scoreB = typeof b.score === 'number' ? b.score : -1;
+            return scoreB - scoreA;
+        });
         
         // Copy to active filtered list
         filteredStudents = [...allStudents];
@@ -617,7 +640,7 @@ function renderExplorer() {
             <td class="hide-mobile"><span class="tag tag-success" style="font-size: 0.75rem;">${student.paperCode}</span></td>
             <td class="hide-mobile" style="font-family: monospace; color: var(--text-muted); font-size: 0.9rem;">${highlightedApp}</td>
             <td><span class="score-badge">${student.score}</span></td>
-            <td style="font-weight: 700; color: var(--accent);">${student.percentile.toFixed(2)} %ile</td>
+            <td style="font-weight: 700; color: var(--accent);">${student.score === 'N/A' ? 'N/A' : student.percentile.toFixed(2) + ' %ile'}</td>
         `;
         listContainer.appendChild(tr);
     });

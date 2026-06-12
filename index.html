@@ -5,7 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CUET PG Admissions Tracker & Rank Predictor</title>
     <!-- SEO Meta Tags -->
-    <meta name="description" content="Calculate safe scores, find accurate percentiles, and browse admitted student lists for CUET PG COQP11 (General) and COQP12 (MBA) courses.">
+    <meta name="description" content="Calculate safe scores, find accurate percentiles, and browse admitted student lists for CUET PG COQP12 (MBA) courses to help secure admission in your dream colleges.">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- Stylesheets -->
     <link rel="stylesheet" href="css/styles.css">
 </head>
@@ -50,11 +52,11 @@
                 Session 2024-25 Data Active
             </div>
             <h1>Nail Your <span class="highlight animate-gradient">CUET PG</span> Admissions</h1>
-            <p>Calculate safe scores, evaluate estimated percentiles, and compare top programs (MBA/LLM/Analytics/Computer Science) using real admitted student lists. <strong style="color: var(--accent);">Data modeled on CUET PG 2025 Counselling trends.</strong></p>
+            <p>Calculate safe scores, evaluate estimated percentiles, and compare top programs using real admitted student lists. <strong style="color: var(--accent);">All predictor calculations, safe cutoffs, and percentile estimations are strictly modeled on last year's official CUET PG 2025 Counselling data to guide you in securing admission to your dream colleges.</strong></p>
             
             <div class="hero-actions">
-                <a href="#predictor" class="cta-button">Predict My Rank 🎯</a>
-                <a href="#explorer" class="cta-button secondary-btn">Explore Admitted Students 🎓</a>
+                <a href="#predictor" class="cta-button">Predict My Rank <i class="fa-solid fa-bullseye" style="margin-left: 0.5rem;"></i></a>
+                <a href="#explorer" class="cta-button secondary-btn">Explore Admitted Students <i class="fa-solid fa-graduation-cap" style="margin-left: 0.5rem;"></i></a>
             </div>
 
             <div class="hero-stats">
@@ -63,11 +65,11 @@
                     <span class="label">Exams Covered</span>
                 </div>
                 <div class="hero-stat-card">
-                    <span class="num">2</span>
+                    <span class="num">3</span>
                     <span class="label">Top Institutions</span>
                 </div>
                 <div class="hero-stat-card">
-                    <span class="num">338</span>
+                    <span class="num">384</span>
                     <span class="label">Verified Score Records</span>
                 </div>
             </div>
@@ -87,9 +89,8 @@
                     <div class="form-group-row-mobile" style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem;">
                         <div class="form-group" style="margin-bottom: 0;">
                             <label for="paper-code">Target Exam Paper</label>
-                            <select id="paper-code" required>
+                            <select id="paper-code" required readonly>
                                 <option value="COQP12">COQP12 - MBA / General Management</option>
-                                <option value="COQP11">COQP11 - General (LLM, etc.)</option>
                             </select>
                         </div>
                         <div class="form-group" style="margin-bottom: 0;">
@@ -109,8 +110,8 @@
                         <input type="number" id="score" min="0" max="300" placeholder="Enter your raw score (e.g., 215)" required>
                     </div>
 
-                    <p style="font-size: 0.8rem; color: var(--text-muted); margin-bottom: 1.25rem; font-weight: 500;">
-                        ⚠️ *Note: Standing calculations and university safe zones are modeled based on <strong>CUET PG 2025 counselling data</strong>.
+                    <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1.25rem; font-weight: 500; line-height: 1.4;">
+                        ⚠️ <strong>Important Note:</strong> Standing calculations, safe cutoffs, and percentile metrics are predicted based on last year's (CUET PG 2025) NTA score data and counseling baselines. This detailed analysis is designed to help you secure admission in your dream colleges.
                     </p>
 
                     <button type="submit" class="submit-button">Predict My Standing</button>
@@ -137,8 +138,11 @@
         <!-- Interactive Comparison Matrix -->
         <section id="comparison" class="explorer-section">
             <div class="explorer-header">
-                <h2>📊 Live Comparison Matrix</h2>
-                <p>Analyse admission metrics side-by-side to evaluate ROI, target scores, and course offerings.</p>
+                <h2><i class="fa-solid fa-square-poll-horizontal" style="color: var(--accent); margin-right: 0.6rem;"></i>CUET PG Admissions Comparison Matrix</h2>
+                <p>Compare placement ROI, tuition fees, safe target scores, and NIRF rankings side-by-side.</p>
+            </div>
+            <div class="mobile-scroll-hint">
+                <i class="fa-solid fa-right-left"></i> Swipe horizontally to view full matrix details
             </div>
             
             <div class="table-container">
@@ -146,13 +150,13 @@
                     <table class="modern-table comparison-matrix-table">
                         <thead>
                             <tr>
-                                <th>University</th>
-                                <th>Exam Code</th>
-                                <th>Safe Target Score</th>
-                                <th>Median Package</th>
-                                <th>Course Specializations Offered</th>
-                                <th>Approx. Fees</th>
-                                <th>Rank</th>
+                                <th><i class="fa-solid fa-university" style="color: var(--accent); margin-right: 0.5rem;"></i>University</th>
+                                <th><i class="fa-solid fa-file-signature" style="color: var(--accent); margin-right: 0.5rem;"></i>Exam Code</th>
+                                <th><i class="fa-solid fa-shield-halved" style="color: var(--accent); margin-right: 0.5rem;"></i>Safe Target Score</th>
+                                <th><i class="fa-solid fa-briefcase" style="color: var(--accent); margin-right: 0.5rem;"></i>Median Package</th>
+                                <th><i class="fa-solid fa-graduation-cap" style="color: var(--accent); margin-right: 0.5rem;"></i>Course Specializations Offered</th>
+                                <th><i class="fa-solid fa-indian-rupee-sign" style="color: var(--accent); margin-right: 0.5rem;"></i>Approx. Fees</th>
+                                <th><i class="fa-solid fa-award" style="color: var(--accent); margin-right: 0.5rem;"></i>Rank</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -166,6 +170,17 @@
                                 </td>
                                 <td>₹1.85 - 3.2 Lakhs</td>
                                 <td>NIRF Rank #72 (University)</td>
+                            </tr>
+                            <tr>
+                                <td><strong style="color: var(--text-main);">South Asian University</strong></td>
+                                <td><span class="tag tag-sau">COQP12</span></td>
+                                <td><span class="score-badge" style="background: rgba(255, 122, 0, 0.15); color: var(--accent);">210+</span></td>
+                                <td><strong style="color: var(--success-text);">5.50 LPA</strong></td>
+                                <td style="white-space: normal; font-size: 0.85rem; line-height: 1.4;">
+                                    MBA (General, Finance, Marketing, HR, Operations)
+                                </td>
+                                <td>₹3.20 - 4.00 Lakhs</td>
+                                <td>Top 20 Indian Universities (IIRF)</td>
                             </tr>
                             <tr>
                                 <td><strong style="color: var(--text-main);">IIIT Lucknow</strong></td>
@@ -187,8 +202,11 @@
         <!-- Consolidated Student Explorer Section -->
         <section id="explorer" class="explorer-section">
             <div class="explorer-header">
-                <h2>🏆 Admitted Student Directory & Merit Explorer</h2>
-                <p>Analyze official admission data and see what marks got students into their target programs.</p>
+                <h2><i class="fa-solid fa-circle-nodes" style="color: var(--accent); margin-right: 0.6rem;"></i>Admitted Candidates & Merit Explorer (2024-25)</h2>
+                <p>Browse official allotments, check actual scores, and filter candidates by program or marks.</p>
+            </div>
+            <div class="mobile-scroll-hint">
+                <i class="fa-solid fa-right-left"></i> Swipe horizontally to view full directory details
             </div>
 
             <!-- Interactive Score Density Distribution Chart -->
@@ -216,14 +234,15 @@
                     <select id="explorer-college" class="filter-input no-icon">
                         <option value="all">All Colleges</option>
                         <option value="tiss">TISS Mumbai</option>
+                        <option value="sau">South Asian University</option>
                         <option value="iiitl">IIIT Lucknow</option>
                     </select>
                 </div>
 
-                <div>
+                <div style="display: none;">
                     <select id="explorer-paper" class="filter-input no-icon">
                         <option value="all">All Paper Codes</option>
-                        <option value="COQP12">COQP12 (MBA)</option>
+                        <option value="COQP12" selected>COQP12 (MBA)</option>
                     </select>
                 </div>
 
@@ -284,11 +303,11 @@
 
     <!-- Footer -->
     <footer>
-        <div class="footer-counter" style="margin-bottom: 1.25rem; display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.4rem 1rem; background: rgba(255, 255, 255, 0.05); border-radius: var(--radius-full); border: 1px solid var(--border-color); font-size: 0.8rem; font-weight: 600; color: var(--text-main);">
+        <div class="footer-counter" style="margin-bottom: 1.25rem; display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.4rem 1rem; background: rgba(255, 255, 255, 0.08); border-radius: var(--radius-full); border: 1px solid rgba(255, 255, 255, 0.15); font-size: 0.8rem; font-weight: 600; color: rgba(255, 255, 255, 0.95);">
             <span class="pulse-dot"></span>
             <span>Live Dashboard Visits: <strong id="visitor-count" style="color: var(--accent);">Loading...</strong></span>
         </div>
-        <p>&copy; 2024 CUET PG Insights Tracker. Empowering Indian Aspirants.</p>
+        <p>&copy; 2026 CUET PG Calculator. Empowering Indian Aspirants.</p>
         <p style="font-size: 0.8rem; margin-top: 0.5rem; opacity: 0.7;">Cross-referenced with official NTA scores & counselling sheets.</p>
     </footer>
 
