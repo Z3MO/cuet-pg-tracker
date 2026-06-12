@@ -84,7 +84,7 @@
                 </div>
                 
                 <form id="rank-form">
-                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem;">
+                    <div class="form-group-row-mobile" style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem;">
                         <div class="form-group" style="margin-bottom: 0;">
                             <label for="paper-code">Target Exam Paper</label>
                             <select id="paper-code" required>
@@ -248,8 +248,8 @@
                                 <th>Student Name</th>
                                 <th>College</th>
                                 <th>Course / Specialization</th>
-                                <th>Exam Code</th>
-                                <th>Application No</th>
+                                <th class="hide-mobile">Exam Code</th>
+                                <th class="hide-mobile">Application No</th>
                                 <th>CUET Score</th>
                                 <th>Est. Percentile</th>
                             </tr>
@@ -284,6 +284,10 @@
 
     <!-- Footer -->
     <footer>
+        <div class="footer-counter" style="margin-bottom: 1.25rem; display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.4rem 1rem; background: rgba(255, 255, 255, 0.05); border-radius: var(--radius-full); border: 1px solid var(--border-color); font-size: 0.8rem; font-weight: 600; color: var(--text-main);">
+            <span class="pulse-dot"></span>
+            <span>Live Dashboard Visits: <strong id="visitor-count" style="color: var(--accent);">Loading...</strong></span>
+        </div>
         <p>&copy; 2024 CUET PG Insights Tracker. Empowering Indian Aspirants.</p>
         <p style="font-size: 0.8rem; margin-top: 0.5rem; opacity: 0.7;">Cross-referenced with official NTA scores & counselling sheets.</p>
     </footer>

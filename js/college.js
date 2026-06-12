@@ -145,7 +145,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                             </div>
                         </td>
                         <td style="font-weight: 500; color: var(--text-main); font-size: 0.9rem;">${student.course || 'General'}</td>
-                        <td style="color: var(--text-muted); font-family: monospace; font-size: 0.9rem;">${appVal}</td>
+                        <td class="hide-mobile" style="color: var(--text-muted); font-family: monospace; font-size: 0.9rem;">${appVal}</td>
                         <td><span class="score-badge">${scoreVal}</span></td>
                         <td style="font-weight: 700; color: var(--accent);">${percentileVal.toFixed(2)} %ile</td>
                     `;

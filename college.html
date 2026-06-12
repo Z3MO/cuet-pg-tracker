@@ -129,7 +129,7 @@
                 </div>
 
                 <!-- Core College Details -->
-                <div class="stat-grid" style="grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.5rem; margin-bottom: 2rem;">
+                <div class="stat-grid" style="grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 1.5rem; margin-bottom: 2rem;">
                     <div class="stat-box">
                         <div class="stat-label">Official Ranking Credentials</div>
                         <div class="stat-value" style="font-size: 1.25rem; font-weight: 700; color: var(--accent); margin-top: 0.5rem;">
@@ -203,7 +203,7 @@
                         </svg>
                         Dynamic Merit Analytics (Recorded Admitted Lists)
                     </h3>
-                    <div class="stat-grid" style="grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 1rem;">
+                    <div class="stat-grid" style="grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 1rem;">
                         <div class="stat-box" style="border-color: rgba(16, 185, 129, 0.2);">
                             <div class="stat-label">Highest Admitted Score</div>
                             <div id="stat-max" class="stat-value" style="color: var(--success-text); font-size: 1.6rem;">-</div>
@@ -249,7 +249,7 @@
                                         <th>#</th>
                                         <th>Student Name</th>
                                         <th>Specialization / Course</th>
-                                        <th>Application No</th>
+                                        <th class="hide-mobile">Application No</th>
                                         <th>CUET Score</th>
                                         <th>Est. Percentile</th>
                                     </tr>
@@ -283,6 +283,10 @@
 
     <!-- Footer -->
     <footer>
+        <div class="footer-counter" style="margin-bottom: 1.25rem; display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.4rem 1rem; background: rgba(255, 255, 255, 0.05); border-radius: var(--radius-full); border: 1px solid var(--border-color); font-size: 0.8rem; font-weight: 600; color: var(--text-main);">
+            <span class="pulse-dot"></span>
+            <span>Live Dashboard Visits: <strong id="visitor-count" style="color: var(--accent);">Loading...</strong></span>
+        </div>
         <p>&copy; 2024 CUET PG Insights Tracker. Empowering Indian Aspirants.</p>
     </footer>
 

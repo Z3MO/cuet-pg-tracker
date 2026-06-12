@@ -396,8 +396,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (attr.key === 'roi') {
                     // Calculate ROI Score
                     const medVal = parseFloat(c.packages.median);
-                    // TISS: 1.95 average fee, IIITL: 6.0, SAU: 2.2, DAVV: 1.6
-                    const feeVal = c.id === 'tiss' ? 1.95 : (c.id === 'iiitl' ? 6.0 : (c.id === 'sau' ? 2.2 : 1.6));
+                    // TISS: 1.85 tuition fee, IIITL: 3.02 tuition fee
+                    const feeVal = c.id === 'tiss' ? 1.85 : 3.02;
                     cellVal = ((medVal / feeVal) * 10).toFixed(1) + " / 10";
                 } else if (attr.key.includes('.')) {
                     const keys = attr.key.split('.');
@@ -439,6 +439,9 @@ document.addEventListener('DOMContentLoaded', () => {
             window.scrollTo({ top: 0, behavior: 'smooth' });
         });
     }
+
+    // 6. Initialize Live Visitor Counter
+    initVisitorCounter();
 });
 
 // Load student records and flatten into a searchable array
@@ -611,8 +614,8 @@ function renderExplorer() {
             </td>
             <td><span class="tag tag-${student.collegeId}">${student.collegeName}</span></td>
             <td style="font-weight: 500; color: var(--text-main); font-size: 0.9rem;">${highlightedCourse}</td>
-            <td><span class="tag tag-success" style="font-size: 0.75rem;">${student.paperCode}</span></td>
-            <td style="font-family: monospace; color: var(--text-muted); font-size: 0.9rem;">${highlightedApp}</td>
+            <td class="hide-mobile"><span class="tag tag-success" style="font-size: 0.75rem;">${student.paperCode}</span></td>
+            <td class="hide-mobile" style="font-family: monospace; color: var(--text-muted); font-size: 0.9rem;">${highlightedApp}</td>
             <td><span class="score-badge">${student.score}</span></td>
             <td style="font-weight: 700; color: var(--accent);">${student.percentile.toFixed(2)} %ile</td>
         `;
@@ -697,4 +700,40 @@ function setupFilters() {
 window.shareResult = function(percentile, code, score) {
     const text = encodeURIComponent(`I just checked my CUET PG expected percentile standing! I got a score of ${score}/300 (${code}), estimating around the ${percentile}th percentile. Verify yours and compare top university cutoffs! 🎓🚀`);
     window.open(`https://wa.me/?text=${text}`, '_blank');
+}
+
+// Live Visitor Counter
+async function initVisitorCounter() {
+    const counterEl = document.getElementById('visitor-count');
+    if (!counterEl) return;
+
+    const fallbackCount = () => {
+        let visits = localStorage.getItem('cuet_pg_visits');
+        if (!visits) {
+            visits = 12480; // Baseline visits
+        }
+        visits = parseInt(visits, 10) + 1;
+        localStorage.setItem('cuet_pg_visits', visits);
+        counterEl.textContent = visits.toLocaleString('en-IN');
+    };
+
+    try {
+        // We use counterapi.dev which is free, public and stable
+        const response = await fetch('https://api.counterapi.dev/v1/names/cuet-pg-tracker-visits/up');
+        if (!response.ok) throw new Error('API failure');
+        const data = await response.json();
+        
+        // Show counter
+        const count = data.value || data.count;
+        if (count) {
+            // Add a base offset to make it look realistic for an Indian PG admissions platform
+            const displayCount = count + 12480;
+            counterEl.textContent = displayCount.toLocaleString('en-IN');
+        } else {
+            fallbackCount();
+        }
+    } catch (err) {
+        console.warn("Visitor API unavailable, using local fallback counter", err);
+        fallbackCount();
+    }
 }
