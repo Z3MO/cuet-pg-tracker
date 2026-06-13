@@ -4,6 +4,7 @@ const collegesData = [
         id: 'tiss',
         name: 'TISS Mumbai',
         isMultiProgram: true,
+        image: 'images/tiss_mumbai.png',
         programs: [
             {
                 code: 'COQP12',
@@ -24,10 +25,10 @@ const collegesData = [
             },
             {
                 code: 'COQP11',
-                name: 'COQP11 - MA in Social Work (Children & Families, Criminology & Justice)',
-                rank: 'NIRF Rank #72 (University) | India\'s Premier School of Social Work',
+                name: 'COQP11 - Social Work, Public Health, MLISc, Education, Regulatory Policy, Urban Policy (20 Streams)',
+                rank: 'NIRF Rank #72 (University) | India\'s Premier School of Social Work & Social Sciences',
                 rankUrl: 'https://www.nirfindia.org/',
-                placementUrl: 'https://tiss.edu/view/6/admissions/ma-admissions/ma-in-social-work-children-families/',
+                placementUrl: 'https://tiss.edu/',
                 fee: '₹1.15 Lakhs (Tuition) | ₹2.5 Lakhs (with Hostel)',
                 safeScore: 180,
                 packages: {
@@ -36,8 +37,8 @@ const collegesData = [
                     median: '7.00 LPA',
                     lowest: '5.00 LPA'
                 },
-                roles: 'CSR Specialist, Social Worker, Child Welfare Officer, Human Rights Advocate, NGO Coordinator',
-                description: 'TISS Mumbai is India\'s premier institution for Social Work. COQP11 covers the highly reputed Master of Arts in Social Work programs: Children and Families, and Criminology and Justice.'
+                roles: 'CSR Specialist, Public Health Consultant, MLISc Officer, Social Worker, Policy Analyst, Researcher',
+                description: 'TISS Mumbai offers highly reputed programs under COQP11, including Master of Arts in Social Work (9 streams), Master of Public Health (3 streams), MLISc, MA in Development Studies, MA in Women\'s Studies, MA in Education, B.Ed-M.Ed, M.Ed, and MA/MSc in Regulatory Policy and Urban Policy.'
             }
         ],
         // Default/Aggregate fallbacks
@@ -53,13 +54,14 @@ const collegesData = [
             median: '28.00 LPA',
             lowest: '5.00 LPA'
         },
-        roles: 'HR, Social Work, CSR, Operations, Analytics',
-        description: 'TISS Mumbai offers industry-leading management programs through COQP12 and premier social work programs through COQP11, offering unmatched ROI and social impact.'
+        roles: 'HR, Social Work, CSR, Public Health, Policy, Analytics',
+        description: 'TISS Mumbai offers industry-leading management programs through COQP12 and premier social work & social science programs through COQP11, offering unmatched ROI and social impact.'
     },
     {
         id: 'sau',
         name: 'South Asian University',
         code: 'COQP12',
+        image: 'images/south_asian_univ.png',
         rank: 'Intergovernmental SAARC University | Top 20 Indian Universities (IIRF)',
         rankUrl: 'https://sau.int/',
         placementUrl: 'https://sau.int/academics/faculties/faculty-of-management/',
@@ -78,6 +80,7 @@ const collegesData = [
         id: 'iiitl',
         name: 'IIIT Lucknow',
         code: 'COQP12',
+        image: 'images/iiit_lucknow.png',
         rank: 'Institute of National Importance | Top Emerging Tech B-School',
         rankUrl: 'https://iiitl.ac.in/',
         placementUrl: 'https://iiitl.ac.in/placements/',
@@ -93,22 +96,61 @@ const collegesData = [
         description: 'Fast-growing premier technology institute. Official merit lists show admitted scores from 104 to 253 (Average: 161).'
     },
     {
-        id: 'dav',
-        name: 'DAVV Indore',
-        code: 'COQP12',
-        rank: 'NIRF Band #151-200 (University) | A+ Grade NAAC Accredited State University',
-        rankUrl: 'https://www.dauniv.ac.in/',
-        placementUrl: 'https://ims.dauniv.ac.in/',
-        fee: '₹1.20 Lakhs (Tuition) | ₹2.02 Lakhs (with Hostel)',
-        safeScore: 122,
+        id: 'tiss_hyd',
+        name: 'TISS Hyderabad',
+        code: 'COQP11',
+        image: 'images/tiss_hyderabad.png',
+        rank: 'NIRF Rank #72 (University) | Off-Campus Hyderabad',
+        rankUrl: 'https://www.nirfindia.org/',
+        placementUrl: 'https://tiss.edu/',
+        fee: '₹1.45 Lakhs (Tuition) | ₹2.8 Lakhs (with Hostel)',
+        safeScore: 165,
         packages: {
-            highest: '10.00 LPA',
-            average: '5.50 LPA',
-            median: '5.00 LPA',
+            highest: '28.00 LPA',
+            average: '8.20 LPA',
+            median: '8.00 LPA',
+            lowest: '5.50 LPA'
+        },
+        roles: 'Policy Analyst, Development Executive, Education Coordinator, Governance Specialist',
+        description: 'TISS Hyderabad campus offers highly reputed courses under COQP11: MA in Education, MA in Public Policy and Law, MA in Cities and Governance, MA in Natural Resources and Governance, MA in Livelihoods Gender and Development, and MA in Livelihoods Rural Development.'
+    },
+    {
+        id: 'tiss_gwt',
+        name: 'TISS Guwahati',
+        code: 'COQP11',
+        image: 'images/tiss_guwahati.png',
+        rank: 'NIRF Rank #72 (University) | Off-Campus Guwahati',
+        rankUrl: 'https://www.nirfindia.org/',
+        placementUrl: 'https://tiss.edu/',
+        fee: '₹1.05 Lakhs (Tuition) | ₹2.2 Lakhs (with Hostel)',
+        safeScore: 155,
+        packages: {
+            highest: '12.00 LPA',
+            average: '6.00 LPA',
+            median: '5.80 LPA',
+            lowest: '4.50 LPA'
+        },
+        roles: 'Social Anthropologist, Conservation Specialist, Peace Practitioner, Counsellor, Social Worker',
+        description: 'TISS Guwahati offers specialized programs under COQP11 focusing on North-East development: MA in Social Work (Community Organisation, Counselling, Livelihoods, Public Health), MA in Ecology, Environment and Sustainable Development, MA in Sociology and Social Anthropology, and MA in Peace and Conflict Studies.'
+    },
+    {
+        id: 'tiss_tjp',
+        name: 'TISS Tuljapur',
+        code: 'COQP11',
+        image: 'images/tiss_tuljapur.png',
+        rank: 'NIRF Rank #72 (University) | Off-Campus Tuljapur',
+        rankUrl: 'https://www.nirfindia.org/',
+        placementUrl: 'https://tiss.edu/',
+        fee: '₹1.10 Lakhs (Tuition) | ₹2.3 Lakhs (with Hostel)',
+        safeScore: 150,
+        packages: {
+            highest: '9.00 LPA',
+            average: '4.50 LPA',
+            median: '4.20 LPA',
             lowest: '3.50 LPA'
         },
-        roles: 'Financial Analyst, HR Specialist, Marketing Executive, Business Analyst, Management Trainee',
-        description: 'Institute of Management Studies (IMS), Devi Ahilya Vishwavidyalaya, Indore is Central India\'s premier management university. Offers highly sought-after, low-fee MBA programs through COQP12.'
+        roles: 'Rural Development Officer, Social Worker, Policy Research Associate',
+        description: 'TISS Tuljapur offers the flagship MA in Social Work (Rural Development) under COQP11. Focuses on rural society, agrarian relations, planning, and development administration.'
     }
 ];
 
@@ -232,20 +274,26 @@ document.addEventListener('DOMContentLoaded', () => {
             const isChecked = selectedCompare.some(c => c.id === college.id) ? 'checked' : '';
             
             card.innerHTML = `
+                <!-- College Image -->
+                <div class="college-card-image-wrapper">
+                    <img src="${college.image}" alt="${college.name}" class="college-card-image">
+                </div>
                 <!-- Comparison Checkbox -->
                 <div class="college-card-compare">
                     <input type="checkbox" class="compare-checkbox" data-id="${college.id}" id="chk-${college.id}" ${isChecked}>
                     <label for="chk-${college.id}" style="cursor: pointer; margin-left: 0.2rem;">Compare</label>
                 </div>
-                <h3>${college.name}</h3>
-                <div style="margin-bottom: 0.75rem;">
-                    <span class="tag tag-${college.id}">${college.code}</span>
-                    <span class="tag tag-success">Safe: ${college.safeScore}+</span>
-                </div>
-                <p style="font-size: 0.85rem; color: var(--text-muted); font-weight: 600; margin-bottom: 0.5rem;">${college.rank}</p>
-                <div class="college-card-footer">
-                    <span style="font-size: 0.85rem; color: var(--text-muted); font-weight: 700;">Avg Pkg: ${college.packages.average}</span>
-                    <span class="college-link">Details &rarr;</span>
+                <div class="college-card-content">
+                    <h3>${college.name}</h3>
+                    <div style="margin-bottom: 0.75rem;">
+                        <span class="tag tag-${college.id}">${college.code}</span>
+                        <span class="tag tag-success">Safe: ${college.safeScore}+</span>
+                    </div>
+                    <p style="font-size: 0.85rem; color: var(--text-muted); font-weight: 600; margin-bottom: 0.5rem;">${college.rank}</p>
+                    <div class="college-card-footer">
+                        <span style="font-size: 0.85rem; color: var(--text-muted); font-weight: 700;">Avg Pkg: ${college.packages.average}</span>
+                        <span class="college-link">Details &rarr;</span>
+                    </div>
                 </div>
             `;
             
@@ -529,11 +577,12 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (attr.key === 'roi') {
                     // Calculate ROI Score
                     const medVal = parseFloat(c.packages.median);
-                    // TISS: 1.85, IIITL: 3.02, SAU: 3.20, DAV: 1.20 tuition fee
                     let feeVal = 3.02;
                     if (c.id === 'tiss') feeVal = 1.85;
                     else if (c.id === 'sau') feeVal = 3.20;
-                    else if (c.id === 'dav') feeVal = 1.20;
+                    else if (c.id === 'tiss_hyd') feeVal = 1.45;
+                    else if (c.id === 'tiss_gwt') feeVal = 1.05;
+                    else if (c.id === 'tiss_tjp') feeVal = 1.10;
                     cellVal = ((medVal / feeVal) * 10).toFixed(1) + " / 10";
                 } else if (attr.key.includes('.')) {
                     const keys = attr.key.split('.');
@@ -605,7 +654,7 @@ async function loadStudentsData() {
                 let collegePaperCode = studentPaperCode;
                 if (isUnmatched) {
                     if (collegeId === 'sau') studentPaperCode = 'SAU-ET';
-                    else if (collegeId === 'tiss_coqp11') studentPaperCode = 'TISS-ET';
+                    else if (collegeId.startsWith('tiss')) studentPaperCode = 'TISS-ET';
                     else studentPaperCode = 'N/A';
                 }
                 allStudents.push({
@@ -631,6 +680,12 @@ async function loadStudentsData() {
         
         // Copy to active filtered list
         filteredStudents = [...allStudents];
+        
+        // Update verified score records count card in hero section
+        const verifiedCountEl = document.getElementById('stat-verified-count');
+        if (verifiedCountEl) {
+            verifiedCountEl.textContent = allStudents.length.toLocaleString();
+        }
         
         // Render Density distribution chart
         renderDensityChart();

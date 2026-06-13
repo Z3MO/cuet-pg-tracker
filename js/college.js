@@ -67,6 +67,13 @@ document.addEventListener('DOMContentLoaded', async () => {
     setElementText('c-desc', college.description);
     setElementText('c-rank', college.rank);
     
+    // Set College Banner Image
+    const collegeImage = document.getElementById('c-image');
+    if (collegeImage) {
+        collegeImage.src = college.image || 'images/tiss_mumbai.png';
+        collegeImage.alt = college.name;
+    }
+    
     // Set Rank Link if available
     const rankLinkContainer = document.getElementById('c-rank-link-container');
     if (rankLinkContainer) {
@@ -293,7 +300,8 @@ document.addEventListener('DOMContentLoaded', async () => {
                     const query = searchInput.value.toLowerCase().trim();
                     const filtered = activeStudents.filter(student => 
                         String(student.name || '').toLowerCase().includes(query) || 
-                        String(student.app || '').includes(query)
+                        String(student.app || '').includes(query) ||
+                        String(student.course || '').toLowerCase().includes(query)
                     );
                     renderStudentTable(filtered);
                 });

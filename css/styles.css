@@ -413,11 +413,41 @@ h1, h2, h3, h4, h5, h6 {
 .college-card {
     border: 1px solid var(--border-color);
     border-radius: var(--radius-md);
-    padding: 1.75rem;
+    padding: 0;
+    overflow: hidden;
     cursor: pointer;
     background: var(--card-bg);
     position: relative;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    display: flex;
+    flex-direction: column;
+}
+
+.college-card-image-wrapper {
+    width: 100%;
+    height: 180px;
+    overflow: hidden;
+    position: relative;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.college-card-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.college-card:hover .college-card-image {
+    transform: scale(1.08);
+}
+
+.college-card-content {
+    padding: 1.5rem;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .college-card:hover {
@@ -636,6 +666,9 @@ h1, h2, h3, h4, h5, h6 {
 .tag-dtu { background-color: #f0fdf4; color: #166534; border: 1px solid #bbf7d0; }
 .tag-sau { background-color: #fffbeb; color: #b45309; border: 1px solid #fef3c7; }
 .tag-dav { background-color: #faf5ff; color: #7e22ce; border: 1px solid #f3e8ff; }
+.tag-tiss_hyd { background-color: #e0f2fe; color: #0369a1; border: 1px solid #bae6fd; }
+.tag-tiss_gwt { background-color: #f0fdf4; color: #15803d; border: 1px solid #bbf7d0; }
+.tag-tiss_tjp { background-color: #fff7ed; color: #c2410c; border: 1px solid #ffedd5; }
 
 .tag-success {
     background-color: var(--success-bg);
@@ -1286,7 +1319,7 @@ body.dark-mode .motivational-banner {
         gap: 1.25rem !important;
     }
     .college-card {
-        padding: 1.25rem !important;
+        padding: 0 !important;
     }
 
     /* Form Stacking on Small Phones */
@@ -1512,5 +1545,28 @@ body.dark-mode .comparison-matrix-table tbody tr:hover {
 
 .comparison-matrix-table td strong {
     font-family: 'Outfit', sans-serif;
+}
+
+/* College Details Banner Image Styles */
+.college-banner-wrapper {
+    width: 100%;
+    height: 300px;
+    overflow: hidden;
+    border-radius: var(--radius-md);
+    margin-bottom: 2rem;
+    border: 1px solid var(--border-color);
+}
+
+.college-banner-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+@media (max-width: 768px) {
+    .college-banner-wrapper {
+        height: 180px;
+        margin-bottom: 1.5rem;
+    }
 }
 
