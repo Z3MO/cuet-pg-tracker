@@ -61,15 +61,15 @@
 
             <div class="hero-stats">
                 <div class="hero-stat-card">
-                    <span class="num">COQP12</span>
-                    <span class="label">Exams Covered</span>
+                    <span class="num">2 Codes</span>
+                    <span class="label">COQP11 & COQP12</span>
                 </div>
                 <div class="hero-stat-card">
-                    <span class="num">3</span>
+                    <span class="num">4</span>
                     <span class="label">Top Institutions</span>
                 </div>
                 <div class="hero-stat-card">
-                    <span class="num">384</span>
+                    <span class="num">599</span>
                     <span class="label">Verified Score Records</span>
                 </div>
             </div>
@@ -89,8 +89,9 @@
                     <div class="form-group-row-mobile" style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem;">
                         <div class="form-group" style="margin-bottom: 0;">
                             <label for="paper-code">Target Exam Paper</label>
-                            <select id="paper-code" required readonly>
+                            <select id="paper-code" required>
                                 <option value="COQP12">COQP12 - MBA / General Management</option>
+                                <option value="COQP11">COQP11 - General / Social Work</option>
                             </select>
                         </div>
                         <div class="form-group" style="margin-bottom: 0;">
@@ -162,13 +163,27 @@
                         <tbody>
                             <tr>
                                 <td><strong style="color: var(--text-main);">TISS Mumbai</strong></td>
-                                <td><span class="tag tag-tiss">COQP12</span></td>
-                                <td><span class="score-badge" style="background: rgba(255, 122, 0, 0.15); color: var(--accent);">235+</span></td>
-                                <td><strong style="color: var(--success-text);">28.00 LPA</strong></td>
-                                <td style="white-space: normal; font-size: 0.85rem; line-height: 1.4;">
-                                    Social Entrepreneurship, Labour Studies, Disaster Management, MA/MSc Analytics
+                                <td>
+                                    <span class="tag tag-tiss" style="margin-bottom: 0.25rem; display: inline-block;">COQP12</span><br>
+                                    <span class="tag tag-tiss" style="background: var(--primary); color: white;">COQP11</span>
                                 </td>
-                                <td>₹1.85 - 3.2 Lakhs</td>
+                                <td>
+                                    <div style="font-size: 0.85rem; line-height: 1.4;">
+                                        <span class="score-badge" style="background: rgba(255, 122, 0, 0.15); color: var(--accent); padding: 0.15rem 0.5rem; font-size: 0.85rem;">235+</span> <small>(COQP12)</small><br>
+                                        <span class="score-badge" style="background: rgba(16, 185, 129, 0.15); color: var(--success-text); padding: 0.15rem 0.5rem; font-size: 0.85rem; margin-top: 0.25rem;">180+</span> <small>(COQP11)</small>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div style="font-size: 0.85rem; line-height: 1.4;">
+                                        <strong style="color: var(--success-text);">28.00 LPA</strong> <small>(COQP12)</small><br>
+                                        <strong style="color: var(--success-text);">7.00 LPA</strong> <small>(COQP11)</small>
+                                    </div>
+                                </td>
+                                <td style="white-space: normal; font-size: 0.85rem; line-height: 1.4;">
+                                    <strong>COQP12:</strong> Social Entrepreneurship, Labour Studies, Disaster Management, MA/MSc Analytics<br>
+                                    <strong>COQP11:</strong> MA Social Work (Children & Families, Criminology & Justice)
+                                </td>
+                                <td>₹1.15 - 3.20 Lakhs</td>
                                 <td>NIRF Rank #72 (University)</td>
                             </tr>
                             <tr>
@@ -192,6 +207,17 @@
                                 </td>
                                 <td>₹3.02 - 4.64 Lakhs</td>
                                 <td>Top Emerging Tech B-School</td>
+                            </tr>
+                            <tr>
+                                <td><strong style="color: var(--text-main);">DAVV Indore</strong></td>
+                                <td><span class="tag tag-dav">COQP12</span></td>
+                                <td><span class="score-badge" style="background: rgba(255, 122, 0, 0.15); color: var(--accent);">122+</span></td>
+                                <td><strong style="color: var(--success-text);">5.00 LPA</strong></td>
+                                <td style="white-space: normal; font-size: 0.85rem; line-height: 1.4;">
+                                    MBA (Financial Administration, Marketing Management, Human Resource, Business Analytics)
+                                </td>
+                                <td>₹1.20 - 2.02 Lakhs</td>
+                                <td>NIRF Band #151-200 (University)</td>
                             </tr>
                         </tbody>
                     </table>
@@ -236,13 +262,15 @@
                         <option value="tiss">TISS Mumbai</option>
                         <option value="sau">South Asian University</option>
                         <option value="iiitl">IIIT Lucknow</option>
+                        <option value="dav">DAVV Indore</option>
                     </select>
                 </div>
 
-                <div style="display: none;">
+                <div>
                     <select id="explorer-paper" class="filter-input no-icon">
                         <option value="all">All Paper Codes</option>
-                        <option value="COQP12" selected>COQP12 (MBA)</option>
+                        <option value="COQP11">COQP11 (General / SW)</option>
+                        <option value="COQP12">COQP12 (MBA)</option>
                     </select>
                 </div>
 

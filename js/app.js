@@ -3,20 +3,58 @@ const collegesData = [
     {
         id: 'tiss',
         name: 'TISS Mumbai',
-        code: 'COQP12',
-        rank: 'NIRF Rank #72 (University) | Top 10 B-School Equivalent',
+        isMultiProgram: true,
+        programs: [
+            {
+                code: 'COQP12',
+                name: 'COQP12 - MBA Equivalent (SE, LSP, DM, Analytics)',
+                rank: 'NIRF Rank #72 (University) | Top 10 B-School Equivalent',
+                rankUrl: 'https://www.nirfindia.org/',
+                placementUrl: 'https://hr.tiss.edu/',
+                fee: '₹1.85 Lakhs (Tuition) | ₹3.2 Lakhs (with Hostel)',
+                safeScore: 235,
+                packages: {
+                    highest: '66.00 LPA',
+                    average: '28.69 LPA',
+                    median: '28.00 LPA',
+                    lowest: '18.00 LPA'
+                },
+                roles: 'HR Specialist, OD Consultant, Talent Acquisition Lead, Labour Relations Advisor',
+                description: 'Premier institute known for its incredible ROI and flagship COQP12 programs: Social Entrepreneurship, Labour Studies & Practice, Disaster Management, and Analytics. Extremely competitive.'
+            },
+            {
+                code: 'COQP11',
+                name: 'COQP11 - MA in Social Work (Children & Families, Criminology & Justice)',
+                rank: 'NIRF Rank #72 (University) | India\'s Premier School of Social Work',
+                rankUrl: 'https://www.nirfindia.org/',
+                placementUrl: 'https://tiss.edu/view/6/admissions/ma-admissions/ma-in-social-work-children-families/',
+                fee: '₹1.15 Lakhs (Tuition) | ₹2.5 Lakhs (with Hostel)',
+                safeScore: 180,
+                packages: {
+                    highest: '12.00 LPA',
+                    average: '7.20 LPA',
+                    median: '7.00 LPA',
+                    lowest: '5.00 LPA'
+                },
+                roles: 'CSR Specialist, Social Worker, Child Welfare Officer, Human Rights Advocate, NGO Coordinator',
+                description: 'TISS Mumbai is India\'s premier institution for Social Work. COQP11 covers the highly reputed Master of Arts in Social Work programs: Children and Families, and Criminology and Justice.'
+            }
+        ],
+        // Default/Aggregate fallbacks
+        code: 'COQP11 & COQP12',
+        rank: 'NIRF Rank #72 (University) | Top Management & Social Work Program',
         rankUrl: 'https://www.nirfindia.org/',
-        placementUrl: 'https://hr.tiss.edu/',
-        fee: '₹1.85 Lakhs (Tuition) | ₹3.2 Lakhs (with Hostel)',
-        safeScore: 235,
+        placementUrl: 'https://tiss.edu/',
+        fee: '₹1.15L - ₹1.85L (Tuition)',
+        safeScore: 180,
         packages: {
             highest: '66.00 LPA',
-            average: '28.69 LPA',
+            average: '7.20L - 28.69L',
             median: '28.00 LPA',
-            lowest: '18.00 LPA'
+            lowest: '5.00 LPA'
         },
-        roles: 'HR Specialist, OD Consultant, Talent Acquisition Lead, Labour Relations Advisor',
-        description: 'Premier institute known for its incredible ROI and flagship COQP12 programs: Social Entrepreneurship, Labour Studies & Practice, Disaster Management, and Analytics. Extremely competitive.'
+        roles: 'HR, Social Work, CSR, Operations, Analytics',
+        description: 'TISS Mumbai offers industry-leading management programs through COQP12 and premier social work programs through COQP11, offering unmatched ROI and social impact.'
     },
     {
         id: 'sau',
@@ -53,6 +91,24 @@ const collegesData = [
         },
         roles: 'Digital Product Manager, IT Consultant, FinTech Strategy Lead, Business Analyst',
         description: 'Fast-growing premier technology institute. Official merit lists show admitted scores from 104 to 253 (Average: 161).'
+    },
+    {
+        id: 'dav',
+        name: 'DAVV Indore',
+        code: 'COQP12',
+        rank: 'NIRF Band #151-200 (University) | A+ Grade NAAC Accredited State University',
+        rankUrl: 'https://www.dauniv.ac.in/',
+        placementUrl: 'https://ims.dauniv.ac.in/',
+        fee: '₹1.20 Lakhs (Tuition) | ₹2.02 Lakhs (with Hostel)',
+        safeScore: 122,
+        packages: {
+            highest: '10.00 LPA',
+            average: '5.50 LPA',
+            median: '5.00 LPA',
+            lowest: '3.50 LPA'
+        },
+        roles: 'Financial Analyst, HR Specialist, Marketing Executive, Business Analyst, Management Trainee',
+        description: 'Institute of Management Studies (IMS), Devi Ahilya Vishwavidyalaya, Indore is Central India\'s premier management university. Offers highly sought-after, low-fee MBA programs through COQP12.'
     }
 ];
 
@@ -60,17 +116,40 @@ const collegesData = [
 function getEstimatedPercentile(score, paperCode) {
     let estimatedPercentile = 0;
     
-    // Data-driven evaluation derived from the CUET MBA Ranking baseline (N=49,593)
-    if (score >= 250) {
-        estimatedPercentile = 99.85 + ((score - 250) / 50) * 0.15;
-    } else if (score >= 210) {
-        estimatedPercentile = 98.94 + ((score - 210) / 40) * 0.91;
-    } else if (score >= 170) {
-        estimatedPercentile = 95.60 + ((score - 170) / 40) * 3.34;
-    } else if (score >= 104) {
-        estimatedPercentile = 73.20 + ((score - 104) / 66) * 22.40;
+    if (paperCode === 'COQP11') {
+        // Data-driven evaluation derived from the CUET General Ranking baseline (N=27,084)
+        if (score >= 250) {
+            estimatedPercentile = 99.90 + ((score - 250) / 17) * 0.09;
+        } else if (score >= 235) {
+            estimatedPercentile = 99.50 + ((score - 235) / 15) * 0.40;
+        } else if (score >= 225) {
+            estimatedPercentile = 99.00 + ((score - 225) / 10) * 0.50;
+        } else if (score >= 214) {
+            estimatedPercentile = 98.00 + ((score - 214) / 11) * 1.00;
+        } else if (score >= 196) {
+            estimatedPercentile = 95.60 + ((score - 196) / 18) * 2.40;
+        } else if (score >= 180) {
+            estimatedPercentile = 90.00 + ((score - 180) / 16) * 5.60;
+        } else if (score >= 150) {
+            estimatedPercentile = 75.00 + ((score - 150) / 30) * 15.00;
+        } else if (score >= 118) {
+            estimatedPercentile = 50.00 + ((score - 118) / 32) * 25.00;
+        } else {
+            estimatedPercentile = (score / 118) * 50.00;
+        }
     } else {
-        estimatedPercentile = (score / 104) * 73.20;
+        // Data-driven evaluation derived from the CUET MBA Ranking baseline (N=49,593)
+        if (score >= 250) {
+            estimatedPercentile = 99.85 + ((score - 250) / 50) * 0.15;
+        } else if (score >= 210) {
+            estimatedPercentile = 98.94 + ((score - 210) / 40) * 0.91;
+        } else if (score >= 170) {
+            estimatedPercentile = 95.60 + ((score - 170) / 40) * 3.34;
+        } else if (score >= 104) {
+            estimatedPercentile = 73.20 + ((score - 104) / 66) * 22.40;
+        } else {
+            estimatedPercentile = (score / 104) * 73.20;
+        }
     }
     
     return Math.min(99.99, Math.max(0, estimatedPercentile));
@@ -209,27 +288,63 @@ document.addEventListener('DOMContentLoaded', () => {
             
             // Adjust Safe cutoffs dynamically for categories
             const attainableColleges = collegesData.filter(c => {
-                const adjustedSafe = getCategorySafeScore(c.safeScore, category);
-                return c.code === paperCode && score >= adjustedSafe;
+                let safeScore = c.safeScore;
+                let code = c.code;
+                if (c.isMultiProgram) {
+                    const prog = c.programs.find(p => p.code === paperCode);
+                    if (!prog) return false;
+                    safeScore = prog.safeScore;
+                    code = prog.code;
+                }
+                const adjustedSafe = getCategorySafeScore(safeScore, category);
+                return (code === paperCode || (c.isMultiProgram && code === paperCode)) && score >= adjustedSafe;
             });
             
             const missedColleges = collegesData.filter(c => {
-                const adjustedSafe = getCategorySafeScore(c.safeScore, category);
-                return c.code === paperCode && score < adjustedSafe;
+                let safeScore = c.safeScore;
+                let code = c.code;
+                if (c.isMultiProgram) {
+                    const prog = c.programs.find(p => p.code === paperCode);
+                    if (!prog) return false;
+                    safeScore = prog.safeScore;
+                    code = prog.code;
+                }
+                const adjustedSafe = getCategorySafeScore(safeScore, category);
+                return (code === paperCode || (c.isMultiProgram && code === paperCode)) && score < adjustedSafe;
             }).sort((a,b) => {
-                return getCategorySafeScore(a.safeScore, category) - getCategorySafeScore(b.safeScore, category);
+                const getSafe = (col) => {
+                    if (col.isMultiProgram) {
+                        const prog = col.programs.find(p => p.code === paperCode);
+                        return prog ? prog.safeScore : col.safeScore;
+                    }
+                    return col.safeScore;
+                };
+                return getCategorySafeScore(getSafe(a), category) - getCategorySafeScore(getSafe(b), category);
             });
             
-            if (score >= 250) {
-                feedbackMsg = `Outstanding! You are in the top 0.15% safe zone for Category [${category}]. Admission to TISS Mumbai is highly probable.`;
-            } else if (score >= 210) {
-                feedbackMsg = `Excellent score! High likelihood of securing admission to TISS Mumbai, SAU, or IIIT Lucknow for Category [${category}].`;
-            } else if (score >= 170) {
-                feedbackMsg = `Great effort! You stand a solid chance at SAU, IIIT Lucknow, or subsequent counseling lists for TISS Mumbai for Category [${category}].`;
-            } else if (score >= 104) {
-                feedbackMsg = `Decent score! Monitor subsequent cutoff rounds or spot rounds for SAU or IIIT Lucknow for Category [${category}].`;
+            feedbackMsg = '';
+            if (paperCode === 'COQP11') {
+                if (score >= 220) {
+                    feedbackMsg = `Outstanding! You are in the top safe zone for Category [${category}]. Admission to TISS Mumbai (Social Work) is highly probable.`;
+                } else if (score >= 180) {
+                    feedbackMsg = `Excellent score! High likelihood of securing admission to TISS Mumbai (Social Work) for Category [${category}].`;
+                } else if (score >= 150) {
+                    feedbackMsg = `Great effort! You stand a solid chance for subsequent counseling lists or spot rounds for TISS Mumbai (Social Work) for Category [${category}].`;
+                } else {
+                    feedbackMsg = `Safe option: monitor subsequent cutoff rounds or prepare for category merit lists.`;
+                }
             } else {
-                feedbackMsg = `Safe option: target category allocations, spot selection lists, or prepare for category merit lists.`;
+                if (score >= 250) {
+                    feedbackMsg = `Outstanding! You are in the top 0.15% safe zone for Category [${category}]. Admission to TISS Mumbai is highly probable.`;
+                } else if (score >= 210) {
+                    feedbackMsg = `Excellent score! High likelihood of securing admission to TISS Mumbai, SAU, or IIIT Lucknow for Category [${category}].`;
+                } else if (score >= 170) {
+                    feedbackMsg = `Great effort! You stand a solid chance at SAU, IIIT Lucknow, or subsequent counseling lists for TISS Mumbai for Category [${category}].`;
+                } else if (score >= 104) {
+                    feedbackMsg = `Decent score! Monitor subsequent cutoff rounds or spot rounds for SAU or IIIT Lucknow for Category [${category}].`;
+                } else {
+                    feedbackMsg = `Safe option: target category allocations, spot selection lists, or prepare for category merit lists.`;
+                }
             }
 
             let attainableHtml = attainableColleges.length > 0 
@@ -240,7 +355,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 
             let bridgeHtml = missedColleges.length > 0
                 ? `<div style="margin-top: 0.75rem; color: var(--warning-text); font-size: 0.95rem; text-align: left; padding: 0.75rem; background: rgba(245, 158, 11, 0.15); border-radius: 8px;">
-                     <strong>🚀 Target Safe Score:</strong> Add ${getCategorySafeScore(missedColleges[0].safeScore, category) - score} more marks to secure <strong>${missedColleges[0].name}</strong> (${category} Cutoff)
+                     <strong>🚀 Target Safe Score:</strong> Add ${getCategorySafeScore(missedColleges[0].isMultiProgram ? missedColleges[0].programs.find(p => p.code === paperCode).safeScore : missedColleges[0].safeScore, category) - score} more marks to secure <strong>${missedColleges[0].name}</strong> (${category} Cutoff)
                    </div>`
                 : '';
 
@@ -414,8 +529,11 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (attr.key === 'roi') {
                     // Calculate ROI Score
                     const medVal = parseFloat(c.packages.median);
-                    // TISS: 1.85, IIITL: 3.02, SAU: 3.20 tuition fee
-                    const feeVal = c.id === 'tiss' ? 1.85 : (c.id === 'sau' ? 3.20 : 3.02);
+                    // TISS: 1.85, IIITL: 3.02, SAU: 3.20, DAV: 1.20 tuition fee
+                    let feeVal = 3.02;
+                    if (c.id === 'tiss') feeVal = 1.85;
+                    else if (c.id === 'sau') feeVal = 3.20;
+                    else if (c.id === 'dav') feeVal = 1.20;
                     cellVal = ((medVal / feeVal) * 10).toFixed(1) + " / 10";
                 } else if (attr.key.includes('.')) {
                     const keys = attr.key.split('.');
@@ -476,21 +594,30 @@ async function loadStudentsData() {
         
         // Loop through each college
         for (const collegeId in data) {
-            const college = collegesData.find(c => c.id === collegeId);
+            const targetCollegeId = collegeId === 'tiss_coqp11' ? 'tiss' : collegeId;
+            const college = collegesData.find(c => c.id === targetCollegeId);
             if (!college) continue;
             
             const studentsList = data[collegeId];
             studentsList.forEach(student => {
-                const isSAUET = student.score === 'N/A';
+                const isUnmatched = student.score === 'N/A';
+                let studentPaperCode = collegeId === 'tiss_coqp11' ? 'COQP11' : (collegeId === 'tiss' ? 'COQP12' : college.code);
+                let collegePaperCode = studentPaperCode;
+                if (isUnmatched) {
+                    if (collegeId === 'sau') studentPaperCode = 'SAU-ET';
+                    else if (collegeId === 'tiss_coqp11') studentPaperCode = 'TISS-ET';
+                    else studentPaperCode = 'N/A';
+                }
                 allStudents.push({
                     name: student.name,
                     app: student.app,
                     score: student.score,
                     course: student.course || 'General',
-                    collegeId: collegeId,
+                    collegeId: targetCollegeId,
                     collegeName: college.name,
-                    paperCode: isSAUET ? 'SAU-ET' : college.code,
-                    percentile: isSAUET ? 0 : getEstimatedPercentile(student.score, college.code)
+                    paperCode: studentPaperCode,
+                    collegePaperCode: collegePaperCode, // Original paper code for filtering
+                    percentile: isUnmatched ? 0 : getEstimatedPercentile(student.score, collegePaperCode)
                 });
             });
         }
@@ -533,6 +660,7 @@ function renderDensityChart() {
     ];
     
     allStudents.forEach(s => {
+        if (typeof s.score !== 'number') return; // Exclude N/A scores from score bands
         if (s.score >= 250) bands[0].count++;
         else if (s.score >= 200) bands[1].count++;
         else if (s.score >= 150) bands[2].count++;
@@ -674,7 +802,7 @@ function setupFilters() {
                                   student.app.includes(query) ||
                                   student.course.toLowerCase().includes(query);
             const matchesCollege = collegeVal === 'all' || student.collegeId === collegeVal;
-            const matchesPaper = paperVal === 'all' || student.paperCode === paperVal;
+            const matchesPaper = paperVal === 'all' || student.collegePaperCode === paperVal;
             
             let matchesScore = true;
             if (scoreVal !== 'all') {

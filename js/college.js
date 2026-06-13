@@ -107,13 +107,86 @@ document.addEventListener('DOMContentLoaded', async () => {
         return base;
     });
 
-    setElementText('cat-gen-cutoff', `${college.safeScore}+`);
-    setElementText('cat-obc-cutoff', `${getCatCutoff(college.safeScore, 'OBC')}+`);
-    setElementText('cat-ews-cutoff', `${getCatCutoff(college.safeScore, 'EWS')}+`);
-    setElementText('cat-sc-cutoff', `${getCatCutoff(college.safeScore, 'SC')}+`);
-    setElementText('cat-st-cutoff', `${getCatCutoff(college.safeScore, 'ST')}+`);
-
     let collegeStudents = []; // Store loaded list locally for filtering
+    let activeStudents = [];  // Current filtered list based on stream selection
+
+    function updateCollegeUI(programCode) {
+        // Determine active program data
+        let activeData = college;
+        if (college.isMultiProgram && programCode !== 'all') {
+            activeData = college.programs.find(p => p.code === programCode);
+        }
+
+        // Update static details
+        setElementText('c-code', activeData.code);
+        setElementText('c-desc', activeData.description);
+        setElementText('c-rank', activeData.rank);
+        
+        const rankLinkContainer = document.getElementById('c-rank-link-container');
+        if (rankLinkContainer) {
+            if (activeData.rankUrl) {
+                rankLinkContainer.innerHTML = `<a href="${activeData.rankUrl}" target="_blank" style="color: var(--accent); font-size: 0.85rem; font-weight: 700; text-decoration: underline; display: inline-flex; align-items: center; gap: 0.2rem;">Verify Rank Source 🔗</a>`;
+            } else {
+                rankLinkContainer.innerHTML = '';
+            }
+        }
+
+        setElementText('c-fee', activeData.fee);
+        
+        if (college.isMultiProgram && programCode === 'all') {
+            setElementText('c-score', '180+ (COQP11) / 235+ (COQP12)');
+            setElementText('cat-gen-cutoff', '180+ (COQP11) / 235+ (COQP12)');
+            setElementText('cat-obc-cutoff', '166+ (COQP11) / 216+ (COQP12)');
+            setElementText('cat-ews-cutoff', '171+ (COQP11) / 223+ (COQP12)');
+            setElementText('cat-sc-cutoff', '153+ (COQP11) / 200+ (COQP12)');
+            setElementText('cat-st-cutoff', '144+ (COQP11) / 188+ (COQP12)');
+        } else {
+            setElementText('c-score', `${activeData.safeScore}+`);
+            setElementText('cat-gen-cutoff', `${activeData.safeScore}+`);
+            setElementText('cat-obc-cutoff', `${getCatCutoff(activeData.safeScore, 'OBC')}+`);
+            setElementText('cat-ews-cutoff', `${getCatCutoff(activeData.safeScore, 'EWS')}+`);
+            setElementText('cat-sc-cutoff', `${getCatCutoff(activeData.safeScore, 'SC')}+`);
+            setElementText('cat-st-cutoff', `${getCatCutoff(activeData.safeScore, 'ST')}+`);
+        }
+
+        // Set placements details
+        setElementText('pkg-highest', activeData.packages ? activeData.packages.highest : 'Soon');
+        setElementText('pkg-median', activeData.packages ? activeData.packages.median : 'Soon');
+        setElementText('pkg-avg', activeData.packages ? activeData.packages.average : 'Soon');
+        setElementText('pkg-lowest', activeData.packages ? activeData.packages.lowest : 'Soon');
+        setElementText('placed-roles', activeData.roles || 'Soon');
+
+        const placementLink = document.getElementById('c-placement-link');
+        if (placementLink) {
+            if (activeData.placementUrl) {
+                placementLink.href = activeData.placementUrl;
+                placementLink.style.display = 'inline-block';
+            } else {
+                placementLink.style.display = 'none';
+            }
+        }
+
+        // Filter students list
+        if (programCode === 'all') {
+            activeStudents = [...collegeStudents];
+        } else {
+            activeStudents = collegeStudents.filter(s => s.collegePaperCode === programCode);
+        }
+
+        // Compute dynamic stats
+        const numericScores = activeStudents.map(s => s.score).filter(s => typeof s === 'number');
+        const maxScore = numericScores.length > 0 ? Math.max(...numericScores) : 'N/A';
+        const minScore = numericScores.length > 0 ? Math.min(...numericScores) : 'N/A';
+        const avgScore = numericScores.length > 0 ? Math.round(numericScores.reduce((sum, val) => sum + val, 0) / numericScores.length) : 'N/A';
+
+        setElementText('stat-max', maxScore);
+        setElementText('stat-avg', avgScore);
+        setElementText('stat-min', minScore);
+        setElementText('stat-count', activeStudents.length);
+
+        // Render Table
+        renderStudentTable(activeStudents);
+    }
 
     // 3. Helper function to render table rows safely
     function renderStudentTable(list) {
@@ -134,8 +207,8 @@ document.addEventListener('DOMContentLoaded', async () => {
                     const nameVal = student.name || 'Candidate';
                     const appVal = student.app || 'N/A';
                     const scoreVal = student.score !== undefined ? student.score : '-';
-                    const isSAUET = student.score === 'N/A';
-                    const percentileVal = isSAUET ? 'N/A' : getEstimatedPercentile(student.score, college.code);
+                    const isUnmatched = student.score === 'N/A';
+                    const percentileVal = isUnmatched ? 'N/A' : getEstimatedPercentile(student.score, student.collegePaperCode || college.code);
 
                     tr.innerHTML = `
                         <td>#${index + 1}</td>
@@ -162,18 +235,45 @@ document.addEventListener('DOMContentLoaded', async () => {
         }
     }
 
+    // Setup program selector if college is multi-program
+    const selectorContainer = document.getElementById('program-selector-container');
+    const selectorDropdown = document.getElementById('program-select-dropdown');
+    
+    if (college.isMultiProgram && selectorContainer && selectorDropdown) {
+        selectorContainer.classList.remove('hidden');
+        
+        let selectHtml = `<option value="all">All Program Streams (Merged View)</option>`;
+        college.programs.forEach(p => {
+            selectHtml += `<option value="${p.code}">${p.name}</option>`;
+        });
+        selectorDropdown.innerHTML = selectHtml;
+        
+        selectorDropdown.addEventListener('change', (e) => {
+            updateCollegeUI(e.target.value);
+            const searchInput = document.getElementById('student-search');
+            if (searchInput) searchInput.value = '';
+        });
+    }
+
     // 4. Load the admitted student data
     try {
         let data = window.admittedStudents;
         
         if (!data) {
-            // Fallback to fetch if window.admittedStudents is not defined (e.g. CGI/CORS limitations)
             const response = await fetch('admitted_students.json');
             if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
             data = await response.json();
         }
         
-        collegeStudents = data[college.id] || [];
+        // Merge TISS programs if needed
+        if (college.id === 'tiss') {
+            const coqp12Students = (data['tiss'] || []).map(s => ({ ...s, collegePaperCode: 'COQP12' }));
+            const coqp11Students = (data['tiss_coqp11'] || []).map(s => ({ ...s, collegePaperCode: 'COQP11' }));
+            collegeStudents = [...coqp12Students, ...coqp11Students];
+        } else {
+            const collegePaperCode = college.code;
+            collegeStudents = (data[college.id] || []).map(s => ({ ...s, collegePaperCode }));
+        }
         
         if (collegeStudents.length > 0) {
             // Sort by score descending (highest marks first), placing N/A at the bottom
@@ -183,26 +283,15 @@ document.addEventListener('DOMContentLoaded', async () => {
                 return scoreB - scoreA;
             });
 
-            // Compute dynamic statistics (filtering out N/A scores)
-            const numericScores = collegeStudents.map(s => s.score).filter(s => typeof s === 'number');
-            const maxScore = numericScores.length > 0 ? Math.max(...numericScores) : 'N/A';
-            const minScore = numericScores.length > 0 ? Math.min(...numericScores) : 'N/A';
-            const avgScore = numericScores.length > 0 ? Math.round(numericScores.reduce((sum, val) => sum + val, 0) / numericScores.length) : 'N/A';
-            
-            setElementText('stat-max', maxScore);
-            setElementText('stat-avg', avgScore);
-            setElementText('stat-min', minScore);
-            setElementText('stat-count', collegeStudents.length);
-
-            // Render table
-            renderStudentTable(collegeStudents);
+            // Initialize UI
+            updateCollegeUI('all');
 
             // Setup Search bar listener safely
             const searchInput = document.getElementById('student-search');
             if (searchInput) {
                 searchInput.addEventListener('input', () => {
                     const query = searchInput.value.toLowerCase().trim();
-                    const filtered = collegeStudents.filter(student => 
+                    const filtered = activeStudents.filter(student => 
                         String(student.name || '').toLowerCase().includes(query) || 
                         String(student.app || '').includes(query)
                     );
@@ -214,7 +303,12 @@ document.addEventListener('DOMContentLoaded', async () => {
             const shareBtn = document.getElementById('share-btn');
             if (shareBtn) {
                 shareBtn.addEventListener('click', () => {
-                    const text = encodeURIComponent(`Check out the CUET PG admitted student list & cutoff insights for ${college.name} (${college.code})! Highest score is ${maxScore}, average is ${avgScore}, and cutoff is ${minScore}. View more on the Tracker! 🎓🚀`);
+                    const numericScores = activeStudents.map(s => s.score).filter(s => typeof s === 'number');
+                    const maxScore = numericScores.length > 0 ? Math.max(...numericScores) : 'N/A';
+                    const minScore = numericScores.length > 0 ? Math.min(...numericScores) : 'N/A';
+                    const avgScore = numericScores.length > 0 ? Math.round(numericScores.reduce((sum, val) => sum + val, 0) / numericScores.length) : 'N/A';
+
+                    const text = encodeURIComponent(`Check out the CUET PG admitted student list & cutoff insights for ${college.name}! Highest score is ${maxScore}, average is ${avgScore}, and cutoff is ${minScore}. View more on the Tracker! 🎓🚀`);
                     window.open(`https://wa.me/?text=${text}`, '_blank');
                 });
             }
@@ -246,7 +340,6 @@ document.addEventListener('DOMContentLoaded', async () => {
     } catch (e) {
         console.error("Could not load student data", e);
         
-        // Handle fetch failures (like CORS or network errors) gracefully by showing empty states
         setElementText('stat-max', '-');
         setElementText('stat-avg', '-');
         setElementText('stat-min', '-');
