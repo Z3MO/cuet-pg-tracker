@@ -18,13 +18,98 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     // 1. Safe access to shared globals with local fallbacks
     const collegesData = window.collegesData || [];
-    const getEstimatedPercentile = window.getEstimatedPercentile || ((score) => {
-        // Fallback simple percentile formula if app.js is not loaded
-        if (score >= 250) return 99.85;
-        if (score >= 210) return 98.94;
-        if (score >= 170) return 95.60;
-        if (score >= 104) return 73.20;
-        return (score / 300) * 100;
+    const getEstimatedPercentile = window.getEstimatedPercentile || ((score, paperCode) => {
+        let estimatedPercentile = 0;
+        const code = (paperCode || '').toUpperCase().trim();
+        
+        if (code === 'COQP11') {
+            if (score >= 250) {
+                estimatedPercentile = 99.90 + ((score - 250) / 17) * 0.09;
+            } else if (score >= 235) {
+                estimatedPercentile = 99.50 + ((score - 235) / 15) * 0.40;
+            } else if (score >= 225) {
+                estimatedPercentile = 99.00 + ((score - 225) / 10) * 0.50;
+            } else if (score >= 214) {
+                estimatedPercentile = 98.00 + ((score - 214) / 11) * 1.00;
+            } else if (score >= 196) {
+                estimatedPercentile = 95.60 + ((score - 196) / 18) * 2.40;
+            } else if (score >= 180) {
+                estimatedPercentile = 90.00 + ((score - 180) / 16) * 5.60;
+            } else if (score >= 150) {
+                estimatedPercentile = 75.00 + ((score - 150) / 30) * 15.00;
+            } else if (score >= 118) {
+                estimatedPercentile = 50.00 + ((score - 118) / 32) * 25.00;
+            } else {
+                estimatedPercentile = (score / 118) * 50.00;
+            }
+        } else if (code === 'COQP10') {
+            if (score >= 203) {
+                estimatedPercentile = 99.90 + ((score - 203) / 28) * 0.09;
+            } else if (score >= 186) {
+                estimatedPercentile = 99.50 + ((score - 186) / 17) * 0.40;
+            } else if (score >= 174) {
+                estimatedPercentile = 99.00 + ((score - 174) / 12) * 0.50;
+            } else if (score >= 161) {
+                estimatedPercentile = 98.00 + ((score - 161) / 13) * 1.00;
+            } else if (score >= 137) {
+                estimatedPercentile = 95.00 + ((score - 137) / 24) * 3.00;
+            } else if (score >= 112) {
+                estimatedPercentile = 90.00 + ((score - 112) / 25) * 5.00;
+            } else if (score >= 75) {
+                estimatedPercentile = 75.00 + ((score - 75) / 37) * 15.00;
+            } else if (score >= 46) {
+                estimatedPercentile = 50.00 + ((score - 46) / 29) * 25.00;
+            } else {
+                estimatedPercentile = (score / 46) * 50.00;
+            }
+        } else if (code === 'COQP08') {
+            if (score >= 204) {
+                estimatedPercentile = 99.90 + ((score - 204) / 14) * 0.09;
+            } else if (score >= 186) {
+                estimatedPercentile = 99.50 + ((score - 186) / 18) * 0.40;
+            } else if (score >= 173) {
+                estimatedPercentile = 99.00 + ((score - 173) / 13) * 0.50;
+            } else if (score >= 159) {
+                estimatedPercentile = 98.00 + ((score - 159) / 14) * 1.00;
+            } else if (score >= 139) {
+                estimatedPercentile = 95.00 + ((score - 139) / 20) * 3.00;
+            } else if (score >= 122) {
+                estimatedPercentile = 90.00 + ((score - 122) / 17) * 5.00;
+            } else if (score >= 93) {
+                estimatedPercentile = 75.00 + ((score - 93) / 29) * 15.00;
+            } else if (score >= 65) {
+                estimatedPercentile = 50.00 + ((score - 65) / 28) * 25.00;
+            } else {
+                estimatedPercentile = (score / 65) * 50.00;
+            }
+        } else if (code === 'COQP12') {
+            if (score >= 250) {
+                estimatedPercentile = 99.85 + ((score - 250) / 50) * 0.15;
+            } else if (score >= 210) {
+                estimatedPercentile = 98.94 + ((score - 210) / 40) * 0.91;
+            } else if (score >= 170) {
+                estimatedPercentile = 95.60 + ((score - 170) / 40) * 3.34;
+            } else if (score >= 104) {
+                estimatedPercentile = 73.20 + ((score - 104) / 66) * 22.40;
+            } else {
+                estimatedPercentile = (score / 104) * 73.20;
+            }
+        } else {
+            // Default fallback using COQP12 MBA baseline
+            if (score >= 250) {
+                estimatedPercentile = 99.85 + ((score - 250) / 50) * 0.15;
+            } else if (score >= 210) {
+                estimatedPercentile = 98.94 + ((score - 210) / 40) * 0.91;
+            } else if (score >= 170) {
+                estimatedPercentile = 95.60 + ((score - 170) / 40) * 3.34;
+            } else if (score >= 104) {
+                estimatedPercentile = 73.20 + ((score - 104) / 66) * 22.40;
+            } else {
+                estimatedPercentile = (score / 104) * 73.20;
+            }
+        }
+        
+        return Math.min(99.99, Math.max(0, estimatedPercentile));
     });
 
     const params = new URLSearchParams(window.location.search);

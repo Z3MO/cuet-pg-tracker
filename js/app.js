@@ -228,8 +228,9 @@ const collegesData = [
 // Helper to calculate estimated percentile based on raw score
 function getEstimatedPercentile(score, paperCode) {
     let estimatedPercentile = 0;
+    const code = (paperCode || '').toUpperCase().trim();
     
-    if (paperCode === 'COQP11') {
+    if (code === 'COQP11') {
         // Data-driven evaluation derived from the CUET General Ranking baseline (N=27,084)
         if (score >= 250) {
             estimatedPercentile = 99.90 + ((score - 250) / 17) * 0.09;
@@ -250,7 +251,7 @@ function getEstimatedPercentile(score, paperCode) {
         } else {
             estimatedPercentile = (score / 118) * 50.00;
         }
-    } else if (paperCode === 'COQP10') {
+    } else if (code === 'COQP10') {
         // Data-driven evaluation derived from COQP10 baseline (N=15,231)
         if (score >= 203) {
             estimatedPercentile = 99.90 + ((score - 203) / 28) * 0.09;
@@ -271,7 +272,7 @@ function getEstimatedPercentile(score, paperCode) {
         } else {
             estimatedPercentile = (score / 46) * 50.00;
         }
-    } else if (paperCode === 'COQP08') {
+    } else if (code === 'COQP08') {
         // Data-driven evaluation derived from COQP08 baseline (N=11,689)
         if (score >= 204) {
             estimatedPercentile = 99.90 + ((score - 204) / 14) * 0.09;
@@ -292,8 +293,21 @@ function getEstimatedPercentile(score, paperCode) {
         } else {
             estimatedPercentile = (score / 65) * 50.00;
         }
-    } else {
+    } else if (code === 'COQP12') {
         // Data-driven evaluation derived from the CUET MBA Ranking baseline (N=49,593, representing COQP12)
+        if (score >= 250) {
+            estimatedPercentile = 99.85 + ((score - 250) / 50) * 0.15;
+        } else if (score >= 210) {
+            estimatedPercentile = 98.94 + ((score - 210) / 40) * 0.91;
+        } else if (score >= 170) {
+            estimatedPercentile = 95.60 + ((score - 170) / 40) * 3.34;
+        } else if (score >= 104) {
+            estimatedPercentile = 73.20 + ((score - 104) / 66) * 22.40;
+        } else {
+            estimatedPercentile = (score / 104) * 73.20;
+        }
+    } else {
+        // Fallback: Default to COQP12 (MBA) curve
         if (score >= 250) {
             estimatedPercentile = 99.85 + ((score - 250) / 50) * 0.15;
         } else if (score >= 210) {
@@ -509,8 +523,22 @@ document.addEventListener('DOMContentLoaded', () => {
             resultBox.innerHTML = `
                 <h3>Admission Estimate (${paperCode} | ${category})</h3>
                 
-                <div style="margin: 0.75rem 0; font-size: 1.1rem; font-weight: 700; color: var(--accent);">
-                    📊 Est. Percentile: ${estimatedPercentile.toFixed(2)}%
+                <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; margin: 1.5rem 0;">
+                    <div class="percentile-gauge-wrapper" style="position: relative; display: flex; align-items: center; justify-content: center; width: 140px; height: 140px;">
+                        <svg class="gauge" viewBox="0 0 120 120" style="width: 140px; height: 140px;">
+                            <circle class="gauge-bg" cx="60" cy="60" r="50" fill="none" stroke="var(--border-color)" stroke-width="8"></circle>
+                            <circle class="gauge-fill" id="gauge-fill-arc" cx="60" cy="60" r="50" fill="none" stroke="url(#gauge-grad)" stroke-width="8"
+                                    stroke-dasharray="314.16" stroke-dashoffset="314.16" stroke-linecap="round" transform="rotate(-90 60 60)" style="transition: stroke-dashoffset 1s ease-out;"></circle>
+                            <defs>
+                                <linearGradient id="gauge-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" stop-color="var(--accent)" />
+                                    <stop offset="100%" stop-color="var(--accent-gold)" />
+                                </linearGradient>
+                            </defs>
+                        </svg>
+                        <div id="gauge-value-text" style="position: absolute; font-size: 1.75rem; font-weight: 800; color: var(--text-main); font-family: 'Outfit', sans-serif;">0%</div>
+                    </div>
+                    <div style="font-size: 1.1rem; font-weight: 700; margin-top: 0.75rem; color: var(--text-main); font-family: 'Outfit';">Estimated Percentile</div>
                 </div>
                 
                 <p style="margin-top: 0.5rem; color: var(--text-muted); font-size: 0.95rem; line-height: 1.5; font-weight: 500;">
@@ -528,6 +556,36 @@ document.addEventListener('DOMContentLoaded', () => {
             `;
             
             resultBox.classList.remove('hidden');
+            resultBox.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+
+            // Animate SVG Gauge Fill and Number Counter
+            setTimeout(() => {
+                const fillArc = document.getElementById('gauge-fill-arc');
+                const textVal = document.getElementById('gauge-value-text');
+                if (fillArc) {
+                    const offset = 314.16 * (1 - estimatedPercentile / 100);
+                    fillArc.style.strokeDashoffset = offset;
+                }
+                if (textVal) {
+                    let start = 0;
+                    const end = estimatedPercentile;
+                    const duration = 1000;
+                    const startTime = performance.now();
+                    
+                    function updateNum(now) {
+                        const elapsed = now - startTime;
+                        const progress = Math.min(elapsed / duration, 1);
+                        const current = start + progress * (end - start);
+                        textVal.textContent = current.toFixed(1) + "%";
+                        if (progress < 1) {
+                            requestAnimationFrame(updateNum);
+                        } else {
+                            textVal.textContent = end.toFixed(2) + "%";
+                        }
+                    }
+                    requestAnimationFrame(updateNum);
+                }
+            }, 100);
         });
     }
 
