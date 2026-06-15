@@ -1,0 +1,6 @@
+# CUET PG Tracker Authorizations for Ad Networks
+# Replace ca-pub-XXXXXXXXXXXXXXXX with your actual Google AdSense Publisher ID (found in AdSense Account Info)
+google.com, pub-9871961133603996, DIRECT, f08c47fec0942fa0
+
+# If you also use Ezoic or their partner networks, Ezoic will prompt you to add their verified sellers here:
+# (Copy and paste any additional lines provided by your Ezoic dashboard here)
