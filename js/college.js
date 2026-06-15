@@ -1,32 +1,18 @@
 document.addEventListener('DOMContentLoaded', async () => {
     // Theme Switcher Sync for College Detail Page
     const themeToggleBtn = document.getElementById('theme-toggle');
-    const sunIcon = document.querySelector('.sun-icon');
-    const moonIcon = document.querySelector('.moon-icon');
-    
     const savedTheme = localStorage.getItem('theme') || 'dark';
     if (savedTheme === 'light') {
         document.body.classList.remove('dark-mode');
-        if (sunIcon) sunIcon.classList.add('hidden');
-        if (moonIcon) moonIcon.classList.remove('hidden');
     } else {
         document.body.classList.add('dark-mode');
-        if (sunIcon) sunIcon.classList.remove('hidden');
-        if (moonIcon) moonIcon.classList.add('hidden');
     }
     
-    if (themeToggleBtn) {
+    if (themeToggleBtn && !window.themeToggleInitialized) {
+        window.themeToggleInitialized = true;
         themeToggleBtn.addEventListener('click', () => {
             const isDark = document.body.classList.toggle('dark-mode');
             localStorage.setItem('theme', isDark ? 'dark' : 'light');
-            
-            if (isDark) {
-                if (sunIcon) sunIcon.classList.remove('hidden');
-                if (moonIcon) moonIcon.classList.add('hidden');
-            } else {
-                if (sunIcon) sunIcon.classList.add('hidden');
-                if (moonIcon) moonIcon.classList.remove('hidden');
-            }
         });
     }
 
@@ -141,19 +127,37 @@ document.addEventListener('DOMContentLoaded', async () => {
         setElementText('c-fee', activeData.fee);
         
         if (college.isMultiProgram && programCode === 'all') {
-            setElementText('c-score', '180+ (COQP11) / 235+ (COQP12)');
-            setElementText('cat-gen-cutoff', '180+ (COQP11) / 235+ (COQP12)');
-            setElementText('cat-obc-cutoff', '166+ (COQP11) / 216+ (COQP12)');
-            setElementText('cat-ews-cutoff', '171+ (COQP11) / 223+ (COQP12)');
-            setElementText('cat-sc-cutoff', '153+ (COQP11) / 200+ (COQP12)');
-            setElementText('cat-st-cutoff', '144+ (COQP11) / 188+ (COQP12)');
+            if (college.id === 'tiss') {
+                setElementText('c-score', '180+ (COQP11) / 235+ (COQP12)');
+                setElementText('cat-gen-cutoff', '180+ (COQP11) / 235+ (COQP12)');
+                setElementText('cat-obc-cutoff', '166+ (COQP11) / 216+ (COQP12)');
+                setElementText('cat-ews-cutoff', '171+ (COQP11) / 223+ (COQP12)');
+                setElementText('cat-sc-cutoff', '153+ (COQP11) / 200+ (COQP12)');
+                setElementText('cat-st-cutoff', '144+ (COQP11) / 188+ (COQP12)');
+            } else if (college.id === 'sau') {
+                setElementText('c-score', '140+ (COQP12) / 120+ (COQP10) / 110+ (COQP08)');
+                setElementText('cat-gen-cutoff', '140+ (COQP12) / 120+ (COQP10) / 110+ (COQP08)');
+                setElementText('cat-obc-cutoff', '129+ (COQP12) / 110+ (COQP10) / 101+ (COQP08)');
+                setElementText('cat-ews-cutoff', '133+ (COQP12) / 114+ (COQP10) / 105+ (COQP08)');
+                setElementText('cat-sc-cutoff', '119+ (COQP12) / 102+ (COQP10) / 94+ (COQP08)');
+                setElementText('cat-st-cutoff', '112+ (COQP12) / 96+ (COQP10) / 88+ (COQP08)');
+            }
         } else {
-            setElementText('c-score', `${activeData.safeScore}+`);
-            setElementText('cat-gen-cutoff', `${activeData.safeScore}+`);
-            setElementText('cat-obc-cutoff', `${getCatCutoff(activeData.safeScore, 'OBC')}+`);
-            setElementText('cat-ews-cutoff', `${getCatCutoff(activeData.safeScore, 'EWS')}+`);
-            setElementText('cat-sc-cutoff', `${getCatCutoff(activeData.safeScore, 'SC')}+`);
-            setElementText('cat-st-cutoff', `${getCatCutoff(activeData.safeScore, 'ST')}+`);
+            if (activeData.safeScore === 'N/A') {
+                setElementText('c-score', 'N/A');
+                setElementText('cat-gen-cutoff', 'N/A');
+                setElementText('cat-obc-cutoff', 'N/A');
+                setElementText('cat-ews-cutoff', 'N/A');
+                setElementText('cat-sc-cutoff', 'N/A');
+                setElementText('cat-st-cutoff', 'N/A');
+            } else {
+                setElementText('c-score', `${activeData.safeScore}+`);
+                setElementText('cat-gen-cutoff', `${activeData.safeScore}+`);
+                setElementText('cat-obc-cutoff', `${getCatCutoff(activeData.safeScore, 'OBC')}+`);
+                setElementText('cat-ews-cutoff', `${getCatCutoff(activeData.safeScore, 'EWS')}+`);
+                setElementText('cat-sc-cutoff', `${getCatCutoff(activeData.safeScore, 'SC')}+`);
+                setElementText('cat-st-cutoff', `${getCatCutoff(activeData.safeScore, 'ST')}+`);
+            }
         }
 
         // Set placements details
@@ -203,6 +207,31 @@ document.addEventListener('DOMContentLoaded', async () => {
         
         if (tbody) tbody.innerHTML = '';
         
+        // Dynamic table header adjustment for multi-program colleges (TISS, SAU)
+        const thead = document.querySelector('.modern-table thead tr');
+        const isMulti = college.id === 'sau' || college.id === 'tiss';
+        if (thead) {
+            if (isMulti) {
+                thead.innerHTML = `
+                    <th>#</th>
+                    <th>Student Name</th>
+                    <th>Specialization / Course</th>
+                    <th class="hide-mobile">Application No</th>
+                    <th>Exam Code</th>
+                    <th>CUET Score</th>
+                    <th>Percentile</th>
+                `;
+            } else {
+                thead.innerHTML = `
+                    <th>#</th>
+                    <th>Student Name</th>
+                    <th>Specialization / Course</th>
+                    <th class="hide-mobile">Application No</th>
+                    <th>CUET Score</th>
+                `;
+            }
+        }
+        
         if (list.length > 0) {
             if (table) table.classList.remove('hidden');
             if (noStudents) noStudents.classList.add('hidden');
@@ -216,20 +245,45 @@ document.addEventListener('DOMContentLoaded', async () => {
                     const scoreVal = student.score !== undefined ? student.score : '-';
                     const isUnmatched = student.score === 'N/A';
                     const percentileVal = isUnmatched ? 'N/A' : getEstimatedPercentile(student.score, student.collegePaperCode || college.code);
-
-                    tr.innerHTML = `
-                        <td>#${index + 1}</td>
-                        <td>
-                            <div class="student-profile">
-                                <div class="student-avatar">${initial}</div>
-                                <span style="font-weight: 600;">${nameVal}</span>
-                            </div>
-                        </td>
-                        <td style="font-weight: 500; color: var(--text-main); font-size: 0.9rem;">${student.course || 'General'}</td>
-                        <td class="hide-mobile" style="color: var(--text-muted); font-family: monospace; font-size: 0.9rem;">${appVal}</td>
-                        <td><span class="score-badge">${scoreVal}</span></td>
-                        <td style="font-weight: 700; color: var(--accent);">${typeof percentileVal === 'number' ? percentileVal.toFixed(2) + ' %ile' : 'N/A'}</td>
-                    `;
+                    const percentileText = (isUnmatched || percentileVal === 'N/A') ? 'N/A' : `${percentileVal}%`;
+                    
+                    if (isMulti) {
+                        // Style program tags nicely
+                        let paperBadgeClass = 'tag-sau';
+                        if (student.collegePaperCode === 'COQP12') paperBadgeClass = 'tag-sau-coqp12';
+                        else if (student.collegePaperCode === 'COQP10') paperBadgeClass = 'tag-sau-coqp10';
+                        else if (student.collegePaperCode === 'COQP08') paperBadgeClass = 'tag-sau-coqp08';
+                        else if (student.collegePaperCode === 'COQP11') paperBadgeClass = 'tag-tiss-coqp11';
+                        else if (student.collegePaperCode === 'SAU-ET') paperBadgeClass = 'tag-sau-et';
+                        
+                        tr.innerHTML = `
+                            <td>#${index + 1}</td>
+                            <td>
+                                <div class="student-profile">
+                                    <div class="student-avatar">${initial}</div>
+                                    <span style="font-weight: 600;">${nameVal}</span>
+                                </div>
+                            </td>
+                            <td style="font-weight: 500; color: var(--text-main); font-size: 0.9rem;">${student.course || 'General'}</td>
+                            <td class="hide-mobile" style="color: var(--text-muted); font-family: monospace; font-size: 0.9rem;">${appVal}</td>
+                            <td><span class="tag ${paperBadgeClass}" style="font-size: 0.75rem; font-weight: 700; padding: 0.25rem 0.6rem; border-radius: 4px;">${student.collegePaperCode}</span></td>
+                            <td><span class="score-badge">${scoreVal}</span></td>
+                            <td style="font-weight: 600; color: var(--accent);">${percentileText}</td>
+                        `;
+                    } else {
+                        tr.innerHTML = `
+                            <td>#${index + 1}</td>
+                            <td>
+                                <div class="student-profile">
+                                    <div class="student-avatar">${initial}</div>
+                                    <span style="font-weight: 600;">${nameVal}</span>
+                                </div>
+                            </td>
+                            <td style="font-weight: 500; color: var(--text-main); font-size: 0.9rem;">${student.course || 'General'}</td>
+                            <td class="hide-mobile" style="color: var(--text-muted); font-family: monospace; font-size: 0.9rem;">${appVal}</td>
+                            <td><span class="score-badge">${scoreVal}</span></td>
+                        `;
+                    }
                     tbody.appendChild(tr);
                 });
             }
@@ -277,6 +331,8 @@ document.addEventListener('DOMContentLoaded', async () => {
             const coqp12Students = (data['tiss'] || []).map(s => ({ ...s, collegePaperCode: 'COQP12' }));
             const coqp11Students = (data['tiss_coqp11'] || []).map(s => ({ ...s, collegePaperCode: 'COQP11' }));
             collegeStudents = [...coqp12Students, ...coqp11Students];
+        } else if (college.id === 'sau') {
+            collegeStudents = (data['sau'] || []).map(s => ({ ...s, collegePaperCode: s.paperCode || 'COQP12' }));
         } else {
             const collegePaperCode = college.code;
             collegeStudents = (data[college.id] || []).map(s => ({ ...s, collegePaperCode }));

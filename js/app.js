@@ -10,8 +10,8 @@ const collegesData = [
                 code: 'COQP12',
                 name: 'COQP12 - MBA Equivalent (SE, LSP, DM, Analytics)',
                 rank: 'NIRF Rank #72 (University) | Top 10 B-School Equivalent',
-                rankUrl: 'https://www.nirfindia.org/',
-                placementUrl: 'https://hr.tiss.edu/',
+                rankUrl: 'https://tiss.ac.in/NIRF/',
+                placementUrl: 'https://tiss.ac.in/placement_tiss/',
                 fee: '₹1.85 Lakhs (Tuition) | ₹3.2 Lakhs (with Hostel)',
                 safeScore: 235,
                 packages: {
@@ -27,8 +27,8 @@ const collegesData = [
                 code: 'COQP11',
                 name: 'COQP11 - Social Work, Public Health, MLISc, Education, Regulatory Policy, Urban Policy (20 Streams)',
                 rank: 'NIRF Rank #72 (University) | India\'s Premier School of Social Work & Social Sciences',
-                rankUrl: 'https://www.nirfindia.org/',
-                placementUrl: 'https://tiss.edu/',
+                rankUrl: 'https://tiss.ac.in/NIRF/',
+                placementUrl: 'https://tiss.ac.in/placement_tiss/',
                 fee: '₹1.15 Lakhs (Tuition) | ₹2.5 Lakhs (with Hostel)',
                 safeScore: 180,
                 packages: {
@@ -44,8 +44,8 @@ const collegesData = [
         // Default/Aggregate fallbacks
         code: 'COQP11 & COQP12',
         rank: 'NIRF Rank #72 (University) | Top Management & Social Work Program',
-        rankUrl: 'https://www.nirfindia.org/',
-        placementUrl: 'https://tiss.edu/',
+        rankUrl: 'https://tiss.ac.in/NIRF/',
+        placementUrl: 'https://tiss.ac.in/placement_tiss/',
         fee: '₹1.15L - ₹1.85L (Tuition)',
         safeScore: 180,
         packages: {
@@ -60,21 +60,92 @@ const collegesData = [
     {
         id: 'sau',
         name: 'South Asian University',
-        code: 'COQP12',
+        isMultiProgram: true,
         image: 'images/south_asian_univ.png',
-        rank: 'Intergovernmental SAARC University | Top 20 Indian Universities (IIRF)',
-        rankUrl: 'https://sau.int/',
-        placementUrl: 'https://sau.int/academics/faculties/faculty-of-management/',
-        fee: '₹3.20 Lakhs (Tuition) | ₹4.0 Lakhs (with Hostel)',
-        safeScore: 210,
+        programs: [
+            {
+                code: 'COQP12',
+                name: 'COQP12 - MBA Admissions (General Management)',
+                rank: 'International SAARC University | Established by 8 SAARC Nations',
+                rankUrl: 'https://sau.int/about/accreditation/',
+                placementUrl: 'https://sau.int/training_placement_cell/',
+                fee: '₹5.88 Lakhs (Tuition & Adm.) | ₹6.61 Lakhs (with Hostel)',
+                safeScore: 140,
+                packages: {
+                    highest: '23.00 LPA',
+                    average: '6.00 LPA',
+                    median: '5.50 LPA',
+                    lowest: '4.00 LPA'
+                },
+                roles: 'Business Analyst, Operations Manager, Corporate Consultant, Research Analyst',
+                description: 'Admission via CUET PG Paper Code COQP12 (MBA / General Management). Standard admissions path.'
+            },
+            {
+                code: 'COQP10',
+                name: 'COQP10 - MBA Admissions (Alternative Stream Route)',
+                rank: 'International SAARC University | Established by 8 SAARC Nations',
+                rankUrl: 'https://sau.int/about/accreditation/',
+                placementUrl: 'https://sau.int/training_placement_cell/',
+                fee: '₹5.88 Lakhs (Tuition & Adm.) | ₹6.61 Lakhs (with Hostel)',
+                safeScore: 120,
+                packages: {
+                    highest: '23.00 LPA',
+                    average: '6.00 LPA',
+                    median: '5.50 LPA',
+                    lowest: '4.00 LPA'
+                },
+                roles: 'Business Analyst, Operations Manager, Corporate Consultant, Research Analyst',
+                description: 'Admission via CUET PG Paper Code COQP10. Alternative exam code route with custom target thresholds.'
+            },
+            {
+                code: 'COQP08',
+                name: 'COQP08 - MBA Admissions (Alternative Stream Route)',
+                rank: 'International SAARC University | Established by 8 SAARC Nations',
+                rankUrl: 'https://sau.int/about/accreditation/',
+                placementUrl: 'https://sau.int/training_placement_cell/',
+                fee: '₹5.88 Lakhs (Tuition & Adm.) | ₹6.61 Lakhs (with Hostel)',
+                safeScore: 110,
+                packages: {
+                    highest: '23.00 LPA',
+                    average: '6.00 LPA',
+                    median: '5.50 LPA',
+                    lowest: '4.00 LPA'
+                },
+                roles: 'Business Analyst, Operations Manager, Corporate Consultant, Research Analyst',
+                description: 'Admission via CUET PG Paper Code COQP08. Alternative exam code route with custom target thresholds.'
+            },
+            {
+                code: 'SAU-ET',
+                name: 'SAU-ET - SAU Entrance Test (Separate Route)',
+                rank: 'International SAARC University | Established by 8 SAARC Nations',
+                rankUrl: 'https://sau.int/about/accreditation/',
+                placementUrl: 'https://sau.int/training_placement_cell/',
+                fee: '₹5.88 Lakhs (Tuition & Adm.) | ₹6.61 Lakhs (with Hostel)',
+                safeScore: 'N/A',
+                packages: {
+                    highest: '23.00 LPA',
+                    average: '6.00 LPA',
+                    median: '5.50 LPA',
+                    lowest: '4.00 LPA'
+                },
+                roles: 'Business Analyst, Operations Manager, Corporate Consultant, Research Analyst',
+                description: 'Admission via SAU\'s own separate Entrance Test. Student entries are marked as N/A in the tracker.'
+            }
+        ],
+        code: 'COQP12, COQP10, COQP08 & SAU-ET',
+        rank: 'International SAARC University | Established by 8 SAARC Nations',
+        rankUrl: 'https://sau.int/about/accreditation/',
+        placementUrl: 'https://sau.int/training_placement_cell/',
+        fee: '₹5.88 Lakhs (Tuition & Adm.) | ₹6.61 Lakhs (with Hostel)',
+        safeScore: 140,
         packages: {
-            highest: '12.00 LPA',
+            highest: '23.00 LPA',
             average: '6.00 LPA',
             median: '5.50 LPA',
             lowest: '4.00 LPA'
         },
         roles: 'Business Analyst, Operations Manager, Corporate Consultant, Research Analyst',
-        description: 'International SAARC university in New Delhi. Known for multicultural exposure, highly subsidized international-standard education, and strong foundation in research and management.'
+        description: 'International SAARC university in New Delhi. Known for multicultural exposure, highly subsidized international-standard education, and strong foundation in research and management. Admits candidates via COQP12, COQP10, COQP08, and SAU-ET.'
     },
     {
         id: 'iiitl',
@@ -83,7 +154,7 @@ const collegesData = [
         image: 'images/iiit_lucknow.png',
         rank: 'Institute of National Importance | Top Emerging Tech B-School',
         rankUrl: 'https://iiitl.ac.in/',
-        placementUrl: 'https://iiitl.ac.in/placements/',
+        placementUrl: 'https://placements.iiitl.ac.in/',
         fee: '₹3.02 Lakhs (Tuition) | ₹4.64 Lakhs (with Hostel)',
         safeScore: 161,
         packages: {
@@ -101,8 +172,8 @@ const collegesData = [
         code: 'COQP11',
         image: 'images/tiss_hyderabad.png',
         rank: 'NIRF Rank #72 (University) | Off-Campus Hyderabad',
-        rankUrl: 'https://www.nirfindia.org/',
-        placementUrl: 'https://tiss.edu/',
+        rankUrl: 'https://tiss.ac.in/NIRF/',
+        placementUrl: 'https://tiss.ac.in/placement_tiss/',
         fee: '₹1.45 Lakhs (Tuition) | ₹2.8 Lakhs (with Hostel)',
         safeScore: 165,
         packages: {
@@ -120,8 +191,8 @@ const collegesData = [
         code: 'COQP11',
         image: 'images/tiss_guwahati.png',
         rank: 'NIRF Rank #72 (University) | Off-Campus Guwahati',
-        rankUrl: 'https://www.nirfindia.org/',
-        placementUrl: 'https://tiss.edu/',
+        rankUrl: 'https://tiss.ac.in/NIRF/',
+        placementUrl: 'https://tiss.ac.in/placement_tiss/',
         fee: '₹1.05 Lakhs (Tuition) | ₹2.2 Lakhs (with Hostel)',
         safeScore: 155,
         packages: {
@@ -139,8 +210,8 @@ const collegesData = [
         code: 'COQP11',
         image: 'images/tiss_tuljapur.png',
         rank: 'NIRF Rank #72 (University) | Off-Campus Tuljapur',
-        rankUrl: 'https://www.nirfindia.org/',
-        placementUrl: 'https://tiss.edu/',
+        rankUrl: 'https://tiss.ac.in/NIRF/',
+        placementUrl: 'https://tiss.ac.in/placement_tiss/',
         fee: '₹1.10 Lakhs (Tuition) | ₹2.3 Lakhs (with Hostel)',
         safeScore: 150,
         packages: {
@@ -179,8 +250,50 @@ function getEstimatedPercentile(score, paperCode) {
         } else {
             estimatedPercentile = (score / 118) * 50.00;
         }
+    } else if (paperCode === 'COQP10') {
+        // Data-driven evaluation derived from COQP10 baseline (N=15,231)
+        if (score >= 203) {
+            estimatedPercentile = 99.90 + ((score - 203) / 28) * 0.09;
+        } else if (score >= 186) {
+            estimatedPercentile = 99.50 + ((score - 186) / 17) * 0.40;
+        } else if (score >= 174) {
+            estimatedPercentile = 99.00 + ((score - 174) / 12) * 0.50;
+        } else if (score >= 161) {
+            estimatedPercentile = 98.00 + ((score - 161) / 13) * 1.00;
+        } else if (score >= 137) {
+            estimatedPercentile = 95.00 + ((score - 137) / 24) * 3.00;
+        } else if (score >= 112) {
+            estimatedPercentile = 90.00 + ((score - 112) / 25) * 5.00;
+        } else if (score >= 75) {
+            estimatedPercentile = 75.00 + ((score - 75) / 37) * 15.00;
+        } else if (score >= 46) {
+            estimatedPercentile = 50.00 + ((score - 46) / 29) * 25.00;
+        } else {
+            estimatedPercentile = (score / 46) * 50.00;
+        }
+    } else if (paperCode === 'COQP08') {
+        // Data-driven evaluation derived from COQP08 baseline (N=11,689)
+        if (score >= 204) {
+            estimatedPercentile = 99.90 + ((score - 204) / 14) * 0.09;
+        } else if (score >= 186) {
+            estimatedPercentile = 99.50 + ((score - 186) / 18) * 0.40;
+        } else if (score >= 173) {
+            estimatedPercentile = 99.00 + ((score - 173) / 13) * 0.50;
+        } else if (score >= 159) {
+            estimatedPercentile = 98.00 + ((score - 159) / 14) * 1.00;
+        } else if (score >= 139) {
+            estimatedPercentile = 95.00 + ((score - 139) / 20) * 3.00;
+        } else if (score >= 122) {
+            estimatedPercentile = 90.00 + ((score - 122) / 17) * 5.00;
+        } else if (score >= 93) {
+            estimatedPercentile = 75.00 + ((score - 93) / 29) * 15.00;
+        } else if (score >= 65) {
+            estimatedPercentile = 50.00 + ((score - 65) / 28) * 25.00;
+        } else {
+            estimatedPercentile = (score / 65) * 50.00;
+        }
     } else {
-        // Data-driven evaluation derived from the CUET MBA Ranking baseline (N=49,593)
+        // Data-driven evaluation derived from the CUET MBA Ranking baseline (N=49,593, representing COQP12)
         if (score >= 250) {
             estimatedPercentile = 99.85 + ((score - 250) / 50) * 0.15;
         } else if (score >= 210) {
@@ -233,32 +346,18 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Theme Switcher Logic
     const themeToggleBtn = document.getElementById('theme-toggle');
-    const sunIcon = document.querySelector('.sun-icon');
-    const moonIcon = document.querySelector('.moon-icon');
-    
     const savedTheme = localStorage.getItem('theme') || 'dark';
     if (savedTheme === 'light') {
         document.body.classList.remove('dark-mode');
-        if (sunIcon) sunIcon.classList.add('hidden');
-        if (moonIcon) moonIcon.classList.remove('hidden');
     } else {
         document.body.classList.add('dark-mode');
-        if (sunIcon) sunIcon.classList.remove('hidden');
-        if (moonIcon) moonIcon.classList.add('hidden');
     }
     
-    if (themeToggleBtn) {
+    if (themeToggleBtn && !window.themeToggleInitialized) {
+        window.themeToggleInitialized = true;
         themeToggleBtn.addEventListener('click', () => {
             const isDark = document.body.classList.toggle('dark-mode');
             localStorage.setItem('theme', isDark ? 'dark' : 'light');
-            
-            if (isDark) {
-                if (sunIcon) sunIcon.classList.remove('hidden');
-                if (moonIcon) moonIcon.classList.add('hidden');
-            } else {
-                if (sunIcon) sunIcon.classList.add('hidden');
-                if (moonIcon) moonIcon.classList.remove('hidden');
-            }
         });
     }
 
@@ -285,7 +384,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 </div>
                 <div class="college-card-content">
                     <h3>${college.name}</h3>
-                    <div style="margin-bottom: 0.75rem;">
+                    <div class="college-card-tags">
                         <span class="tag tag-${college.id}">${college.code}</span>
                         <span class="tag tag-success">Safe: ${college.safeScore}+</span>
                     </div>
@@ -383,7 +482,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             } else {
                 if (score >= 250) {
-                    feedbackMsg = `Outstanding! You are in the top 0.15% safe zone for Category [${category}]. Admission to TISS Mumbai is highly probable.`;
+                    feedbackMsg = `Outstanding! You are in the premium safe zone for Category [${category}]. Admission to TISS Mumbai is highly probable.`;
                 } else if (score >= 210) {
                     feedbackMsg = `Excellent score! High likelihood of securing admission to TISS Mumbai, SAU, or IIIT Lucknow for Category [${category}].`;
                 } else if (score >= 170) {
@@ -408,33 +507,15 @@ document.addEventListener('DOMContentLoaded', () => {
                 : '';
 
             resultBox.innerHTML = `
-                <h3>Estimated Standing (${paperCode} | ${category})</h3>
+                <h3>Admission Estimate (${paperCode} | ${category})</h3>
                 
-                <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; margin: 1.5rem 0;">
-                    <div class="percentile-gauge-wrapper" style="position: relative; display: flex; align-items: center; justify-content: center; width: 140px; height: 140px;">
-                        <svg class="gauge" viewBox="0 0 120 120" style="width: 140px; height: 140px;">
-                            <circle class="gauge-bg" cx="60" cy="60" r="50" fill="none" stroke="var(--border-color)" stroke-width="8"></circle>
-                            <circle class="gauge-fill" id="gauge-fill-arc" cx="60" cy="60" r="50" fill="none" stroke="url(#gauge-grad)" stroke-width="8"
-                                    stroke-dasharray="314.16" stroke-dashoffset="314.16" stroke-linecap="round" transform="rotate(-90 60 60)" style="transition: stroke-dashoffset 1s ease-out;"></circle>
-                            <defs>
-                                <linearGradient id="gauge-grad" x1="0%" y1="0%" x2="100%" y2="100%">
-                                    <stop offset="0%" stop-color="var(--accent)" />
-                                    <stop offset="100%" stop-color="var(--accent-gold)" />
-                                </linearGradient>
-                            </defs>
-                        </svg>
-                        <div id="gauge-value-text" style="position: absolute; font-size: 1.75rem; font-weight: 800; color: var(--text-main); font-family: 'Outfit', sans-serif;">0%</div>
-                    </div>
-                    <div style="font-size: 1.1rem; font-weight: 700; margin-top: 0.75rem; color: var(--text-main); font-family: 'Outfit';">Estimated Percentile</div>
-                </div>
-
-                <p style="margin-top: 1rem; color: var(--text-muted); font-size: 0.95rem; line-height: 1.5;">
+                <p style="margin-top: 0.5rem; color: var(--text-muted); font-size: 0.95rem; line-height: 1.5; font-weight: 500;">
                     ${feedbackMsg}
                 </p>
                 ${attainableHtml}
                 ${bridgeHtml}
                 
-                <button type="button" onclick="shareResult(${estimatedPercentile.toFixed(2)}, '${paperCode}', ${score})" class="share-btn" style="margin-top: 1.5rem; width: 100%; background: #25D366; display: flex; align-items: center; justify-content: center; gap: 0.5rem; color: white; border: none; border-radius: 8px; font-weight: 700; padding: 0.75rem; cursor: pointer;">
+                <button type="button" onclick="shareResult('${paperCode}', ${score})" class="share-btn" style="margin-top: 1.25rem; width: 100%; background: #25D366; display: flex; align-items: center; justify-content: center; gap: 0.5rem; color: white; border: none; border-radius: 8px; font-weight: 700; padding: 0.75rem; cursor: pointer;">
                     <svg style="width: 20px; height: 20px;" viewBox="0 0 24 24" fill="currentColor">
                         <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.817 9.817 0 0 0 12.04 2zm5.82 12.92c-.25.7-1.46 1.37-2.02 1.44-.49.06-1.12.08-3.26-.8-2.73-1.12-4.5-3.9-4.64-4.08-.13-.19-1.11-1.48-1.11-2.82 0-1.34.7-2 1-2.32.25-.26.66-.37.98-.37.1 0 .2 0 .28.01.25.01.5.02.73.55.27.65.92 2.24 1 2.4.08.17.13.36.01.59-.12.23-.27.37-.4.52-.14.16-.3.34-.13.62.33.56.74 1.02 1.25 1.48.66.59 1.22.78 1.54.95.29.15.46.12.63-.07.17-.19.73-.85.93-1.14.2-.29.41-.24.69-.14.28.1 1.78.84 2.09.99.31.15.52.23.6.36.08.14.08.81-.17 1.51z"/>
                     </svg>
@@ -443,36 +524,6 @@ document.addEventListener('DOMContentLoaded', () => {
             `;
             
             resultBox.classList.remove('hidden');
-            resultBox.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-
-            // Animate SVG Gauge Fill and Number Counter
-            setTimeout(() => {
-                const fillArc = document.getElementById('gauge-fill-arc');
-                const textVal = document.getElementById('gauge-value-text');
-                if (fillArc) {
-                    const offset = 314.16 * (1 - estimatedPercentile / 100);
-                    fillArc.style.strokeDashoffset = offset;
-                }
-                if (textVal) {
-                    let start = 0;
-                    const end = estimatedPercentile;
-                    const duration = 1000;
-                    const startTime = performance.now();
-                    
-                    function updateNum(now) {
-                        const elapsed = now - startTime;
-                        const progress = Math.min(elapsed / duration, 1);
-                        const current = start + progress * (end - start);
-                        textVal.textContent = current.toFixed(1) + "%";
-                        if (progress < 1) {
-                            requestAnimationFrame(updateNum);
-                        } else {
-                            textVal.textContent = end.toFixed(2) + "%";
-                        }
-                    }
-                    requestAnimationFrame(updateNum);
-                }
-            }, 100);
         });
     }
 
@@ -650,13 +701,8 @@ async function loadStudentsData() {
             const studentsList = data[collegeId];
             studentsList.forEach(student => {
                 const isUnmatched = student.score === 'N/A';
-                let studentPaperCode = collegeId === 'tiss_coqp11' ? 'COQP11' : (collegeId === 'tiss' ? 'COQP12' : college.code);
+                let studentPaperCode = student.paperCode || (collegeId === 'tiss_coqp11' ? 'COQP11' : (collegeId === 'tiss' ? 'COQP12' : college.code));
                 let collegePaperCode = studentPaperCode;
-                if (isUnmatched) {
-                    if (collegeId === 'sau') studentPaperCode = 'SAU-ET';
-                    else if (collegeId.startsWith('tiss')) studentPaperCode = 'TISS-ET';
-                    else studentPaperCode = 'N/A';
-                }
                 allStudents.push({
                     name: student.name,
                     app: student.app,
@@ -696,7 +742,7 @@ async function loadStudentsData() {
         console.error("Failed to load student merit list database", e);
         const container = document.getElementById('explorer-list');
         if (container) {
-            container.innerHTML = `<tr><td colspan="8" style="text-align: center; color: var(--accent);">Failed to load students merit list. Check console.</td></tr>`;
+            container.innerHTML = `<tr><td colspan="7" style="text-align: center; color: var(--accent);">Failed to load students merit list. Check console.</td></tr>`;
         }
     }
 }
@@ -823,7 +869,6 @@ function renderExplorer() {
             <td class="hide-mobile"><span class="tag tag-success" style="font-size: 0.75rem;">${student.paperCode}</span></td>
             <td class="hide-mobile" style="font-family: monospace; color: var(--text-muted); font-size: 0.9rem;">${highlightedApp}</td>
             <td><span class="score-badge">${student.score}</span></td>
-            <td style="font-weight: 700; color: var(--accent);">${student.score === 'N/A' ? 'N/A' : student.percentile.toFixed(2) + ' %ile'}</td>
         `;
         listContainer.appendChild(tr);
     });
@@ -903,8 +948,8 @@ function setupFilters() {
 }
 
 // Social Sharing function
-window.shareResult = function(percentile, code, score) {
-    const text = encodeURIComponent(`I just checked my CUET PG expected percentile standing! I got a score of ${score}/300 (${code}), estimating around the ${percentile}th percentile. Verify yours and compare top university cutoffs! 🎓🚀`);
+window.shareResult = function(code, score) {
+    const text = encodeURIComponent(`I just evaluated my CUET PG expected admission status and target college eligibility! I got a score of ${score}/300 (${code}). Verify yours and compare top university cutoffs! 🎓🚀`);
     window.open(`https://wa.me/?text=${text}`, '_blank');
 }
 
