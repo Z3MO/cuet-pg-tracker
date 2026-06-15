@@ -509,6 +509,10 @@ document.addEventListener('DOMContentLoaded', () => {
             resultBox.innerHTML = `
                 <h3>Admission Estimate (${paperCode} | ${category})</h3>
                 
+                <div style="margin: 0.75rem 0; font-size: 1.1rem; font-weight: 700; color: var(--accent);">
+                    📊 Est. Percentile: ${estimatedPercentile.toFixed(2)}%
+                </div>
+                
                 <p style="margin-top: 0.5rem; color: var(--text-muted); font-size: 0.95rem; line-height: 1.5; font-weight: 500;">
                     ${feedbackMsg}
                 </p>
@@ -856,6 +860,10 @@ function renderExplorer() {
         const highlightedApp = searchQuery ? highlightSearchText(student.app, searchQuery) : student.app;
         const highlightedCourse = searchQuery ? highlightSearchText(student.course, searchQuery) : student.course;
 
+        const isUnmatched = student.score === 'N/A';
+        const percentileVal = isUnmatched ? 'N/A' : getEstimatedPercentile(student.score, student.collegePaperCode || student.paperCode);
+        const percentileText = (isUnmatched || percentileVal === 'N/A') ? 'N/A' : `${percentileVal.toFixed(2)}%`;
+
         tr.innerHTML = `
             <td ${rankBadgeClass}>#${absoluteRank}</td>
             <td>
@@ -867,6 +875,7 @@ function renderExplorer() {
             <td><span class="tag tag-${student.collegeId}">${student.collegeName}</span></td>
             <td style="font-weight: 500; color: var(--text-main); font-size: 0.9rem;">${highlightedCourse}</td>
             <td class="hide-mobile"><span class="tag tag-success" style="font-size: 0.75rem;">${student.paperCode}</span></td>
+            <td class="hide-mobile" style="font-weight: 600; color: var(--accent);">${percentileText}</td>
             <td class="hide-mobile" style="font-family: monospace; color: var(--text-muted); font-size: 0.9rem;">${highlightedApp}</td>
             <td><span class="score-badge">${student.score}</span></td>
         `;

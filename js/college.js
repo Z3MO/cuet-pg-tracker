@@ -228,6 +228,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                     <th>Specialization / Course</th>
                     <th class="hide-mobile">Application No</th>
                     <th>CUET Score</th>
+                    <th>Percentile</th>
                 `;
             }
         }
@@ -245,7 +246,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                     const scoreVal = student.score !== undefined ? student.score : '-';
                     const isUnmatched = student.score === 'N/A';
                     const percentileVal = isUnmatched ? 'N/A' : getEstimatedPercentile(student.score, student.collegePaperCode || college.code);
-                    const percentileText = (isUnmatched || percentileVal === 'N/A') ? 'N/A' : `${percentileVal}%`;
+                    const percentileText = (isUnmatched || percentileVal === 'N/A') ? 'N/A' : `${percentileVal.toFixed(2)}%`;
                     
                     if (isMulti) {
                         // Style program tags nicely
@@ -282,6 +283,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                             <td style="font-weight: 500; color: var(--text-main); font-size: 0.9rem;">${student.course || 'General'}</td>
                             <td class="hide-mobile" style="color: var(--text-muted); font-family: monospace; font-size: 0.9rem;">${appVal}</td>
                             <td><span class="score-badge">${scoreVal}</span></td>
+                            <td style="font-weight: 600; color: var(--accent);">${percentileText}</td>
                         `;
                     }
                     tbody.appendChild(tr);
