@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>College Details - CUET PG Tracker</title>
+    <link rel="canonical" href="https://cuetpgtracker.me/college.html" />
     <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- Stylesheets -->
@@ -18,6 +19,23 @@
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
       gtag('config', 'G-EHPV010QKD');
+    </script>
+    <script>
+      window.addEventListener('error', function(e) {
+          const loadingDiv = document.getElementById('loading');
+          if (loadingDiv) {
+              loadingDiv.innerHTML = `
+                  <div style="background: rgba(239, 68, 68, 0.1); border: 1px solid #ef4444; border-radius: 8px; padding: 1.5rem; text-align: left; max-width: 600px; margin: 0 auto; color: var(--text-main);">
+                      <h3 style="color: #ef4444; margin-top: 0; display: flex; align-items: center; gap: 0.5rem; font-family: sans-serif;">
+                          <i class="fa-solid fa-triangle-exclamation"></i> JavaScript Error Detected
+                      </h3>
+                      <p style="margin-bottom: 0.5rem; font-family: monospace; font-size: 0.9rem;"><strong>Message:</strong> ${e.message}</p>
+                      <p style="margin-bottom: 0.5rem; font-family: monospace; font-size: 0.9rem;"><strong>Source:</strong> ${e.filename}</p>
+                      <p style="margin-bottom: 0; font-family: monospace; font-size: 0.9rem;"><strong>Line:</strong> ${e.lineno}, <strong>Col:</strong> ${e.colno}</p>
+                  </div>
+              `;
+          }
+      });
     </script>
     <style>
         /* Specific page helpers to align detail card nicely */
@@ -141,14 +159,32 @@
                     Description...
                 </p>
 
-                <!-- Program Selector (For colleges with multiple programs like TISS) -->
-                <div id="program-selector-container" class="hidden" style="margin-bottom: 2rem; padding: 1.25rem; background: rgba(255, 255, 255, 0.03); border: 1px solid var(--border-color); border-radius: var(--radius-md);">
-                    <label for="program-select-dropdown" style="display: block; font-size: 0.85rem; font-weight: 700; color: var(--text-main); margin-bottom: 0.5rem; text-transform: uppercase; letter-spacing: 0.05em;">
-                        Select Program Stream / Paper Code
-                    </label>
-                    <select id="program-select-dropdown" class="filter-input no-icon" style="max-width: 100%; width: 100%; font-size: 0.95rem; padding: 0.6rem 1rem; border-radius: 8px;">
-                        <!-- Injected dynamically via JS -->
-                    </select>
+                <!-- Unified Course-First Selection Card -->
+                <div id="unified-selector-card" style="background: rgba(255, 255, 255, 0.02); border: 1px solid var(--border-color); padding: 1.5rem; margin-bottom: 2rem; border-radius: var(--radius-md); box-shadow: var(--shadow-sm);">
+                    <h3 style="color: var(--primary); font-size: 1.15rem; margin-top: 0; margin-bottom: 1.25rem; display: flex; align-items: center; gap: 0.5rem; font-weight: 700;">
+                        <i class="fa-solid fa-sliders" style="color: var(--accent);"></i> Customize Admission Insights & Filters
+                    </h3>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.25rem; align-items: end;">
+                        <!-- Course / Specialization Selector -->
+                        <div id="course-selector-container">
+                            <label for="course-select-dropdown" style="display: block; font-size: 0.75rem; font-weight: 700; color: var(--text-muted); margin-bottom: 0.5rem; text-transform: uppercase; letter-spacing: 0.05em;">
+                                Target Specialization / Course
+                            </label>
+                            <select id="course-select-dropdown" class="filter-input no-icon" style="width: 100%; font-size: 0.9rem; padding: 0.65rem 1rem; border-radius: 8px; cursor: pointer; background: var(--card-bg); border-color: var(--border-color);">
+                                <option value="all">All Specializations (Merged View)</option>
+                            </select>
+                        </div>
+                        
+                        <!-- Exam Paper Code Selector -->
+                        <div id="paper-selector-container">
+                            <label for="paper-select-dropdown" style="display: block; font-size: 0.75rem; font-weight: 700; color: var(--text-muted); margin-bottom: 0.5rem; text-transform: uppercase; letter-spacing: 0.05em;">
+                                Filter by Exam Paper Code
+                            </label>
+                            <select id="paper-select-dropdown" class="filter-input no-icon" style="width: 100%; font-size: 0.9rem; padding: 0.65rem 1rem; border-radius: 8px; cursor: pointer; background: var(--card-bg); border-color: var(--border-color);">
+                                <option value="all">All Exam Papers</option>
+                            </select>
+                        </div>
+                    </div>
                 </div>
 
                 <!-- Motivation Banner -->
@@ -260,13 +296,15 @@
                             <p class="subtitle">Official NTA score distribution and recorded student entries.</p>
                         </div>
                         
-                        <!-- Search Box for specific college -->
-                        <div class="search-input-wrapper" style="max-width: 300px; width: 100%;">
-                            <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <circle cx="11" cy="11" r="8"></circle>
-                                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-                            </svg>
-                            <input type="text" id="student-search" class="filter-input" placeholder="Search students in this list...">
+                        <!-- Filters wrapper: Search Box only (Selectors moved to top) -->
+                        <div style="display: flex; gap: 1rem; align-items: center; flex-wrap: wrap; max-width: 300px; width: 100%; justify-content: flex-end;">
+                            <div class="search-input-wrapper" style="width: 100%;">
+                                <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <circle cx="11" cy="11" r="8"></circle>
+                                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                                </svg>
+                                <input type="text" id="student-search" class="filter-input" placeholder="Search candidates...">
+                            </div>
                         </div>
                     </div>
                     

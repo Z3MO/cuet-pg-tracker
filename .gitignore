@@ -25,3 +25,9 @@ admitted_students.json
 Thumbs.db
 .vscode/
 .idea/
+
+# Developer matching directories (PDFs & raw OCR results)
+COQP11/
+Management/
+database/
+scratch/

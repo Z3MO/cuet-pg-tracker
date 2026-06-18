@@ -754,6 +754,9 @@ body.dark-mode .filter-input:hover {
 .tag-tiss_hyd { background-color: #e0f2fe; color: #0369a1; border: 1px solid #bae6fd; }
 .tag-tiss_gwt { background-color: #f0fdf4; color: #15803d; border: 1px solid #bbf7d0; }
 .tag-tiss_tjp { background-color: #fff7ed; color: #c2410c; border: 1px solid #ffedd5; }
+.tag-scqp09 { background-color: #ecfdf5; color: #047857; border: 1px solid #d1fae5; }
+.tag-huqp18 { background-color: #e0f2fe; color: #075985; border: 1px solid #bae6fd; }
+.tag-huqp22 { background-color: #faf5ff; color: #7e22ce; border: 1px solid #f3e8ff; }
 
 .tag-success {
     background-color: var(--success-bg);
@@ -905,6 +908,21 @@ body.dark-mode .tag-sau-et {
     background-color: rgba(148, 163, 184, 0.12);
     color: #94a3b8;
     border: 1px solid rgba(148, 163, 184, 0.3);
+}
+body.dark-mode .tag-scqp09 {
+    background-color: rgba(52, 211, 153, 0.12);
+    color: #34d399;
+    border: 1px solid rgba(52, 211, 153, 0.3);
+}
+body.dark-mode .tag-huqp18 {
+    background-color: rgba(56, 189, 248, 0.12);
+    color: #38bdf8;
+    border: 1px solid rgba(56, 189, 248, 0.3);
+}
+body.dark-mode .tag-huqp22 {
+    background-color: rgba(168, 85, 247, 0.12);
+    color: #c084fc;
+    border: 1px solid rgba(168, 85, 247, 0.3);
 }
 
 /* Pagination controls */

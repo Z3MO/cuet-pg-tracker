@@ -8,7 +8,7 @@ const collegesData = [
         programs: [
             {
                 code: 'COQP12',
-                name: 'COQP12 - MBA Equivalent (SE, LSP, DM, Analytics)',
+                name: 'COQP12 - MBA Equivalent & Flagships (HRM, ODCL, Analytics, SE, LSP, DM, DCRAS)',
                 rank: 'NIRF Rank #72 (University) | Top 10 B-School Equivalent',
                 rankUrl: 'https://tiss.ac.in/NIRF/',
                 placementUrl: 'https://tiss.ac.in/placement_tiss/',
@@ -21,7 +21,7 @@ const collegesData = [
                     lowest: '18.00 LPA'
                 },
                 roles: 'HR Specialist, OD Consultant, Talent Acquisition Lead, Labour Relations Advisor',
-                description: 'Premier institute known for its incredible ROI and flagship COQP12 programs: Social Entrepreneurship, Labour Studies & Practice, Disaster Management, and Analytics. Extremely competitive.'
+                description: 'Premier institute known for its incredible ROI and flagship COQP12 programs: HRM, ODCL, Social Entrepreneurship, Labour Studies & Practice, Disaster Management, Analytics, and Disaster & Climate Risk Assessment. Note: Analytics also accepts SCQP09 (MCA/Analytics) and COQP10 (Commerce) exam paper codes.'
             },
             {
                 code: 'COQP11',
@@ -38,7 +38,7 @@ const collegesData = [
                     lowest: '5.00 LPA'
                 },
                 roles: 'CSR Specialist, Public Health Consultant, MLISc Officer, Social Worker, Policy Analyst, Researcher',
-                description: 'TISS Mumbai offers highly reputed programs under COQP11, including Master of Arts in Social Work (9 streams), Master of Public Health (3 streams), MLISc, MA in Development Studies, MA in Women\'s Studies, MA in Education, B.Ed-M.Ed, M.Ed, and MA/MSc in Regulatory Policy and Urban Policy.'
+                description: 'TISS Mumbai offers highly reputed programs under COQP11, including Master of Arts in Social Work (9 streams), Master of Public Health (3 streams), MLISc, MA in Development Studies, MA in Women\'s Studies, MA in Education, B.Ed-M.Ed, M.Ed, and MA/MSc in Regulatory Policy and Urban Policy. Note: Social Work, Development Studies, and Policy streams also accept HUQP18 (Political Science) and HUQP22 (Sociology) exam paper codes.'
             }
         ],
         // Default/Aggregate fallbacks
@@ -306,6 +306,132 @@ function getEstimatedPercentile(score, paperCode) {
         } else {
             estimatedPercentile = (score / 104) * 73.20;
         }
+    } else if (code === 'SCQP09') {
+        // Data-driven evaluation derived from SCQP09 baseline (N=32,215)
+        if (score >= 225) {
+            estimatedPercentile = 99.90 + ((score - 225) / 40) * 0.09;
+        } else if (score >= 200) {
+            estimatedPercentile = 99.50 + ((score - 200) / 25) * 0.40;
+        } else if (score >= 186) {
+            estimatedPercentile = 99.00 + ((score - 186) / 14) * 0.50;
+        } else if (score >= 168) {
+            estimatedPercentile = 98.00 + ((score - 168) / 18) * 1.00;
+        } else if (score >= 141) {
+            estimatedPercentile = 95.00 + ((score - 141) / 27) * 3.00;
+        } else if (score >= 118) {
+            estimatedPercentile = 90.00 + ((score - 118) / 23) * 5.00;
+        } else if (score >= 86) {
+            estimatedPercentile = 75.00 + ((score - 86) / 32) * 15.00;
+        } else if (score >= 60) {
+            estimatedPercentile = 50.00 + ((score - 60) / 26) * 25.00;
+        } else {
+            estimatedPercentile = (score / 60) * 50.00;
+        }
+    } else if (code === 'HUQP18') {
+        // Data-driven evaluation derived from HUQP18 baseline (N=27,947)
+        if (score >= 246) {
+            estimatedPercentile = 99.90 + ((score - 246) / 19) * 0.09;
+        } else if (score >= 230) {
+            estimatedPercentile = 99.50 + ((score - 230) / 16) * 0.40;
+        } else if (score >= 221) {
+            estimatedPercentile = 99.00 + ((score - 221) / 9) * 0.50;
+        } else if (score >= 210) {
+            estimatedPercentile = 98.00 + ((score - 210) / 11) * 1.00;
+        } else if (score >= 190) {
+            estimatedPercentile = 95.00 + ((score - 190) / 20) * 3.00;
+        } else if (score >= 168) {
+            estimatedPercentile = 90.00 + ((score - 168) / 22) * 5.00;
+        } else if (score >= 125) {
+            estimatedPercentile = 75.00 + ((score - 125) / 43) * 15.00;
+        } else if (score >= 84) {
+            estimatedPercentile = 50.00 + ((score - 84) / 41) * 25.00;
+        } else {
+            estimatedPercentile = (score / 84) * 50.00;
+        }
+    } else if (code === 'HUQP22') {
+        // Data-driven evaluation derived from HUQP22 baseline (N=7,485)
+        if (score >= 235) {
+            estimatedPercentile = 99.90 + ((score - 235) / 15) * 0.09;
+        } else if (score >= 220) {
+            estimatedPercentile = 99.50 + ((score - 220) / 15) * 0.40;
+        } else if (score >= 215) {
+            estimatedPercentile = 99.00 + ((score - 215) / 5) * 0.50;
+        } else if (score >= 205) {
+            estimatedPercentile = 98.00 + ((score - 205) / 10) * 1.00;
+        } else if (score >= 187) {
+            estimatedPercentile = 95.00 + ((score - 187) / 18) * 3.00;
+        } else if (score >= 167) {
+            estimatedPercentile = 90.00 + ((score - 167) / 20) * 5.00;
+        } else if (score >= 130) {
+            estimatedPercentile = 75.00 + ((score - 130) / 37) * 15.00;
+        } else if (score >= 85) {
+            estimatedPercentile = 50.00 + ((score - 85) / 45) * 25.00;
+        } else {
+            estimatedPercentile = (score / 85) * 50.00;
+        }
+    } else if (code.startsWith('HUQP')) {
+        // Generalized Humanities curve approximation
+        if (score >= 220) {
+            estimatedPercentile = 99.90 + ((score - 220) / 30) * 0.09;
+        } else if (score >= 190) {
+            estimatedPercentile = 99.50 + ((score - 190) / 30) * 0.40;
+        } else if (score >= 175) {
+            estimatedPercentile = 99.00 + ((score - 175) / 15) * 0.50;
+        } else if (score >= 160) {
+            estimatedPercentile = 98.00 + ((score - 160) / 15) * 1.00;
+        } else if (score >= 140) {
+            estimatedPercentile = 95.00 + ((score - 140) / 20) * 3.00;
+        } else if (score >= 120) {
+            estimatedPercentile = 90.00 + ((score - 120) / 20) * 5.00;
+        } else if (score >= 95) {
+            estimatedPercentile = 75.00 + ((score - 95) / 25) * 15.00;
+        } else if (score >= 70) {
+            estimatedPercentile = 50.00 + ((score - 70) / 25) * 25.00;
+        } else {
+            estimatedPercentile = (score / 70) * 50.00;
+        }
+    } else if (code === 'COQP14') {
+        // LL.M curve approximation (Highly competitive)
+        if (score >= 240) {
+            estimatedPercentile = 99.90 + ((score - 240) / 60) * 0.09;
+        } else if (score >= 215) {
+            estimatedPercentile = 99.50 + ((score - 215) / 25) * 0.40;
+        } else if (score >= 200) {
+            estimatedPercentile = 99.00 + ((score - 200) / 15) * 0.50;
+        } else if (score >= 185) {
+            estimatedPercentile = 98.00 + ((score - 185) / 15) * 1.00;
+        } else if (score >= 160) {
+            estimatedPercentile = 95.00 + ((score - 160) / 25) * 3.00;
+        } else if (score >= 140) {
+            estimatedPercentile = 90.00 + ((score - 140) / 20) * 5.00;
+        } else if (score >= 110) {
+            estimatedPercentile = 75.00 + ((score - 110) / 30) * 15.00;
+        } else if (score >= 80) {
+            estimatedPercentile = 50.00 + ((score - 80) / 30) * 25.00;
+        } else {
+            estimatedPercentile = (score / 80) * 50.00;
+        }
+    } else if (code.startsWith('SCQP') || ['COQP09', 'COQP03', 'COQP15', 'COQP16', 'COQP19', 'COQP22', 'SCQP04', 'SCQP27', 'SCQP09'].includes(code)) {
+        // Science & specialized papers curve approximation
+        if (score >= 230) {
+            estimatedPercentile = 99.90 + ((score - 230) / 70) * 0.09;
+        } else if (score >= 205) {
+            estimatedPercentile = 99.50 + ((score - 205) / 25) * 0.40;
+        } else if (score >= 190) {
+            estimatedPercentile = 99.00 + ((score - 190) / 15) * 0.50;
+        } else if (score >= 175) {
+            estimatedPercentile = 98.00 + ((score - 175) / 15) * 1.00;
+        } else if (score >= 150) {
+            estimatedPercentile = 95.00 + ((score - 150) / 25) * 3.00;
+        } else if (score >= 130) {
+            estimatedPercentile = 90.00 + ((score - 130) / 20) * 5.00;
+        } else if (score >= 100) {
+            estimatedPercentile = 75.00 + ((score - 100) / 30) * 15.00;
+        } else if (score >= 75) {
+            estimatedPercentile = 50.00 + ((score - 75) / 25) * 25.00;
+        } else {
+            estimatedPercentile = (score / 75) * 50.00;
+        }
     } else {
         // Fallback: Default to COQP12 (MBA) curve
         if (score >= 250) {
@@ -320,7 +446,6 @@ function getEstimatedPercentile(score, paperCode) {
             estimatedPercentile = (score / 104) * 73.20;
         }
     }
-    
     return Math.min(99.99, Math.max(0, estimatedPercentile));
 }
 
@@ -692,7 +817,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     const medVal = parseFloat(c.packages.median);
                     let feeVal = 3.02;
                     if (c.id === 'tiss') feeVal = 1.85;
-                    else if (c.id === 'sau') feeVal = 3.20;
+                    else if (c.id === 'sau') feeVal = 5.88;
                     else if (c.id === 'tiss_hyd') feeVal = 1.45;
                     else if (c.id === 'tiss_gwt') feeVal = 1.05;
                     else if (c.id === 'tiss_tjp') feeVal = 1.10;
@@ -922,6 +1047,16 @@ function renderExplorer() {
         const percentileVal = isUnmatched ? 'N/A' : getEstimatedPercentile(student.score, student.collegePaperCode || student.paperCode);
         const percentileText = (isUnmatched || percentileVal === 'N/A') ? 'N/A' : `${percentileVal.toFixed(2)}%`;
 
+        let paperBadgeClass = 'tag-sau';
+        if (student.paperCode === 'COQP12') paperBadgeClass = 'tag-sau-coqp12';
+        else if (student.paperCode === 'COQP10') paperBadgeClass = 'tag-sau-coqp10';
+        else if (student.paperCode === 'COQP08') paperBadgeClass = 'tag-sau-coqp08';
+        else if (student.paperCode === 'COQP11') paperBadgeClass = 'tag-tiss-coqp11';
+        else if (student.paperCode === 'SAU-ET') paperBadgeClass = 'tag-sau-et';
+        else if (student.paperCode === 'SCQP09') paperBadgeClass = 'tag-scqp09';
+        else if (student.paperCode === 'HUQP18') paperBadgeClass = 'tag-huqp18';
+        else if (student.paperCode === 'HUQP22') paperBadgeClass = 'tag-huqp22';
+
         tr.innerHTML = `
             <td ${rankBadgeClass}>#${absoluteRank}</td>
             <td>
@@ -932,7 +1067,7 @@ function renderExplorer() {
             </td>
             <td><span class="tag tag-${student.collegeId}">${student.collegeName}</span></td>
             <td style="font-weight: 500; color: var(--text-main); font-size: 0.9rem;">${highlightedCourse}</td>
-            <td class="hide-mobile"><span class="tag tag-success" style="font-size: 0.75rem;">${student.paperCode}</span></td>
+            <td class="hide-mobile"><span class="tag ${paperBadgeClass}" style="font-size: 0.75rem;">${student.paperCode}</span></td>
             <td class="hide-mobile" style="font-weight: 600; color: var(--accent);">${percentileText}</td>
             <td class="hide-mobile" style="font-family: monospace; color: var(--text-muted); font-size: 0.9rem;">${highlightedApp}</td>
             <td><span class="score-badge">${student.score}</span></td>
