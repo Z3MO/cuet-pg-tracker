@@ -1160,16 +1160,14 @@ async function initVisitorCounter() {
     const counterEl = document.getElementById('visitor-count');
     if (!counterEl) return;
 
-    // Use a fresh new key to start count from 0 on the server
-    const apiKey = 'cuet-pg-tracker-fresh-v1';
-    const baseline = 999; // baseline offset so first hit displays 1000
+    // Baseline offset so initial hits display realistic base visits
+    const baseline = 1000;
 
     const fallbackCount = () => {
         let visits = localStorage.getItem('cuet_pg_visits_v2');
         if (!visits) {
             visits = 1000; // Baseline visits
         }
-        // Only increment local storage count once per session
         if (!sessionStorage.getItem('visited_local_session')) {
             visits = parseInt(visits, 10) + 1;
             localStorage.setItem('cuet_pg_visits_v2', visits);
@@ -1181,21 +1179,19 @@ async function initVisitorCounter() {
     };
 
     try {
-        let url = `https://api.counterapi.dev/v1/names/${apiKey}`;
+        let url = 'https://counterapi.com/api/v1/cuetpgtracker_me';
         
         // If the user hasn't visited in this browser session, increment the global counter
         if (!sessionStorage.getItem('visited_global_session')) {
-            url += '/up';
+            url = 'https://counterapi.com/api/v1/cuetpgtracker_me/up';
         }
 
         const response = await fetch(url);
-        if (!response.ok) throw new Error('API failure');
+        if (!response.ok) throw new Error(`API failure: status ${response.status}`);
         const data = await response.json();
         
-        // Show counter
-        const count = data.value || data.count;
-        if (count !== undefined) {
-            // Set session visited flag after a successful API fetch/increment
+        const count = data.value;
+        if (count !== undefined && count !== null) {
             if (url.endsWith('/up')) {
                 sessionStorage.setItem('visited_global_session', 'true');
             }
