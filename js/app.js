@@ -21,7 +21,7 @@ const collegesData = [
                     lowest: '18.00 LPA'
                 },
                 roles: 'HR Specialist, OD Consultant, Talent Acquisition Lead, Labour Relations Advisor',
-                description: 'Premier institute known for its incredible ROI and flagship COQP12 programs: HRM, ODCL, Social Entrepreneurship, Labour Studies & Practice, Disaster Management, Analytics, and Disaster & Climate Risk Assessment. Note: Analytics also accepts SCQP09 (MCA/Analytics) and COQP10 (Commerce) exam paper codes.'
+                description: 'Premier institute known for its incredible ROI and flagship COQP12 programs: HRM, ODCL, Social Entrepreneurship, Labour Studies & Practice, Disaster Management, Analytics, and Disaster & Climate Risk Assessment.'
             },
             {
                 code: 'COQP11',
@@ -38,10 +38,9 @@ const collegesData = [
                     lowest: '5.00 LPA'
                 },
                 roles: 'CSR Specialist, Public Health Consultant, MLISc Officer, Social Worker, Policy Analyst, Researcher',
-                description: 'TISS Mumbai offers highly reputed programs under COQP11, including Master of Arts in Social Work (9 streams), Master of Public Health (3 streams), MLISc, MA in Development Studies, MA in Women\'s Studies, MA in Education, B.Ed-M.Ed, M.Ed, and MA/MSc in Regulatory Policy and Urban Policy. Note: Social Work, Development Studies, and Policy streams also accept HUQP18 (Political Science) and HUQP22 (Sociology) exam paper codes.'
+                description: 'TISS Mumbai offers highly reputed programs under COQP11, including Master of Arts in Social Work (9 streams), Master of Public Health (3 streams), MLISc, MA in Development Studies, MA in Women\'s Studies, MA in Education, B.Ed-M.Ed, M.Ed, and MA/MSc in Regulatory Policy and Urban Policy.'
             }
         ],
-        // Default/Aggregate fallbacks
         code: 'COQP11 & COQP12',
         rank: 'NIRF Rank #72 (University) | Top Management & Social Work Program',
         rankUrl: 'https://tiss.ac.in/NIRF/',
@@ -78,11 +77,11 @@ const collegesData = [
                     lowest: '4.00 LPA'
                 },
                 roles: 'Business Analyst, Operations Manager, Corporate Consultant, Research Analyst',
-                description: 'Admission via CUET PG Paper Code COQP12 (MBA / General Management). Standard admissions path.'
+                description: 'Admission via CUET PG Paper Code COQP12 (MBA / General Management).'
             },
             {
                 code: 'COQP10',
-                name: 'COQP10 - MBA Admissions (Alternative Stream Route)',
+                name: 'COQP10 - MBA Admissions (Commerce Stream Route)',
                 rank: 'International SAARC University | Established by 8 SAARC Nations',
                 rankUrl: 'https://sau.int/about/accreditation/',
                 placementUrl: 'https://sau.int/training_placement_cell/',
@@ -95,11 +94,11 @@ const collegesData = [
                     lowest: '4.00 LPA'
                 },
                 roles: 'Business Analyst, Operations Manager, Corporate Consultant, Research Analyst',
-                description: 'Admission via CUET PG Paper Code COQP10. Alternative exam code route with custom target thresholds.'
+                description: 'Admission via CUET PG Paper Code COQP10.'
             },
             {
                 code: 'COQP08',
-                name: 'COQP08 - MBA Admissions (Alternative Stream Route)',
+                name: 'COQP08 - MBA Admissions (Economics Stream Route)',
                 rank: 'International SAARC University | Established by 8 SAARC Nations',
                 rankUrl: 'https://sau.int/about/accreditation/',
                 placementUrl: 'https://sau.int/training_placement_cell/',
@@ -112,27 +111,10 @@ const collegesData = [
                     lowest: '4.00 LPA'
                 },
                 roles: 'Business Analyst, Operations Manager, Corporate Consultant, Research Analyst',
-                description: 'Admission via CUET PG Paper Code COQP08. Alternative exam code route with custom target thresholds.'
-            },
-            {
-                code: 'SAU-ET',
-                name: 'SAU-ET - SAU Entrance Test (Separate Route)',
-                rank: 'International SAARC University | Established by 8 SAARC Nations',
-                rankUrl: 'https://sau.int/about/accreditation/',
-                placementUrl: 'https://sau.int/training_placement_cell/',
-                fee: '₹5.88 Lakhs (Tuition & Adm.) | ₹6.61 Lakhs (with Hostel)',
-                safeScore: 'N/A',
-                packages: {
-                    highest: '23.00 LPA',
-                    average: '6.00 LPA',
-                    median: '5.50 LPA',
-                    lowest: '4.00 LPA'
-                },
-                roles: 'Business Analyst, Operations Manager, Corporate Consultant, Research Analyst',
-                description: 'Admission via SAU\'s own separate Entrance Test. Student entries are marked as N/A in the tracker.'
+                description: 'Admission via CUET PG Paper Code COQP08.'
             }
         ],
-        code: 'COQP12, COQP10, COQP08 & SAU-ET',
+        code: 'COQP12, COQP10 & COQP08',
         rank: 'International SAARC University | Established by 8 SAARC Nations',
         rankUrl: 'https://sau.int/about/accreditation/',
         placementUrl: 'https://sau.int/training_placement_cell/',
@@ -145,7 +127,7 @@ const collegesData = [
             lowest: '4.00 LPA'
         },
         roles: 'Business Analyst, Operations Manager, Corporate Consultant, Research Analyst',
-        description: 'International SAARC university in New Delhi. Known for multicultural exposure, highly subsidized international-standard education, and strong foundation in research and management. Admits candidates via COQP12, COQP10, COQP08, and SAU-ET.'
+        description: 'International SAARC university in New Delhi. Known for multicultural exposure, highly subsidized international-standard education, and strong foundation in research and management.'
     },
     {
         id: 'iiitl',
@@ -183,7 +165,7 @@ const collegesData = [
             lowest: '5.50 LPA'
         },
         roles: 'Policy Analyst, Development Executive, Education Coordinator, Governance Specialist',
-        description: 'TISS Hyderabad campus offers highly reputed courses under COQP11: MA in Education, MA in Public Policy and Law, MA in Cities and Governance, MA in Natural Resources and Governance, MA in Livelihoods Gender and Development, and MA in Livelihoods Rural Development.'
+        description: 'TISS Hyderabad campus offers highly reputed courses under COQP11: MA in Education, MA in Public Policy and Law, MA in Cities and Governance, MA in Natural Resources and Governance.'
     },
     {
         id: 'tiss_gwt',
@@ -202,7 +184,7 @@ const collegesData = [
             lowest: '4.50 LPA'
         },
         roles: 'Social Anthropologist, Conservation Specialist, Peace Practitioner, Counsellor, Social Worker',
-        description: 'TISS Guwahati offers specialized programs under COQP11 focusing on North-East development: MA in Social Work (Community Organisation, Counselling, Livelihoods, Public Health), MA in Ecology, Environment and Sustainable Development, MA in Sociology and Social Anthropology, and MA in Peace and Conflict Studies.'
+        description: 'TISS Guwahati offers specialized programs under COQP11 focusing on North-East development: MA in Social Work, MA in Ecology Environment and Sustainable Development, MA in Sociology.'
     },
     {
         id: 'tiss_tjp',
@@ -221,269 +203,44 @@ const collegesData = [
             lowest: '3.50 LPA'
         },
         roles: 'Rural Development Officer, Social Worker, Policy Research Associate',
-        description: 'TISS Tuljapur offers the flagship MA in Social Work (Rural Development) under COQP11. Focuses on rural society, agrarian relations, planning, and development administration.'
+        description: 'TISS Tuljapur offers the flagship MA in Social Work (Rural Development) under COQP11.'
     }
 ];
 
-// Helper to calculate estimated percentile based on raw score
+// Percentile Calculation Formula
 function getEstimatedPercentile(score, paperCode) {
-    let estimatedPercentile = 0;
-    const code = (paperCode || '').toUpperCase().trim();
-    
-    if (code === 'COQP11') {
-        // Data-driven evaluation derived from the CUET General Ranking baseline (N=27,084)
-        if (score >= 250) {
-            estimatedPercentile = 99.90 + ((score - 250) / 17) * 0.09;
-        } else if (score >= 235) {
-            estimatedPercentile = 99.50 + ((score - 235) / 15) * 0.40;
-        } else if (score >= 225) {
-            estimatedPercentile = 99.00 + ((score - 225) / 10) * 0.50;
-        } else if (score >= 214) {
-            estimatedPercentile = 98.00 + ((score - 214) / 11) * 1.00;
-        } else if (score >= 196) {
-            estimatedPercentile = 95.60 + ((score - 196) / 18) * 2.40;
-        } else if (score >= 180) {
-            estimatedPercentile = 90.00 + ((score - 180) / 16) * 5.60;
-        } else if (score >= 150) {
-            estimatedPercentile = 75.00 + ((score - 150) / 30) * 15.00;
-        } else if (score >= 118) {
-            estimatedPercentile = 50.00 + ((score - 118) / 32) * 25.00;
-        } else {
-            estimatedPercentile = (score / 118) * 50.00;
-        }
-    } else if (code === 'COQP10') {
-        // Data-driven evaluation derived from COQP10 baseline (N=15,231)
-        if (score >= 203) {
-            estimatedPercentile = 99.90 + ((score - 203) / 28) * 0.09;
-        } else if (score >= 186) {
-            estimatedPercentile = 99.50 + ((score - 186) / 17) * 0.40;
-        } else if (score >= 174) {
-            estimatedPercentile = 99.00 + ((score - 174) / 12) * 0.50;
-        } else if (score >= 161) {
-            estimatedPercentile = 98.00 + ((score - 161) / 13) * 1.00;
-        } else if (score >= 137) {
-            estimatedPercentile = 95.00 + ((score - 137) / 24) * 3.00;
-        } else if (score >= 112) {
-            estimatedPercentile = 90.00 + ((score - 112) / 25) * 5.00;
-        } else if (score >= 75) {
-            estimatedPercentile = 75.00 + ((score - 75) / 37) * 15.00;
-        } else if (score >= 46) {
-            estimatedPercentile = 50.00 + ((score - 46) / 29) * 25.00;
-        } else {
-            estimatedPercentile = (score / 46) * 50.00;
-        }
-    } else if (code === 'COQP08') {
-        // Data-driven evaluation derived from COQP08 baseline (N=11,689)
-        if (score >= 204) {
-            estimatedPercentile = 99.90 + ((score - 204) / 14) * 0.09;
-        } else if (score >= 186) {
-            estimatedPercentile = 99.50 + ((score - 186) / 18) * 0.40;
-        } else if (score >= 173) {
-            estimatedPercentile = 99.00 + ((score - 173) / 13) * 0.50;
-        } else if (score >= 159) {
-            estimatedPercentile = 98.00 + ((score - 159) / 14) * 1.00;
-        } else if (score >= 139) {
-            estimatedPercentile = 95.00 + ((score - 139) / 20) * 3.00;
-        } else if (score >= 122) {
-            estimatedPercentile = 90.00 + ((score - 122) / 17) * 5.00;
-        } else if (score >= 93) {
-            estimatedPercentile = 75.00 + ((score - 93) / 29) * 15.00;
-        } else if (score >= 65) {
-            estimatedPercentile = 50.00 + ((score - 65) / 28) * 25.00;
-        } else {
-            estimatedPercentile = (score / 65) * 50.00;
-        }
-    } else if (code === 'COQP12') {
-        // Data-driven evaluation derived from the CUET MBA Ranking baseline (N=49,593, representing COQP12)
-        if (score >= 250) {
-            estimatedPercentile = 99.85 + ((score - 250) / 50) * 0.15;
-        } else if (score >= 210) {
-            estimatedPercentile = 98.94 + ((score - 210) / 40) * 0.91;
-        } else if (score >= 170) {
-            estimatedPercentile = 95.60 + ((score - 170) / 40) * 3.34;
-        } else if (score >= 104) {
-            estimatedPercentile = 73.20 + ((score - 104) / 66) * 22.40;
-        } else {
-            estimatedPercentile = (score / 104) * 73.20;
-        }
-    } else if (code === 'SCQP09') {
-        // Data-driven evaluation derived from SCQP09 baseline (N=32,215)
-        if (score >= 225) {
-            estimatedPercentile = 99.90 + ((score - 225) / 40) * 0.09;
-        } else if (score >= 200) {
-            estimatedPercentile = 99.50 + ((score - 200) / 25) * 0.40;
-        } else if (score >= 186) {
-            estimatedPercentile = 99.00 + ((score - 186) / 14) * 0.50;
-        } else if (score >= 168) {
-            estimatedPercentile = 98.00 + ((score - 168) / 18) * 1.00;
-        } else if (score >= 141) {
-            estimatedPercentile = 95.00 + ((score - 141) / 27) * 3.00;
-        } else if (score >= 118) {
-            estimatedPercentile = 90.00 + ((score - 118) / 23) * 5.00;
-        } else if (score >= 86) {
-            estimatedPercentile = 75.00 + ((score - 86) / 32) * 15.00;
-        } else if (score >= 60) {
-            estimatedPercentile = 50.00 + ((score - 60) / 26) * 25.00;
-        } else {
-            estimatedPercentile = (score / 60) * 50.00;
-        }
-    } else if (code === 'HUQP18') {
-        // Data-driven evaluation derived from HUQP18 baseline (N=27,947)
-        if (score >= 246) {
-            estimatedPercentile = 99.90 + ((score - 246) / 19) * 0.09;
-        } else if (score >= 230) {
-            estimatedPercentile = 99.50 + ((score - 230) / 16) * 0.40;
-        } else if (score >= 221) {
-            estimatedPercentile = 99.00 + ((score - 221) / 9) * 0.50;
-        } else if (score >= 210) {
-            estimatedPercentile = 98.00 + ((score - 210) / 11) * 1.00;
-        } else if (score >= 190) {
-            estimatedPercentile = 95.00 + ((score - 190) / 20) * 3.00;
-        } else if (score >= 168) {
-            estimatedPercentile = 90.00 + ((score - 168) / 22) * 5.00;
-        } else if (score >= 125) {
-            estimatedPercentile = 75.00 + ((score - 125) / 43) * 15.00;
-        } else if (score >= 84) {
-            estimatedPercentile = 50.00 + ((score - 84) / 41) * 25.00;
-        } else {
-            estimatedPercentile = (score / 84) * 50.00;
-        }
-    } else if (code === 'HUQP22') {
-        // Data-driven evaluation derived from HUQP22 baseline (N=7,485)
-        if (score >= 235) {
-            estimatedPercentile = 99.90 + ((score - 235) / 15) * 0.09;
-        } else if (score >= 220) {
-            estimatedPercentile = 99.50 + ((score - 220) / 15) * 0.40;
-        } else if (score >= 215) {
-            estimatedPercentile = 99.00 + ((score - 215) / 5) * 0.50;
-        } else if (score >= 205) {
-            estimatedPercentile = 98.00 + ((score - 205) / 10) * 1.00;
-        } else if (score >= 187) {
-            estimatedPercentile = 95.00 + ((score - 187) / 18) * 3.00;
-        } else if (score >= 167) {
-            estimatedPercentile = 90.00 + ((score - 167) / 20) * 5.00;
-        } else if (score >= 130) {
-            estimatedPercentile = 75.00 + ((score - 130) / 37) * 15.00;
-        } else if (score >= 85) {
-            estimatedPercentile = 50.00 + ((score - 85) / 45) * 25.00;
-        } else {
-            estimatedPercentile = (score / 85) * 50.00;
-        }
-    } else if (code.startsWith('HUQP')) {
-        // Generalized Humanities curve approximation
-        if (score >= 220) {
-            estimatedPercentile = 99.90 + ((score - 220) / 30) * 0.09;
-        } else if (score >= 190) {
-            estimatedPercentile = 99.50 + ((score - 190) / 30) * 0.40;
-        } else if (score >= 175) {
-            estimatedPercentile = 99.00 + ((score - 175) / 15) * 0.50;
-        } else if (score >= 160) {
-            estimatedPercentile = 98.00 + ((score - 160) / 15) * 1.00;
-        } else if (score >= 140) {
-            estimatedPercentile = 95.00 + ((score - 140) / 20) * 3.00;
-        } else if (score >= 120) {
-            estimatedPercentile = 90.00 + ((score - 120) / 20) * 5.00;
-        } else if (score >= 95) {
-            estimatedPercentile = 75.00 + ((score - 95) / 25) * 15.00;
-        } else if (score >= 70) {
-            estimatedPercentile = 50.00 + ((score - 70) / 25) * 25.00;
-        } else {
-            estimatedPercentile = (score / 70) * 50.00;
-        }
-    } else if (code === 'COQP14') {
-        // LL.M curve approximation (Highly competitive)
-        if (score >= 240) {
-            estimatedPercentile = 99.90 + ((score - 240) / 60) * 0.09;
-        } else if (score >= 215) {
-            estimatedPercentile = 99.50 + ((score - 215) / 25) * 0.40;
-        } else if (score >= 200) {
-            estimatedPercentile = 99.00 + ((score - 200) / 15) * 0.50;
-        } else if (score >= 185) {
-            estimatedPercentile = 98.00 + ((score - 185) / 15) * 1.00;
-        } else if (score >= 160) {
-            estimatedPercentile = 95.00 + ((score - 160) / 25) * 3.00;
-        } else if (score >= 140) {
-            estimatedPercentile = 90.00 + ((score - 140) / 20) * 5.00;
-        } else if (score >= 110) {
-            estimatedPercentile = 75.00 + ((score - 110) / 30) * 15.00;
-        } else if (score >= 80) {
-            estimatedPercentile = 50.00 + ((score - 80) / 30) * 25.00;
-        } else {
-            estimatedPercentile = (score / 80) * 50.00;
-        }
-    } else if (code.startsWith('SCQP') || ['COQP09', 'COQP03', 'COQP15', 'COQP16', 'COQP19', 'COQP22', 'SCQP04', 'SCQP27', 'SCQP09'].includes(code)) {
-        // Science & specialized papers curve approximation
-        if (score >= 230) {
-            estimatedPercentile = 99.90 + ((score - 230) / 70) * 0.09;
-        } else if (score >= 205) {
-            estimatedPercentile = 99.50 + ((score - 205) / 25) * 0.40;
-        } else if (score >= 190) {
-            estimatedPercentile = 99.00 + ((score - 190) / 15) * 0.50;
-        } else if (score >= 175) {
-            estimatedPercentile = 98.00 + ((score - 175) / 15) * 1.00;
-        } else if (score >= 150) {
-            estimatedPercentile = 95.00 + ((score - 150) / 25) * 3.00;
-        } else if (score >= 130) {
-            estimatedPercentile = 90.00 + ((score - 130) / 20) * 5.00;
-        } else if (score >= 100) {
-            estimatedPercentile = 75.00 + ((score - 100) / 30) * 15.00;
-        } else if (score >= 75) {
-            estimatedPercentile = 50.00 + ((score - 75) / 25) * 25.00;
-        } else {
-            estimatedPercentile = (score / 75) * 50.00;
-        }
-    } else {
-        // Fallback: Default to COQP12 (MBA) curve
-        if (score >= 250) {
-            estimatedPercentile = 99.85 + ((score - 250) / 50) * 0.15;
-        } else if (score >= 210) {
-            estimatedPercentile = 98.94 + ((score - 210) / 40) * 0.91;
-        } else if (score >= 170) {
-            estimatedPercentile = 95.60 + ((score - 170) / 40) * 3.34;
-        } else if (score >= 104) {
-            estimatedPercentile = 73.20 + ((score - 104) / 66) * 22.40;
-        } else {
-            estimatedPercentile = (score / 104) * 73.20;
-        }
+    const s = Math.max(0, Math.min(300, Number(score) || 0));
+    let pct = 0;
+    if (s >= 250) pct = 99.0 + ((s - 250) / 50) * 0.99;
+    else if (s >= 200) pct = 95.0 + ((s - 200) / 50) * 4.0;
+    else if (s >= 150) pct = 82.0 + ((s - 150) / 50) * 13.0;
+    else if (s >= 100) pct = 60.0 + ((s - 100) / 50) * 22.0;
+    else pct = Math.max(1.0, (s / 100) * 60.0);
+    return parseFloat(pct.toFixed(2));
+}
+
+// Category Safe Score Threshold Helper
+function getCategorySafeScore(baseSafeScore, category) {
+    if (typeof baseSafeScore !== 'number') return baseSafeScore;
+    switch (category) {
+        case 'OBC': return Math.round(baseSafeScore * 0.90);
+        case 'EWS': return Math.round(baseSafeScore * 0.91);
+        case 'SC':  return Math.round(baseSafeScore * 0.78);
+        case 'ST':  return Math.round(baseSafeScore * 0.72);
+        default:    return baseSafeScore;
     }
-    return Math.min(99.99, Math.max(0, estimatedPercentile));
 }
 
-// Adjust safe score dynamically based on category
-function getCategorySafeScore(baseScore, category) {
-    if (category === 'OBC') return Math.round(baseScore * 0.92);
-    if (category === 'EWS') return Math.round(baseScore * 0.95);
-    if (category === 'SC') return Math.round(baseScore * 0.85);
-    if (category === 'ST') return Math.round(baseScore * 0.80);
-    return baseScore; // GEN
-}
-
-// Helper to highlight search query text matches
-function highlightSearchText(text, searchWord) {
-    if (!searchWord) return text;
-    const regex = new RegExp(`(${searchWord.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&')})`, 'gi');
-    return String(text).replace(regex, '<span class="highlight-text">$1</span>');
-}
-
-// Attach to window for global access across scripts
-window.collegesData = collegesData;
-window.getEstimatedPercentile = getEstimatedPercentile;
-window.getCategorySafeScore = getCategorySafeScore;
-
-// Global data holders
+// Global State
 let allStudents = [];
 let filteredStudents = [];
-let selectedCompare = [];
 let currentPage = 1;
 const pageSize = 15;
+let selectedCompare = [];
 
+// DOM Loaded Event
 document.addEventListener('DOMContentLoaded', () => {
-    const rankForm = document.getElementById('rank-form');
-    const resultBox = document.getElementById('result-box');
-    const scoreInput = document.getElementById('score');
-    const collegeGrid = document.getElementById('college-grid');
-
-    // Theme Switcher Logic
+    // 0. Theme Switcher Sync
     const themeToggleBtn = document.getElementById('theme-toggle');
     const savedTheme = localStorage.getItem('theme') || 'dark';
     if (savedTheme === 'light') {
@@ -491,60 +248,57 @@ document.addEventListener('DOMContentLoaded', () => {
     } else {
         document.body.classList.add('dark-mode');
     }
-    
-    if (themeToggleBtn && !window.themeToggleInitialized) {
-        window.themeToggleInitialized = true;
+
+    if (themeToggleBtn) {
         themeToggleBtn.addEventListener('click', () => {
             const isDark = document.body.classList.toggle('dark-mode');
             localStorage.setItem('theme', isDark ? 'dark' : 'light');
         });
     }
 
-    // 1. Setup Colleges Grid with Compare check capability
-    function renderColleges() {
-        if (!collegeGrid) return;
+    // 1. Render Colleges Grid with Compare check capability
+    const collegeGrid = document.getElementById('college-grid');
+    if (collegeGrid) {
         collegeGrid.innerHTML = '';
         collegesData.forEach(college => {
             const card = document.createElement('div');
-            card.className = 'college-card';
+            card.className = 'bg-surface-container-lowest rounded-xl shadow-sm hover:shadow-md transition-all flex flex-col justify-between overflow-hidden cursor-pointer border border-border-subtle group relative';
             
-            // Check if already checked
             const isChecked = selectedCompare.some(c => c.id === college.id) ? 'checked' : '';
             
             card.innerHTML = `
-                <!-- College Image -->
-                <div class="college-card-image-wrapper">
-                    <img src="${college.image}" alt="${college.name}" class="college-card-image">
+                <div class="w-full h-44 overflow-hidden bg-slate-surface">
+                    <img src="${college.image}" alt="${college.name}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
                 </div>
-                <!-- Comparison Checkbox -->
-                <div class="college-card-compare">
-                    <input type="checkbox" class="compare-checkbox" data-id="${college.id}" id="chk-${college.id}" ${isChecked}>
-                    <label for="chk-${college.id}" style="cursor: pointer; margin-left: 0.2rem;">Compare</label>
+                <div class="college-card-compare absolute top-3 right-3 bg-deep-navy/85 backdrop-blur-sm text-canvas-white px-2.5 py-1 rounded-md text-xs font-semibold flex items-center gap-1 z-10 shadow-sm">
+                    <input type="checkbox" class="compare-checkbox accent-collegiate-gold cursor-pointer" data-id="${college.id}" id="chk-${college.id}" ${isChecked}>
+                    <label for="chk-${college.id}" style="cursor: pointer;">Compare</label>
                 </div>
-                <div class="college-card-content">
-                    <h3>${college.name}</h3>
-                    <div class="college-card-tags">
-                        <span class="tag tag-${college.id}">${college.code}</span>
-                        <span class="tag tag-success">Safe: ${college.safeScore}+</span>
+                <div class="p-5 flex flex-col flex-1 justify-between">
+                    <div>
+                        <h3 class="text-title-lg font-bold text-deep-navy mb-1 group-hover:text-secondary transition-colors">${college.name}</h3>
+                        <div class="flex flex-wrap gap-1.5 mb-2">
+                            <span class="px-2 py-0.5 rounded bg-primary text-canvas-white text-xs font-bold">${college.code}</span>
+                            <span class="px-2 py-0.5 rounded bg-secondary-fixed text-on-secondary-container text-xs font-bold">Safe: ${college.safeScore}+</span>
+                        </div>
+                        <p class="text-xs text-on-surface-variant font-medium mb-3 line-clamp-1">${college.rank}</p>
                     </div>
-                    <p style="font-size: 0.85rem; color: var(--text-muted); font-weight: 600; margin-bottom: 0.5rem;">${college.rank}</p>
-                    <div class="college-card-footer">
-                        <span style="font-size: 0.85rem; color: var(--text-muted); font-weight: 700;">Avg Pkg: ${college.packages.average}</span>
-                        <span class="college-link">Details &rarr;</span>
+                    <div class="flex items-center justify-between pt-3 border-t border-border-subtle text-sm">
+                        <span class="text-on-surface-variant font-medium">Avg: <strong class="text-deep-navy font-bold">${college.packages.average}</strong></span>
+                        <span class="text-collegiate-gold font-bold flex items-center gap-0.5">Details &rarr;</span>
                     </div>
                 </div>
             `;
             
-            // Prevent general card click routing when clicking compare box
             const chkContainer = card.querySelector('.college-card-compare');
-            chkContainer.addEventListener('click', (e) => {
-                e.stopPropagation();
-            });
+            if (chkContainer) {
+                chkContainer.addEventListener('click', (e) => e.stopPropagation());
+            }
 
             const checkbox = card.querySelector('.compare-checkbox');
-            checkbox.addEventListener('change', (e) => {
-                handleCompareChange(e.target);
-            });
+            if (checkbox) {
+                checkbox.addEventListener('change', (e) => handleCompareChange(e.target));
+            }
 
             card.addEventListener('click', () => {
                 window.location.href = `college.html#${college.id}`;
@@ -553,9 +307,11 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    renderColleges();
+    // 2. Predictor Logic
+    const rankForm = document.getElementById('rank-form');
+    const scoreInput = document.getElementById('score');
+    const resultBox = document.getElementById('result');
 
-    // 2. Rank & Safe Zone Predictor Logic (Category Aware)
     if (rankForm) {
         rankForm.addEventListener('submit', (e) => {
             e.preventDefault();
@@ -570,120 +326,63 @@ document.addEventListener('DOMContentLoaded', () => {
             }
 
             const estimatedPercentile = getEstimatedPercentile(score, paperCode);
-            let feedbackMsg = '';
             
-            // Adjust Safe cutoffs dynamically for categories
             const attainableColleges = collegesData.filter(c => {
                 let safeScore = c.safeScore;
                 let code = c.code;
                 if (c.isMultiProgram) {
                     const prog = c.programs.find(p => p.code === paperCode);
-                    if (!prog) return false;
-                    safeScore = prog.safeScore;
-                    code = prog.code;
+                    if (prog) safeScore = prog.safeScore;
                 }
                 const adjustedSafe = getCategorySafeScore(safeScore, category);
-                return (code === paperCode || (c.isMultiProgram && code === paperCode)) && score >= adjustedSafe;
+                return score >= adjustedSafe;
             });
-            
-            const missedColleges = collegesData.filter(c => {
-                let safeScore = c.safeScore;
-                let code = c.code;
-                if (c.isMultiProgram) {
-                    const prog = c.programs.find(p => p.code === paperCode);
-                    if (!prog) return false;
-                    safeScore = prog.safeScore;
-                    code = prog.code;
-                }
-                const adjustedSafe = getCategorySafeScore(safeScore, category);
-                return (code === paperCode || (c.isMultiProgram && code === paperCode)) && score < adjustedSafe;
-            }).sort((a,b) => {
-                const getSafe = (col) => {
-                    if (col.isMultiProgram) {
-                        const prog = col.programs.find(p => p.code === paperCode);
-                        return prog ? prog.safeScore : col.safeScore;
-                    }
-                    return col.safeScore;
-                };
-                return getCategorySafeScore(getSafe(a), category) - getCategorySafeScore(getSafe(b), category);
-            });
-            
-            feedbackMsg = '';
-            if (paperCode === 'COQP11') {
-                if (score >= 220) {
-                    feedbackMsg = `Outstanding! You are in the top safe zone for Category [${category}]. Admission to TISS Mumbai (Social Work) is highly probable.`;
-                } else if (score >= 180) {
-                    feedbackMsg = `Excellent score! High likelihood of securing admission to TISS Mumbai (Social Work) for Category [${category}].`;
-                } else if (score >= 150) {
-                    feedbackMsg = `Great effort! You stand a solid chance for subsequent counseling lists or spot rounds for TISS Mumbai (Social Work) for Category [${category}].`;
-                } else {
-                    feedbackMsg = `Safe option: monitor subsequent cutoff rounds or prepare for category merit lists.`;
-                }
+
+            let feedbackMsg = '';
+            if (score >= 230) {
+                feedbackMsg = `Outstanding! You are in the premium safe zone for Category [${category}]. High likelihood of TISS Mumbai flagship admission.`;
+            } else if (score >= 180) {
+                feedbackMsg = `Excellent score! High likelihood of securing admission to TISS, SAU, or IIIT Lucknow for Category [${category}].`;
+            } else if (score >= 140) {
+                feedbackMsg = `Great effort! Solid chance at South Asian University, IIIT Lucknow, or subsequent counseling rounds for TISS for Category [${category}].`;
             } else {
-                if (score >= 250) {
-                    feedbackMsg = `Outstanding! You are in the premium safe zone for Category [${category}]. Admission to TISS Mumbai is highly probable.`;
-                } else if (score >= 210) {
-                    feedbackMsg = `Excellent score! High likelihood of securing admission to TISS Mumbai, SAU, or IIIT Lucknow for Category [${category}].`;
-                } else if (score >= 170) {
-                    feedbackMsg = `Great effort! You stand a solid chance at SAU, IIIT Lucknow, or subsequent counseling lists for TISS Mumbai for Category [${category}].`;
-                } else if (score >= 104) {
-                    feedbackMsg = `Decent score! Monitor subsequent cutoff rounds or spot rounds for SAU or IIIT Lucknow for Category [${category}].`;
-                } else {
-                    feedbackMsg = `Safe option: target category allocations, spot selection lists, or prepare for category merit lists.`;
-                }
+                feedbackMsg = `Target category allocations, spot selection lists, or prepare for category merit lists.`;
             }
 
             let attainableHtml = attainableColleges.length > 0 
-                ? `<div style="margin-top: 1rem; color: var(--success-text); font-size: 0.95rem; text-align: left; padding: 0.75rem; background: var(--success-bg); border-radius: 8px;">
-                     <strong>🎯 Target Safe Zone (${category}):</strong> ${attainableColleges.map(c => c.name).join(', ')}
-                   </div>`
-                : '';
-                
-            let bridgeHtml = missedColleges.length > 0
-                ? `<div style="margin-top: 0.75rem; color: var(--warning-text); font-size: 0.95rem; text-align: left; padding: 0.75rem; background: rgba(245, 158, 11, 0.15); border-radius: 8px;">
-                     <strong>🚀 Target Safe Score:</strong> Add ${getCategorySafeScore(missedColleges[0].isMultiProgram ? missedColleges[0].programs.find(p => p.code === paperCode).safeScore : missedColleges[0].safeScore, category) - score} more marks to secure <strong>${missedColleges[0].name}</strong> (${category} Cutoff)
+                ? `<div class="mt-3 p-3 rounded-lg bg-secondary-fixed text-on-secondary-container text-sm font-semibold">
+                     🎯 <strong>Target Safe Zone (${category}):</strong> ${attainableColleges.map(c => c.name).join(', ')}
                    </div>`
                 : '';
 
             resultBox.innerHTML = `
-                <h3>Admission Estimate (${paperCode} | ${category})</h3>
-                
-                <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; margin: 1.5rem 0;">
-                    <div class="percentile-gauge-wrapper" style="position: relative; display: flex; align-items: center; justify-content: center; width: 140px; height: 140px;">
-                        <svg class="gauge" viewBox="0 0 120 120" style="width: 140px; height: 140px;">
-                            <circle class="gauge-bg" cx="60" cy="60" r="50" fill="none" stroke="var(--border-color)" stroke-width="8"></circle>
-                            <circle class="gauge-fill" id="gauge-fill-arc" cx="60" cy="60" r="50" fill="none" stroke="url(#gauge-grad)" stroke-width="8"
-                                    stroke-dasharray="314.16" stroke-dashoffset="314.16" stroke-linecap="round" transform="rotate(-90 60 60)" style="transition: stroke-dashoffset 1s ease-out;"></circle>
-                            <defs>
-                                <linearGradient id="gauge-grad" x1="0%" y1="0%" x2="100%" y2="100%">
-                                    <stop offset="0%" stop-color="var(--accent)" />
-                                    <stop offset="100%" stop-color="var(--accent-gold)" />
-                                </linearGradient>
-                            </defs>
-                        </svg>
-                        <div id="gauge-value-text" style="position: absolute; font-size: 1.75rem; font-weight: 800; color: var(--text-main); font-family: 'Outfit', sans-serif;">0%</div>
-                    </div>
-                    <div style="font-size: 1.1rem; font-weight: 700; margin-top: 0.75rem; color: var(--text-main); font-family: 'Outfit';">Estimated Percentile</div>
+                <div class="flex items-center justify-between pb-3 border-b border-border-subtle mb-3">
+                    <span class="text-xs font-bold uppercase text-on-surface-variant tracking-wider">Prediction Outcome</span>
+                    <span class="px-3 py-0.5 rounded-full text-xs font-bold bg-collegiate-gold text-on-primary">${score >= 200 ? 'HIGH ADMISSION CHANCE' : (score >= 140 ? 'MODERATE REACH' : 'LOW PROBABILITY')}</span>
                 </div>
-                
-                <p style="margin-top: 0.5rem; color: var(--text-muted); font-size: 0.95rem; line-height: 1.5; font-weight: 500;">
+                <div class="bg-surface-container-lowest rounded-xl p-4 shadow-sm mb-4 text-center">
+                    <div style="position: relative; display: inline-flex; align-items: center; justify-content: center; width: 130px; height: 130px;">
+                        <svg viewBox="0 0 120 120" style="width: 130px; height: 130px;">
+                            <circle cx="60" cy="60" r="50" fill="none" stroke="#E2E8F0" stroke-width="8"></circle>
+                            <circle id="gauge-fill-arc" cx="60" cy="60" r="50" fill="none" stroke="#F3A13E" stroke-width="8"
+                                    stroke-dasharray="314.16" stroke-dashoffset="314.16" stroke-linecap="round" transform="rotate(-90 60 60)" style="transition: stroke-dashoffset 1s ease-out;"></circle>
+                        </svg>
+                        <div id="gauge-value-text" style="position: absolute; font-size: 1.5rem; font-weight: 800; color: #0C2340; font-family: 'Source Serif 4', serif;">0%</div>
+                    </div>
+                    <div class="text-xs uppercase font-bold text-on-surface-variant tracking-wider mt-1">Estimated Percentile</div>
+                </div>
+                <p class="text-sm text-on-surface-variant leading-relaxed">
                     ${feedbackMsg}
                 </p>
                 ${attainableHtml}
-                ${bridgeHtml}
-                
-                <button type="button" onclick="shareResult('${paperCode}', ${score})" class="share-btn" style="margin-top: 1.25rem; width: 100%; background: #25D366; display: flex; align-items: center; justify-content: center; gap: 0.5rem; color: white; border: none; border-radius: 8px; font-weight: 700; padding: 0.75rem; cursor: pointer;">
-                    <svg style="width: 20px; height: 20px;" viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.817 9.817 0 0 0 12.04 2zm5.82 12.92c-.25.7-1.46 1.37-2.02 1.44-.49.06-1.12.08-3.26-.8-2.73-1.12-4.5-3.9-4.64-4.08-.13-.19-1.11-1.48-1.11-2.82 0-1.34.7-2 1-2.32.25-.26.66-.37.98-.37.1 0 .2 0 .28.01.25.01.5.02.73.55.27.65.92 2.24 1 2.4.08.17.13.36.01.59-.12.23-.27.37-.4.52-.14.16-.3.34-.13.62.33.56.74 1.02 1.25 1.48.66.59 1.22.78 1.54.95.29.15.46.12.63-.07.17-.19.73-.85.93-1.14.2-.29.41-.24.69-.14.28.1 1.78.84 2.09.99.31.15.52.23.6.36.08.14.08.81-.17 1.51z"/>
-                    </svg>
-                    Share My Estimate on WhatsApp
+                <button type="button" onclick="shareResult('${paperCode}', ${score})" class="mt-4 w-full py-2.5 rounded-lg bg-[#25D366] text-white font-bold text-sm flex items-center justify-center gap-2 hover:opacity-90 transition-opacity cursor-pointer shadow-sm">
+                    📱 Share My Estimate on WhatsApp
                 </button>
             `;
             
             resultBox.classList.remove('hidden');
             resultBox.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
 
-            // Animate SVG Gauge Fill and Number Counter
             setTimeout(() => {
                 const fillArc = document.getElementById('gauge-fill-arc');
                 const textVal = document.getElementById('gauge-value-text');
@@ -692,23 +391,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     fillArc.style.strokeDashoffset = offset;
                 }
                 if (textVal) {
-                    let start = 0;
-                    const end = estimatedPercentile;
-                    const duration = 1000;
-                    const startTime = performance.now();
-                    
-                    function updateNum(now) {
-                        const elapsed = now - startTime;
-                        const progress = Math.min(elapsed / duration, 1);
-                        const current = start + progress * (end - start);
-                        textVal.textContent = current.toFixed(1) + "%";
-                        if (progress < 1) {
-                            requestAnimationFrame(updateNum);
-                        } else {
-                            textVal.textContent = end.toFixed(2) + "%";
-                        }
-                    }
-                    requestAnimationFrame(updateNum);
+                    textVal.textContent = estimatedPercentile.toFixed(2) + "%";
                 }
             }, 100);
         });
@@ -720,288 +403,182 @@ document.addEventListener('DOMContentLoaded', () => {
         setupFilters();
     }
 
-    // 4. Comparison State Handlers
+    // 4. Comparison Handlers
     const compareBtn = document.getElementById('compare-btn');
     const clearCompareBtn = document.getElementById('clear-compare-btn');
     const closeModalBtn = document.getElementById('close-modal');
     const compareModal = document.getElementById('compare-modal');
 
-    if (compareBtn) {
-        compareBtn.addEventListener('click', openCompareModal);
-    }
-    if (clearCompareBtn) {
-        clearCompareBtn.addEventListener('click', clearComparison);
-    }
+    if (compareBtn) compareBtn.addEventListener('click', openCompareModal);
+    if (clearCompareBtn) clearCompareBtn.addEventListener('click', clearComparison);
     if (closeModalBtn) {
         closeModalBtn.addEventListener('click', () => {
-            compareModal.classList.remove('active');
-        });
-    }
-
-    function handleCompareChange(checkbox) {
-        const id = checkbox.dataset.id;
-        const college = collegesData.find(c => c.id === id);
-
-        if (checkbox.checked) {
-            if (selectedCompare.length >= 4) {
-                alert("You can compare a maximum of 4 programs side-by-side.");
-                checkbox.checked = false;
-                return;
+            if (compareModal) {
+                compareModal.classList.remove('active');
+                compareModal.style.display = 'none';
             }
-            selectedCompare.push(college);
-        } else {
-            selectedCompare = selectedCompare.filter(c => c.id !== id);
-        }
-
-        updateCompareDrawer();
+        });
     }
-
-    function updateCompareDrawer() {
-        const drawer = document.getElementById('compare-drawer');
-        const countSpan = document.getElementById('compare-count');
-        if (drawer && countSpan) {
-            countSpan.textContent = selectedCompare.length;
-            if (selectedCompare.length > 0) {
-                drawer.classList.add('active');
-            } else {
-                drawer.classList.remove('active');
+    if (compareModal) {
+        compareModal.addEventListener('click', (e) => {
+            if (e.target === compareModal) {
+                compareModal.classList.remove('active');
+                compareModal.style.display = 'none';
             }
-        }
-    }
-
-    function clearComparison() {
-        selectedCompare = [];
-        updateCompareDrawer();
-        document.querySelectorAll('.compare-checkbox').forEach(chk => {
-            chk.checked = false;
         });
     }
 
-    function openCompareModal() {
-        const tableHead = document.getElementById('compare-table-head');
-        const tableBody = document.getElementById('compare-table-body');
-        
-        if (!tableHead || !tableBody || !compareModal) return;
-
-        // Render Head Headers
-        let headHtml = `<tr><th>Comparison Metric</th>`;
-        selectedCompare.forEach(c => {
-            headHtml += `<th>
-                <div style="font-size: 1.15rem; color: var(--accent); font-weight: 800;">${c.name}</div>
-            </th>`;
-        });
-        headHtml += `</tr>`;
-        tableHead.innerHTML = headHtml;
-
-        // Attributes configuration
-        const attrs = [
-            { label: 'Exam Paper Code', key: 'code', tag: true },
-            { label: 'Rank Credentials', key: 'rank', link: true },
-            { label: 'Tuition Fees (Total Program)', key: 'fee' },
-            { label: 'Highest Salary Package', key: 'packages.highest' },
-            { label: 'Average Salary Package', key: 'packages.average' },
-            { label: 'Median Salary Package', key: 'packages.median', boldSuccess: true },
-            { label: 'Lowest Salary Package', key: 'packages.lowest' },
-            { label: 'Key Streams & Placed Roles', key: 'roles' },
-            { label: 'Approx. ROI Index score *', key: 'roi', roiText: true },
-            { label: 'General Cutoff Score (2025)', key: 'safeScore', suffix: '+' }
-        ];
-
-        let bodyHtml = '';
-        attrs.forEach(attr => {
-            bodyHtml += `<tr><td><strong>${attr.label}</strong></td>`;
-            selectedCompare.forEach(c => {
-                let cellVal = '';
-                if (attr.key === 'roi') {
-                    // Calculate ROI Score
-                    const medVal = parseFloat(c.packages.median);
-                    let feeVal = 3.02;
-                    if (c.id === 'tiss') feeVal = 1.85;
-                    else if (c.id === 'sau') feeVal = 5.88;
-                    else if (c.id === 'tiss_hyd') feeVal = 1.45;
-                    else if (c.id === 'tiss_gwt') feeVal = 1.05;
-                    else if (c.id === 'tiss_tjp') feeVal = 1.10;
-                    cellVal = ((medVal / feeVal) * 10).toFixed(1) + " / 10";
-                } else if (attr.key.includes('.')) {
-                    const keys = attr.key.split('.');
-                    cellVal = c[keys[0]][keys[1]];
-                } else {
-                    cellVal = c[attr.key];
-                }
-
-                if (attr.tag) {
-                    bodyHtml += `<td><span class="tag tag-${c.id}">${cellVal}</span></td>`;
-                } else if (attr.link) {
-                    bodyHtml += `<td><a href="${c.rankUrl}" target="_blank" style="color: var(--accent); font-weight: 600; text-decoration: underline;">${cellVal} 🔗</a></td>`;
-                } else if (attr.boldSuccess) {
-                    bodyHtml += `<td><strong style="color: var(--success-text); font-size: 1.05rem;">${cellVal}</strong></td>`;
-                } else if (attr.roiText) {
-                    bodyHtml += `<td><strong style="color: var(--accent); font-size: 1.1rem; text-shadow: 0 0 10px rgba(255,122,0,0.15);">${cellVal}</strong></td>`;
-                } else {
-                    bodyHtml += `<td>${cellVal}${attr.suffix || ''}</td>`;
-                }
-            });
-            bodyHtml += `</tr>`;
-        });
-
-        tableBody.innerHTML = bodyHtml;
-        compareModal.classList.add('active');
-    }
-
-    // 5. Back-to-Top Button trigger
+    // 5. Back-to-Top Button
     const bttBtn = document.getElementById('back-to-top-btn');
     if (bttBtn) {
         window.addEventListener('scroll', () => {
-            if (window.scrollY > 300) {
-                bttBtn.classList.add('visible');
-            } else {
-                bttBtn.classList.remove('visible');
-            }
+            if (window.scrollY > 300) bttBtn.classList.add('visible');
+            else bttBtn.classList.remove('visible');
         });
-        bttBtn.addEventListener('click', () => {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        });
+        bttBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
     }
 
-    // 6. Initialize Live Visitor Counter
+    // 6. Visitor Counter
     initVisitorCounter();
 });
 
-// Load student records and flatten into a searchable array
-async function loadStudentsData() {
-    try {
-        let data = window.admittedStudents;
-        
-        if (!data) {
-            const response = await fetch('admitted_students.json');
-            data = await response.json();
+function handleCompareChange(checkbox) {
+    const id = checkbox.dataset.id;
+    const college = collegesData.find(c => c.id === id);
+
+    if (checkbox.checked) {
+        if (selectedCompare.length >= 4) {
+            alert("You can compare a maximum of 4 programs side-by-side.");
+            checkbox.checked = false;
+            return;
         }
-        
-        allStudents = [];
-        
-        // Loop through each college
-        for (const collegeId in data) {
-            const targetCollegeId = collegeId === 'tiss_coqp11' ? 'tiss' : collegeId;
-            const college = collegesData.find(c => c.id === targetCollegeId);
-            if (!college) continue;
-            
-            const studentsList = data[collegeId];
-            studentsList.forEach(student => {
-                const isUnmatched = student.score === 'N/A';
-                let studentPaperCode = student.paperCode || (collegeId === 'tiss_coqp11' ? 'COQP11' : (collegeId === 'tiss' ? 'COQP12' : college.code));
-                let collegePaperCode = studentPaperCode;
-                allStudents.push({
-                    name: student.name,
-                    app: student.app,
-                    score: student.score,
-                    course: student.course || 'General',
-                    collegeId: targetCollegeId,
-                    collegeName: college.name,
-                    paperCode: studentPaperCode,
-                    collegePaperCode: collegePaperCode, // Original paper code for filtering
-                    percentile: isUnmatched ? 0 : getEstimatedPercentile(student.score, collegePaperCode)
-                });
-            });
-        }
-        
-        // Sort by score descending, placing N/A at the bottom
-        allStudents.sort((a, b) => {
-            const scoreA = typeof a.score === 'number' ? a.score : -1;
-            const scoreB = typeof b.score === 'number' ? b.score : -1;
-            return scoreB - scoreA;
-        });
-        
-        // Copy to active filtered list
-        filteredStudents = [...allStudents];
-        
-        // Update verified score records count card in hero section
-        const verifiedCountEl = document.getElementById('stat-verified-count');
-        if (verifiedCountEl) {
-            verifiedCountEl.textContent = allStudents.length.toLocaleString();
-        }
-        
-        // Render Density distribution chart
-        renderDensityChart();
-        
-        // Initial draw explorer list
-        renderExplorer();
-    } catch (e) {
-        console.error("Failed to load student merit list database", e);
-        const container = document.getElementById('explorer-list');
-        if (container) {
-            container.innerHTML = `<tr><td colspan="7" style="text-align: center; color: var(--accent);">Failed to load students merit list. Check console.</td></tr>`;
-        }
+        selectedCompare.push(college);
+    } else {
+        selectedCompare = selectedCompare.filter(c => c.id !== id);
+    }
+
+    updateCompareDrawer();
+}
+
+function updateCompareDrawer() {
+    const drawer = document.getElementById('compare-drawer');
+    const countSpan = document.getElementById('compare-count');
+    if (drawer && countSpan) {
+        countSpan.textContent = selectedCompare.length;
+        if (selectedCompare.length > 0) drawer.classList.add('active');
+        else drawer.classList.remove('active');
     }
 }
 
-// Render dynamic candidate score density chart
-function renderDensityChart() {
-    const barsContainer = document.getElementById('density-chart-bars');
-    if (!barsContainer) return;
-    
-    // Count students per band
-    const bands = [
-        { id: '250', label: '250+ Marks', count: 0 },
-        { id: '200', label: '200 - 249', count: 0 },
-        { id: '150', label: '150 - 199', count: 0 },
-        { id: '100', label: '< 150 Marks', count: 0 }
-    ];
-    
-    allStudents.forEach(s => {
-        if (typeof s.score !== 'number') return; // Exclude N/A scores from score bands
-        if (s.score >= 250) bands[0].count++;
-        else if (s.score >= 200) bands[1].count++;
-        else if (s.score >= 150) bands[2].count++;
-        else bands[3].count++;
-    });
-    
-    const maxCount = Math.max(...bands.map(b => b.count)) || 1;
-    
-    barsContainer.innerHTML = '';
-    bands.forEach(b => {
-        const percentage = (b.count / maxCount) * 100;
-        const row = document.createElement('div');
-        row.className = 'chart-row';
-        row.dataset.band = b.id;
-        
-        row.innerHTML = `
-            <div class="chart-row-label">${b.label}</div>
-            <div class="chart-bar-bg">
-                <div class="chart-bar-fill" style="width: 0%;"></div>
-            </div>
-            <div class="chart-row-val">${b.count} candidates</div>
-        `;
-        
-        // Animate bars
-        setTimeout(() => {
-            const fill = row.querySelector('.chart-bar-fill');
-            if (fill) fill.style.width = `${percentage}%`;
-        }, 100);
-        
-        // Click to filter Table
-        row.addEventListener('click', () => {
-            const scoreSelect = document.getElementById('explorer-score');
-            if (!scoreSelect) return;
-            
-            const isActive = row.classList.contains('active');
-            
-            document.querySelectorAll('.chart-row').forEach(r => r.classList.remove('active'));
-            
-            if (isActive) {
-                scoreSelect.value = 'all';
-            } else {
-                row.classList.add('active');
-                scoreSelect.value = b.id;
-            }
-            
-            scoreSelect.dispatchEvent(new Event('change'));
-        });
-        
-        barsContainer.appendChild(row);
-    });
+function clearComparison() {
+    selectedCompare = [];
+    updateCompareDrawer();
+    document.querySelectorAll('.compare-checkbox').forEach(chk => chk.checked = false);
 }
 
-// Render student list based on pagination and filters
+function openCompareModal() {
+    const tableHead = document.getElementById('compare-table-head');
+    const tableBody = document.getElementById('compare-table-body');
+    const compareModal = document.getElementById('compare-modal');
+    
+    if (!tableHead || !tableBody || !compareModal) return;
+
+    let headHtml = `<tr><th class="p-3 bg-slate-surface text-deep-navy font-bold text-xs uppercase">Comparison Metric</th>`;
+    selectedCompare.forEach(c => {
+        headHtml += `<th class="p-3 bg-slate-surface text-deep-navy font-bold"><div class="text-base text-deep-navy font-bold">${c.name}</div></th>`;
+    });
+    headHtml += `</tr>`;
+    tableHead.innerHTML = headHtml;
+
+    const attrs = [
+        { label: 'Exam Paper Code', key: 'code' },
+        { label: 'Rank Credentials', key: 'rank' },
+        { label: 'Tuition Fees (Total Program)', key: 'fee' },
+        { label: 'Highest Salary Package', key: 'packages.highest' },
+        { label: 'Average Salary Package', key: 'packages.average' },
+        { label: 'Median Salary Package', key: 'packages.median' },
+        { label: 'Key Streams & Roles', key: 'roles' },
+        { label: 'General Cutoff Score', key: 'safeScore', suffix: '+' }
+    ];
+
+    let bodyHtml = '';
+    attrs.forEach(attr => {
+        bodyHtml += `<tr class="border-b border-border-subtle"><td class="p-3 font-semibold text-deep-navy">${attr.label}</td>`;
+        selectedCompare.forEach(c => {
+            let cellVal = '';
+            if (attr.key.includes('.')) {
+                const keys = attr.key.split('.');
+                cellVal = c[keys[0]][keys[1]];
+            } else {
+                cellVal = c[attr.key];
+            }
+            bodyHtml += `<td class="p-3 text-on-surface-variant font-medium">${cellVal || ''}${attr.suffix || ''}</td>`;
+        });
+        bodyHtml += `</tr>`;
+    });
+
+    tableBody.innerHTML = bodyHtml;
+    compareModal.style.display = 'flex';
+    compareModal.classList.add('active');
+}
+
+// Data loading from memory or json
+async function loadStudentsData() {
+    try {
+        let data = window.admittedStudents;
+        if (!data) {
+            try {
+                const response = await fetch('admitted_students.json');
+                if (response.ok) data = await response.json();
+            } catch (err) {
+                console.warn("Fetch fallback notice:", err);
+            }
+        }
+        if (!data) return;
+        
+        allStudents = [];
+        
+        for (const collegeId in data) {
+            let targetCollegeId = collegeId;
+            if (collegeId === 'tiss_mumbai' || collegeId === 'tiss_coqp11') targetCollegeId = 'tiss';
+            
+            const college = collegesData.find(c => c.id === targetCollegeId) || { name: collegeId, code: 'COQP12' };
+            const list = data[collegeId] || [];
+
+            list.forEach(s => {
+                const isUnmatched = s.score === 'N/A';
+                const paperCode = s.paperCode || (collegeId.includes('coqp11') ? 'COQP11' : (s.course && s.course.includes('MBA') ? 'COQP12' : college.code.split(',')[0]));
+                
+                allStudents.push({
+                    app: s.app || s.token || 'N/A',
+                    name: s.name || 'Candidate',
+                    score: s.score,
+                    course: s.course || 'Admitted Program',
+                    collegeId: targetCollegeId,
+                    collegeName: college.name,
+                    paperCode: paperCode,
+                    percentile: isUnmatched ? 0 : getEstimatedPercentile(s.score, paperCode)
+                });
+            });
+        }
+
+        allStudents.sort((a, b) => {
+            const numA = typeof a.score === 'number' ? a.score : -1;
+            const numB = typeof b.score === 'number' ? b.score : -1;
+            return numB - numA;
+        });
+
+        filteredStudents = [...allStudents];
+        
+        const countEl = document.getElementById('stat-verified-count');
+        if (countEl) countEl.textContent = allStudents.length.toLocaleString();
+
+        renderExplorer();
+    } catch (e) {
+        console.error("Failed to load student merit list database", e);
+    }
+}
+
 function renderExplorer() {
     const listContainer = document.getElementById('explorer-list');
     const prevBtn = document.getElementById('explorer-prev');
@@ -1013,75 +590,45 @@ function renderExplorer() {
     listContainer.innerHTML = '';
     
     if (filteredStudents.length === 0) {
-        noData.classList.remove('hidden');
-        infoSpan.textContent = 'Showing 0 to 0 of 0 students';
-        prevBtn.disabled = true;
-        nextBtn.disabled = true;
+        if (noData) noData.classList.remove('hidden');
+        if (infoSpan) infoSpan.textContent = 'Showing 0 of 0 candidates';
+        if (prevBtn) prevBtn.disabled = true;
+        if (nextBtn) nextBtn.disabled = true;
         return;
     }
     
-    noData.classList.add('hidden');
+    if (noData) noData.classList.add('hidden');
     
     const startIndex = (currentPage - 1) * pageSize;
     const endIndex = Math.min(startIndex + pageSize, filteredStudents.length);
     const pageStudents = filteredStudents.slice(startIndex, endIndex);
     
-    const searchQuery = document.getElementById('explorer-search').value.toLowerCase().trim();
-    
     pageStudents.forEach((student, index) => {
         const absoluteRank = startIndex + index + 1;
         const tr = document.createElement('tr');
         
-        // Highlight top performers
-        let rankBadgeClass = '';
-        if (absoluteRank === 1) rankBadgeClass = 'style="color: #d97706; font-weight:800;"';
-        else if (absoluteRank === 2) rankBadgeClass = 'style="color: #475569; font-weight:800;"';
-        else if (absoluteRank === 3) rankBadgeClass = 'style="color: #b45309; font-weight:800;"';
-
-        // Apply text query highlighting
-        const highlightedName = searchQuery ? highlightSearchText(student.name, searchQuery) : student.name;
-        const highlightedApp = searchQuery ? highlightSearchText(student.app, searchQuery) : student.app;
-        const highlightedCourse = searchQuery ? highlightSearchText(student.course, searchQuery) : student.course;
-
         const isUnmatched = student.score === 'N/A';
-        const percentileVal = isUnmatched ? 'N/A' : getEstimatedPercentile(student.score, student.collegePaperCode || student.paperCode);
-        const percentileText = (isUnmatched || percentileVal === 'N/A') ? 'N/A' : `${percentileVal.toFixed(2)}%`;
-
-        let paperBadgeClass = 'tag-sau';
-        if (student.paperCode === 'COQP12') paperBadgeClass = 'tag-sau-coqp12';
-        else if (student.paperCode === 'COQP10') paperBadgeClass = 'tag-sau-coqp10';
-        else if (student.paperCode === 'COQP08') paperBadgeClass = 'tag-sau-coqp08';
-        else if (student.paperCode === 'COQP11') paperBadgeClass = 'tag-tiss-coqp11';
-        else if (student.paperCode === 'SAU-ET') paperBadgeClass = 'tag-sau-et';
-        else if (student.paperCode === 'SCQP09') paperBadgeClass = 'tag-scqp09';
-        else if (student.paperCode === 'HUQP18') paperBadgeClass = 'tag-huqp18';
-        else if (student.paperCode === 'HUQP22') paperBadgeClass = 'tag-huqp22';
+        const percentileText = isUnmatched ? 'N/A' : `${student.percentile.toFixed(2)}%`;
 
         tr.innerHTML = `
-            <td ${rankBadgeClass}>#${absoluteRank}</td>
-            <td>
-                <div class="student-profile">
-                    <div class="student-avatar">${student.name.trim().charAt(0)}</div>
-                    <span style="font-weight: 600; font-size: 0.95rem;">${highlightedName}</span>
-                </div>
-            </td>
-            <td><span class="tag tag-${student.collegeId}">${student.collegeName}</span></td>
-            <td style="font-weight: 500; color: var(--text-main); font-size: 0.9rem;">${highlightedCourse}</td>
-            <td class="hide-mobile"><span class="tag ${paperBadgeClass}" style="font-size: 0.75rem;">${student.paperCode}</span></td>
-            <td class="hide-mobile" style="font-weight: 600; color: var(--accent);">${percentileText}</td>
-            <td class="hide-mobile" style="font-family: monospace; color: var(--text-muted); font-size: 0.9rem;">${highlightedApp}</td>
-            <td><span class="score-badge">${student.score}</span></td>
+            <td class="font-bold text-collegiate-gold">#${absoluteRank}</td>
+            <td class="font-semibold text-deep-navy">${student.name}</td>
+            <td><span class="college-tag">${student.collegeName}</span></td>
+            <td class="text-xs font-medium">${student.course}</td>
+            <td class="hidden md:table-cell"><span class="px-2 py-0.5 rounded bg-primary text-canvas-white font-bold text-xs">${student.paperCode}</span></td>
+            <td class="hidden md:table-cell font-bold text-secondary">${percentileText}</td>
+            <td class="hidden md:table-cell font-mono text-xs text-on-surface-variant">${student.app}</td>
+            <td><span class="score-chip">${student.score}</span></td>
         `;
         listContainer.appendChild(tr);
     });
     
-    infoSpan.textContent = `Showing ${startIndex + 1} to ${endIndex} of ${filteredStudents.length} candidates`;
+    if (infoSpan) infoSpan.textContent = `Showing ${startIndex + 1} to ${endIndex} of ${filteredStudents.length.toLocaleString()} candidates`;
     
-    prevBtn.disabled = currentPage === 1;
-    nextBtn.disabled = endIndex >= filteredStudents.length;
+    if (prevBtn) prevBtn.disabled = currentPage === 1;
+    if (nextBtn) nextBtn.disabled = endIndex >= filteredStudents.length;
 }
 
-// Setup searching and dropdown filtering listeners
 function setupFilters() {
     const searchInput = document.getElementById('explorer-search');
     const collegeSelect = document.getElementById('explorer-college');
@@ -1095,33 +642,24 @@ function setupFilters() {
     
     const applyFilters = () => {
         const query = searchInput.value.toLowerCase().trim();
-        const collegeVal = collegeSelect.value;
-        const paperVal = paperSelect.value;
-        const scoreVal = scoreSelect.value;
+        const collegeVal = collegeSelect ? collegeSelect.value : 'all';
+        const paperVal = paperSelect ? paperSelect.value : 'all';
+        const scoreVal = scoreSelect ? scoreSelect.value : 'all';
         
         filteredStudents = allStudents.filter(student => {
             const matchesSearch = student.name.toLowerCase().includes(query) || 
                                   student.app.includes(query) ||
                                   student.course.toLowerCase().includes(query);
             const matchesCollege = collegeVal === 'all' || student.collegeId === collegeVal;
-            const matchesPaper = paperVal === 'all' || student.collegePaperCode === paperVal;
+            const matchesPaper = paperVal === 'all' || student.paperCode.includes(paperVal);
             
             let matchesScore = true;
             if (scoreVal !== 'all') {
                 const scoreThreshold = parseInt(scoreVal, 10);
-                matchesScore = student.score >= scoreThreshold;
+                matchesScore = typeof student.score === 'number' && student.score >= scoreThreshold;
             }
             
             return matchesSearch && matchesCollege && matchesPaper && matchesScore;
-        });
-        
-        // Sync score density active state row highlights
-        document.querySelectorAll('.chart-row').forEach(row => {
-            if (row.dataset.band === scoreVal) {
-                row.classList.add('active');
-            } else {
-                row.classList.remove('active');
-            }
         });
         
         currentPage = 1;
@@ -1129,79 +667,58 @@ function setupFilters() {
     };
     
     searchInput.addEventListener('input', applyFilters);
-    collegeSelect.addEventListener('change', applyFilters);
-    paperSelect.addEventListener('change', applyFilters);
-    scoreSelect.addEventListener('change', applyFilters);
+    if (collegeSelect) collegeSelect.addEventListener('change', applyFilters);
+    if (paperSelect) paperSelect.addEventListener('change', applyFilters);
+    if (scoreSelect) scoreSelect.addEventListener('change', applyFilters);
     
-    prevBtn.addEventListener('click', () => {
-        if (currentPage > 1) {
-            currentPage--;
-            renderExplorer();
-        }
-    });
+    if (prevBtn) {
+        prevBtn.addEventListener('click', () => {
+            if (currentPage > 1) {
+                currentPage--;
+                renderExplorer();
+            }
+        });
+    }
     
-    nextBtn.addEventListener('click', () => {
-        const maxPage = Math.ceil(filteredStudents.length / pageSize);
-        if (currentPage < maxPage) {
-            currentPage++;
-            renderExplorer();
-        }
-    });
+    if (nextBtn) {
+        nextBtn.addEventListener('click', () => {
+            const maxPage = Math.ceil(filteredStudents.length / pageSize);
+            if (currentPage < maxPage) {
+                currentPage++;
+                renderExplorer();
+            }
+        });
+    }
 }
 
-// Social Sharing function
 window.shareResult = function(code, score) {
-    const text = encodeURIComponent(`I just evaluated my CUET PG expected admission status and target college eligibility! I got a score of ${score}/300 (${code}). Verify yours and compare top university cutoffs! 🎓🚀`);
+    const text = encodeURIComponent(`I evaluated my CUET PG admission odds! My score: ${score}/300 (${code}). Check your safe score on CUET PG Tracker! 🎓🚀 https://cuetpgtracker.me/`);
     window.open(`https://wa.me/?text=${text}`, '_blank');
 }
 
-// Live Visitor Counter
 async function initVisitorCounter() {
     const counterEl = document.getElementById('visitor-count');
     if (!counterEl) return;
 
-    // Baseline offset so initial hits display realistic base visits
-    const baseline = 1000;
-
-    const fallbackCount = () => {
-        let visits = localStorage.getItem('cuet_pg_visits_v2');
-        if (!visits) {
-            visits = 1000; // Baseline visits
-        }
-        if (!sessionStorage.getItem('visited_local_session')) {
-            visits = parseInt(visits, 10) + 1;
-            localStorage.setItem('cuet_pg_visits_v2', visits);
-            sessionStorage.setItem('visited_local_session', 'true');
-        } else {
-            visits = parseInt(visits, 10);
-        }
-        counterEl.textContent = visits.toLocaleString('en-IN');
-    };
-
+    const baseline = 1240;
     try {
         let url = 'https://counterapi.com/api/v1/cuetpgtracker_me';
-        
-        // If the user hasn't visited in this browser session, increment the global counter
         if (!sessionStorage.getItem('visited_global_session')) {
             url = 'https://counterapi.com/api/v1/cuetpgtracker_me/up';
         }
 
         const response = await fetch(url);
-        if (!response.ok) throw new Error(`API failure: status ${response.status}`);
+        if (!response.ok) throw new Error(`Status ${response.status}`);
         const data = await response.json();
-        
-        const count = data.value;
-        if (count !== undefined && count !== null) {
-            if (url.endsWith('/up')) {
-                sessionStorage.setItem('visited_global_session', 'true');
-            }
-            const displayCount = count + baseline;
-            counterEl.textContent = displayCount.toLocaleString('en-IN');
+
+        if (data && typeof data.value === 'number') {
+            if (url.endsWith('/up')) sessionStorage.setItem('visited_global_session', 'true');
+            const totalVisits = data.value + baseline;
+            counterEl.textContent = `${totalVisits.toLocaleString('en-IN')}+`;
         } else {
-            fallbackCount();
+            counterEl.textContent = '1,840+';
         }
-    } catch (err) {
-        console.warn("Visitor API unavailable, using local fallback counter", err);
-        fallbackCount();
+    } catch (e) {
+        counterEl.textContent = '1,840+';
     }
 }

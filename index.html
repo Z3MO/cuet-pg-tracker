@@ -3,36 +3,130 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CUET PG Admissions Tracker & Rank Predictor</title>
-    <!-- SEO Meta Tags -->
+    <title>CUET PG Admissions Tracker &amp; Rank Predictor 2026</title>
+    <meta name="description" content="Calculate safe scores, evaluate admission safe zones, and browse real admitted student lists for TISS Mumbai, SAU, IIIT Lucknow across COQP12, COQP11, COQP10.">
     <link rel="canonical" href="https://cuetpgtracker.me/" />
-    <!-- Favicon Links for Google Search & Web Browsers -->
+
+    <!-- Favicons -->
     <link rel="icon" type="image/x-icon" href="favicon.ico" />
     <link rel="icon" type="image/svg+xml" href="favicon.svg" />
     <link rel="icon" type="image/png" sizes="48x48" href="images/favicon-48x48.png" />
     <link rel="icon" type="image/png" sizes="192x192" href="images/favicon-192x192.png" />
     <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png" />
-    <!-- Font Awesome Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Stylesheets -->
-    <link rel="stylesheet" href="css/styles.css">
-    <!-- Google AdSense / Ezoic Auto-Ads Integration -->
+
+    <!-- Stitch Fonts & Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet">
+    <link href="https://fonts.googleapis.com" rel="preconnect">
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,300..800;1,300..800&family=Source+Serif+4:ital,opsz,wght@0,8..60,400..700;1,8..60,400..700&display=swap" rel="stylesheet">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "on-surface-variant": "#44474d",
+            "on-secondary-container": "#0f4a85",
+            "on-primary-container": "#8291b1",
+            "primary-container": "#1a2a44",
+            "inverse-primary": "#b7c7e8",
+            "surface-container-lowest": "#ffffff",
+            "surface-variant": "#d8e3f9",
+            "error": "#ba1a1a",
+            "on-background": "#111c2c",
+            "surface-tint": "#4f5f7c",
+            "secondary": "#2e609c",
+            "slate-surface": "#F4F6F9",
+            "tertiary-container": "#481e00",
+            "surface-container-highest": "#d8e3f9",
+            "amber-cta-hover": "#D97706",
+            "secondary-fixed": "#d4e3ff",
+            "inverse-on-surface": "#ebf1ff",
+            "surface-bright": "#f9f9ff",
+            "primary": "#04152e",
+            "on-primary": "#ffffff",
+            "secondary-fixed-dim": "#a5c8ff",
+            "canvas-white": "#FFFFFF",
+            "on-secondary-fixed": "#001c3a",
+            "surface": "#f9f9ff",
+            "on-primary-fixed-variant": "#384763",
+            "on-tertiary-container": "#e2721d",
+            "on-primary-fixed": "#0a1b35",
+            "border-subtle": "#E2E8F0",
+            "outline-variant": "#c5c6ce",
+            "surface-dim": "#cfdaf1",
+            "tertiary-fixed-dim": "#ffb68b",
+            "on-secondary-fixed-variant": "#094782",
+            "inverse-surface": "#263142",
+            "background": "#f9f9ff",
+            "on-tertiary": "#ffffff",
+            "on-surface": "#111c2c",
+            "outline": "#75777e",
+            "on-error-container": "#93000a",
+            "surface-container": "#e7eeff",
+            "collegiate-gold": "#F3A13E",
+            "surface-container-high": "#dee9ff",
+            "secondary-container": "#8dbbfd",
+            "tertiary-fixed": "#ffdbc8",
+            "error-container": "#ffdad6",
+            "on-secondary": "#ffffff",
+            "surface-container-low": "#f0f3ff",
+            "on-tertiary-fixed": "#321300",
+            "deep-navy": "#0C2340",
+            "on-error": "#ffffff",
+            "primary-fixed": "#d6e3ff"
+          },
+          borderRadius: { DEFAULT: "0.125rem", lg: "0.25rem", xl: "0.5rem", full: "0.75rem" },
+          spacing: {
+            "gutter-mobile": "1rem", "gutter": "1.5rem", "margin-mobile": "1rem",
+            "space-sm": "0.5rem", "space-xl": "2.5rem", "space-md": "1rem",
+            "margin": "2rem", "space-lg": "1.5rem", "space-xs": "0.25rem"
+          },
+          fontFamily: {
+            "headline-lg": ['"Source Serif 4"'], "label-lg": ['"Source Sans 3"'],
+            "body-md": ['"Source Sans 3"'], "headline-xl": ['"Source Serif 4"'],
+            "headline-md": ['"Source Serif 4"'], "headline-sm": ['"Source Sans 3"'],
+            "title-md": ['"Source Sans 3"'], "title-lg": ['"Source Sans 3"'],
+            "body-sm": ['"Source Sans 3"'], "body-lg": ['"Source Sans 3"'],
+            "label-md": ['"Source Sans 3"'], "label-sm": ['"Source Sans 3"']
+          },
+          fontSize: {
+            "headline-xl": ["40px", { lineHeight: "48px", fontWeight: "700" }],
+            "headline-lg": ["32px", { lineHeight: "40px", fontWeight: "600" }],
+            "headline-md": ["24px", { lineHeight: "32px", fontWeight: "600" }],
+            "headline-sm": ["20px", { lineHeight: "28px", fontWeight: "600" }],
+            "title-lg": ["18px", { lineHeight: "26px", fontWeight: "600" }],
+            "title-md": ["16px", { lineHeight: "24px", fontWeight: "600" }],
+            "body-lg": ["18px", { lineHeight: "28px", fontWeight: "400" }],
+            "body-md": ["15px", { lineHeight: "22px", fontWeight: "400" }],
+            "body-sm": ["13px", { lineHeight: "18px", fontWeight: "400" }],
+            "label-lg": ["14px", { lineHeight: "20px", letterSpacing: "0.02em", fontWeight: "600" }],
+            "label-md": ["12px", { lineHeight: "16px", letterSpacing: "0.03em", fontWeight: "600" }],
+            "label-sm": ["11px", { lineHeight: "14px", letterSpacing: "0.05em", fontWeight: "700" }]
+          }
+        }
+      }
+    };
+    </script>
+
+    <!-- Google AdSense -->
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9871961133603996" crossorigin="anonymous"></script>
-    
-    <!-- Open Graph / Social Sharing Meta Tags -->
+
+    <!-- Open Graph -->
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://cuetpgtracker.me/" />
-    <meta property="og:title" content="CUET PG Admissions Tracker & Rank Predictor 2026" />
+    <meta property="og:title" content="CUET PG Admissions Tracker &amp; Rank Predictor 2026" />
     <meta property="og:description" content="Calculate safe scores, evaluate admission safe zones, and browse real admitted student lists for TISS, SAU, IIIT Lucknow across COQP12, COQP11, COQP10." />
     <meta property="og:image" content="https://cuetpgtracker.me/images/tiss_mumbai.png" />
-
-    <!-- Twitter Card Meta Tags -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="CUET PG Admissions Tracker & Rank Predictor 2026" />
+    <meta name="twitter:title" content="CUET PG Admissions Tracker &amp; Rank Predictor 2026" />
     <meta name="twitter:description" content="Calculate safe scores, evaluate admission safe zones, and browse real admitted student lists for TISS, SAU, IIIT Lucknow." />
     <meta name="twitter:image" content="https://cuetpgtracker.me/images/tiss_mumbai.png" />
 
-    <!-- Schema.org JSON-LD Structured Data for Google Search Rich Snippets -->
+    <!-- Schema.org JSON-LD -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -42,15 +136,11 @@
       "description": "Calculate safe scores, evaluate admission safe zones, and compare top programs using real admitted student lists for TISS Mumbai, SAU, and IIIT Lucknow.",
       "applicationCategory": "EducationalApplication",
       "operatingSystem": "All",
-      "offers": {
-        "@type": "Offer",
-        "price": "0",
-        "priceCurrency": "INR"
-      }
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "INR" }
     }
     </script>
-    
-    <!-- Google Analytics (GA4) Integration -->
+
+    <!-- Google Analytics (GA4) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-EHPV010QKD"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -58,461 +148,710 @@
       gtag('js', new Date());
       gtag('config', 'G-EHPV010QKD');
     </script>
+
+    <style>
+      @layer base { html, body { margin: 0; padding: 0; } ::-webkit-scrollbar { width: 6px; } ::-webkit-scrollbar-thumb { background: #c5c6ce; border-radius: 3px; } }
+      .cat-pill.active-cat { background-color: #2e609c !important; color: #fff !important; }
+      /* Merit Table */
+      .merit-table th { background: #F4F6F9; color: #0C2340; font-size: 11px; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; padding: 10px 12px; }
+      .merit-table td { padding: 10px 12px; font-size: 13px; border-bottom: 1px solid #E2E8F0; }
+      .merit-table tr:hover td { background: #f0f3ff; }
+      .score-chip { display: inline-block; background: #1a2a44; color: #F3A13E; font-weight: 700; font-size: 12px; padding: 2px 8px; border-radius: 4px; }
+      .college-tag { display: inline-block; background: #e7eeff; color: #0f4a85; font-size: 11px; font-weight: 700; padding: 2px 6px; border-radius: 3px; }
+      /* Compare drawer */
+      #compare-drawer { position: fixed; bottom: 0; left: 0; right: 0; background: #04152e; color: #fff; padding: 14px 24px; display: flex; justify-content: space-between; align-items: center; z-index: 100; transform: translateY(100%); transition: transform 0.3s ease; }
+      #compare-drawer.active { transform: translateY(0); }
+      /* Compare modal */
+      #compare-modal { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.6); z-index: 200; align-items: center; justify-content: center; padding: 1rem; }
+      #compare-modal.active { display: flex; }
+      .modal-card { background: #fff; border-radius: 12px; max-width: 900px; width: 100%; max-height: 85vh; overflow-y: auto; padding: 2rem; }
+      /* Gauge */
+      .gauge { width: 130px; height: 130px; }
+      /* Back to top */
+      #back-to-top-btn { position: fixed; bottom: 24px; right: 24px; z-index: 90; background: #F3A13E; color: #04152e; border: none; border-radius: 50%; width: 44px; height: 44px; font-size: 20px; cursor: pointer; display: none; align-items: center; justify-content: center; box-shadow: 0 4px 12px rgba(0,0,0,0.2); transition: background 0.2s; }
+      #back-to-top-btn.visible { display: flex; }
+      #back-to-top-btn:hover { background: #D97706; }
+    </style>
 </head>
-<body class="dark-mode"> <!-- Default to Dark Mode as it matches the high-tech, premium student dashboard style -->
+<body class="bg-slate-surface font-body-md text-body-md text-on-surface antialiased" style="font-family: 'Source Sans 3', sans-serif;">
 
-    <!-- Navigation Bar -->
-    <header class="navbar">
-        <div class="logo">
-            <svg style="width: 28px; height: 28px; color: var(--accent);" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M12 3L1 9l11 6 9-4.91V17h2V9L12 3z"/>
-                <path d="M19 12.06v3.19l-7 3.82-7-3.82v-3.19l7 3.82 7-3.82z"/>
-            </svg>
-            CUET PG <span class="highlight">Tracker</span>
-        </div>
-        <nav class="nav-links">
-            <a href="#predictor">Rank Predictor</a>
-            <a href="#colleges">Top Colleges</a>
-            <a href="#comparison">Compare Matrix</a>
-            <a href="#explorer">Merit Lists</a>
-            
-            <!-- Dark / Light Theme Toggle Button -->
-            <button id="theme-toggle" class="theme-toggle-btn" aria-label="Toggle dark/light theme">
-                <!-- Sun Icon -->
-                <svg class="sun-icon" viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M12 7c-2.76 0-5 2.24-5 5s2.24 5 5 5 5-2.24 5-5-2.24-5-5-5zM2 13h2c.55 0 1-.45 1-1s-.45-1-1-1H2c-.55 0-1 .45-1 1s.45 1 1 1zm18 0h2c.55 0 1-.45 1-1s-.45-1-1-1h-2c-.55 0-1 .45-1 1s.45 1 1 1zM11 2v2c0 .55.45 1 1 1s1-.45 1-1V2c0-.55-.45-1-1-1s-1 .45-1 1zm0 18v2c0 .55.45 1 1 1s1-.45 1-1v-2c0-.55-.45-1-1-1s-1 .45-1 1zM5.99 4.58c-.39-.39-1.03-.39-1.41 0s-.39 1.03 0 1.41l1.06 1.06c.39.39 1.03.39 1.41 0s.39-1.03 0-1.41L5.99 4.58zm12.37 12.37c-.39-.39-1.03-.39-1.41 0s-.39 1.03 0 1.41l1.06 1.06c.39.39 1.03.39 1.41 0s.39-1.03 0-1.41l-1.06-1.06zm1.06-12.37c-.39-.39-1.02-.39-1.41 0l-1.06 1.06c-.39.39-.39 1.03 0 1.41s1.03.39 1.41 0l1.06-1.06c.38-.38.38-1.02 0-1.41zm-12.37 12.37c-.39-.39-1.03-.39-1.41 0l-1.06 1.06c-.39.39-.39 1.03 0 1.41s1.03.39 1.41 0l1.06-1.06c.39-.39.39-1.03 0-1.41z"/>
-                </svg>
-                <!-- Moon Icon -->
-                <svg class="moon-icon" viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M12.3 2a10 10 0 0 0-1.9 19.5 10 10 0 0 1 12.5-12.5A10 10 0 0 0 12.3 2z"/>
-                </svg>
-            </button>
-        </nav>
-    </header>
-
-    <!-- Main Container -->
-    <main class="container" style="margin-top: 1.5rem;">
-        
-
-        
-        <!-- Hero Section -->
-        <section class="hero" style="margin-top: 1rem;">
-            <div class="badge">
-                <span class="pulse-dot"></span>
-                Session 2024-25 Data Active
-            </div>
-            <h1>Nail Your <span class="highlight animate-gradient">CUET PG</span> Admissions</h1>
-            <p>Calculate safe scores, evaluate admission safe zones, and compare top programs using real admitted student lists. <strong style="color: var(--accent);">You can now check expected cutoffs for other exam paper codes too, including COQP12 (MBA), COQP11 (General/SW) and more. All calculations are modeled on official counselling data.</strong></p>
-            
-            <div class="hero-actions">
-                <a href="#predictor" class="cta-button">Predict My Rank <i class="fa-solid fa-bullseye" style="margin-left: 0.5rem;"></i></a>
-                <a href="#explorer" class="cta-button secondary-btn">Explore Admitted Students <i class="fa-solid fa-graduation-cap" style="margin-left: 0.5rem;"></i></a>
-            </div>
-
-            <div class="hero-stats">
-                <div class="hero-stat-card">
-                    <span class="num">10 Codes</span>
-                    <span class="label">COQP11, COQP12 & more</span>
-                </div>
-                <div class="hero-stat-card">
-                    <span class="num">6</span>
-                    <span class="label">Top Institutions</span>
-                </div>
-                <div class="hero-stat-card">
-                    <span id="stat-verified-count" class="num">2,757</span>
-                    <span class="label">Verified Score Records</span>
-                </div>
-            </div>
-        </section>
-
-        <!-- Predictor and Colleges Grid -->
-        <section id="predictor" class="tools-grid">
-            
-            <!-- Rank & Safe Score Predictor -->
-            <div class="card predictor-card shadow-hover">
-                <div class="card-header">
-                    <h2>🎯 Admission & Eligibility Predictor</h2>
-                    <p>Enter your score out of 300 to evaluate your expected eligibility. Choose your specific target paper code below to check results for other papers too!</p>
-                </div>
-                
-                <form id="rank-form">
-                    <div class="form-group-row-mobile" style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem;">
-                        <div class="form-group" style="margin-bottom: 0;">
-                            <label for="paper-code">Target Exam Paper</label>
-                            <select id="paper-code" required>
-                                <option value="COQP12">COQP12 - MBA / General Management</option>
-                                <option value="COQP11">COQP11 - General / Social Work</option>
-                                <option value="COQP10">COQP10 - MBA / Commerce</option>
-                                <option value="COQP08">COQP08 - MBA / Economics</option>
-                                <option value="SCQP09">SCQP09 - MCA / Analytics</option>
-                                <option value="HUQP18">HUQP18 - Political Science</option>
-                                <option value="HUQP22">HUQP22 - Sociology</option>
-                                <option value="HUQP20">HUQP20 - Applied Psychology</option>
-                                <option value="HUQP21">HUQP21 - Social Work (Tuljapur/Gwt)</option>
-                                <option value="COQP14">COQP14 - LL.M (Access to Justice)</option>
-                            </select>
-                        </div>
-                        <div class="form-group" style="margin-bottom: 0;">
-                            <label for="category">Counselling Category</label>
-                            <select id="category" required>
-                                <option value="GEN">General (UR)</option>
-                                <option value="OBC">OBC-NCL</option>
-                                <option value="EWS">EWS</option>
-                                <option value="SC">SC (Scheduled Caste)</option>
-                                <option value="ST">ST (Scheduled Tribe)</option>
-                            </select>
-                        </div>
-                    </div>
-
-                    <div class="form-group" style="margin-bottom: 1.25rem;">
-                        <label for="score">Expected Marks (out of 300)</label>
-                        <input type="number" id="score" min="0" max="300" placeholder="Enter your raw score (e.g., 215)" required>
-                    </div>
-
-                    <button type="submit" class="submit-button" style="margin-bottom: 1rem;">Evaluate Eligibility</button>
-                    
-                    <p style="font-size: 0.76rem; color: var(--text-muted); margin-bottom: 0; font-weight: 500; line-height: 1.45;">
-                        ⚠️ <strong>Note:</strong> Predictor calculations are predicted based on last year's (CUET PG 2025) NTA score data and counseling baselines.
-                    </p>
-                </form>
-
-                <div id="result-box" class="result-box hidden"></div>
-            </div>
-
-            <!-- College Comparison Grid -->
-            <div id="colleges" class="card shadow-hover">
-                <div class="card-header">
-                    <h2>🏛️ Target Universities</h2>
-                    <p>Click on any card to view dynamic cutoffs, packages, and detailed specialization lists.</p>
-                </div>
-                
-                <div id="college-grid" class="college-grid">
-                    <!-- Colleges Injected Dynamically via JS -->
-            </div>
-        </section>
-
-
-
-        <!-- Interactive Comparison Matrix -->
-        <section id="comparison" class="explorer-section">
-            <div class="explorer-header">
-                <h2><i class="fa-solid fa-square-poll-horizontal" style="color: var(--accent); margin-right: 0.6rem;"></i>CUET PG Admissions Comparison Matrix</h2>
-                <p>Compare placement ROI, tuition fees, safe target scores, and NIRF rankings side-by-side.</p>
-            </div>
-            <div class="mobile-scroll-hint">
-                <i class="fa-solid fa-right-left"></i> Swipe horizontally to view full matrix details
-            </div>
-            
-            <div class="table-container">
-                <div class="table-responsive">
-                    <table class="modern-table comparison-matrix-table">
-                        <thead>
-                            <tr>
-                                <th><i class="fa-solid fa-university" style="color: var(--accent); margin-right: 0.5rem;"></i>University</th>
-                                <th><i class="fa-solid fa-file-signature" style="color: var(--accent); margin-right: 0.5rem;"></i>Exam Code</th>
-                                <th><i class="fa-solid fa-shield-halved" style="color: var(--accent); margin-right: 0.5rem;"></i>Safe Target Score</th>
-                                <th><i class="fa-solid fa-briefcase" style="color: var(--accent); margin-right: 0.5rem;"></i>Median Package</th>
-                                <th><i class="fa-solid fa-graduation-cap" style="color: var(--accent); margin-right: 0.5rem;"></i>Course Specializations Offered</th>
-                                <th><i class="fa-solid fa-indian-rupee-sign" style="color: var(--accent); margin-right: 0.5rem;"></i>Approx. Fees</th>
-                                <th><i class="fa-solid fa-award" style="color: var(--accent); margin-right: 0.5rem;"></i>Rank</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td><strong style="color: var(--text-main);">TISS Mumbai</strong></td>
-                                <td>
-                                    <span class="tag tag-tiss">COQP12</span> &nbsp; 
-                                    <span class="tag tag-tiss-coqp11">COQP11</span>
-                                </td>
-                                <td>
-                                    <span class="matrix-score-badge matrix-score-coqp12"><span class="badge-dot"></span>235+</span> &nbsp; 
-                                    <span class="matrix-score-badge matrix-score-coqp11"><span class="badge-dot"></span>180+</span>
-                                </td>
-                                <td>
-                                    <strong style="color: var(--success-text);">28.00 LPA</strong> &nbsp; | &nbsp; 
-                                    <strong style="color: var(--success-text);">7.00 LPA</strong>
-                                </td>
-                                <td>Analytics, HR, Social Work, Policy, Public Health</td>
-                                <td>₹1.15 - 3.20 Lakhs</td>
-                                <td>NIRF Rank #72 (University)</td>
-                            </tr>
-                            <tr>
-                                <td><strong style="color: var(--text-main);">South Asian University</strong></td>
-                                <td>
-                                    <span class="tag tag-sau">COQP12</span> &nbsp;
-                                    <span class="tag tag-sau-coqp10">COQP10</span> &nbsp;
-                                    <span class="tag tag-sau-coqp08">COQP08</span>
-                                </td>
-                                <td>
-                                    <span class="matrix-score-badge matrix-score-coqp12"><span class="badge-dot"></span>140+</span> &nbsp;
-                                    <span class="matrix-score-badge matrix-score-coqp10"><span class="badge-dot"></span>120+</span> &nbsp;
-                                    <span class="matrix-score-badge matrix-score-coqp08"><span class="badge-dot"></span>110+</span>
-                                </td>
-                                <td><strong style="color: var(--success-text);">5.50 LPA</strong></td>
-                                <td>MBA (General, Finance, Marketing, HR, Ops)</td>
-                                <td>₹5.88 - 6.61 Lakhs</td>
-                                <td>International SAARC University</td>
-                            </tr>
-                            <tr>
-                                <td><strong style="color: var(--text-main);">IIIT Lucknow</strong></td>
-                                <td><span class="tag tag-iiitl">COQP12</span></td>
-                                <td><span class="matrix-score-badge matrix-score-coqp12"><span class="badge-dot"></span>161+</span></td>
-                                <td><strong style="color: var(--success-text);">11.00 LPA</strong></td>
-                                <td>MBA in Digital Business</td>
-                                <td>₹3.02 - 4.64 Lakhs</td>
-                                <td>Institute of National Importance | Top Emerging Tech B-School</td>
-                            </tr>
-                            <tr>
-                                <td><strong style="color: var(--text-main);">TISS Hyderabad</strong></td>
-                                <td><span class="tag tag-tiss_hyd">COQP11</span></td>
-                                <td><span class="matrix-score-badge matrix-score-coqp11"><span class="badge-dot"></span>165+</span></td>
-                                <td><strong style="color: var(--success-text);">8.00 LPA</strong></td>
-                                <td>MA (Public Policy, Cities, Livelihoods, Education)</td>
-                                <td>₹1.45 - 2.80 Lakhs</td>
-                                <td>NIRF Rank #72 (University) | Off-Campus Hyderabad</td>
-                            </tr>
-                            <tr>
-                                <td><strong style="color: var(--text-main);">TISS Guwahati</strong></td>
-                                <td><span class="tag tag-tiss_gwt">COQP11</span></td>
-                                <td><span class="matrix-score-badge matrix-score-coqp11"><span class="badge-dot"></span>155+</span></td>
-                                <td><strong style="color: var(--success-text);">5.80 LPA</strong></td>
-                                <td>MA in Social Work, Ecology, Peace & Conflict Studies</td>
-                                <td>₹1.05 - 2.20 Lakhs</td>
-                                <td>NIRF Rank #72 (University) | Off-Campus Guwahati</td>
-                            </tr>
-                            <tr>
-                                <td><strong style="color: var(--text-main);">TISS Tuljapur</strong></td>
-                                <td><span class="tag tag-tiss_tjp">COQP11</span></td>
-                                <td><span class="matrix-score-badge matrix-score-coqp11"><span class="badge-dot"></span>150+</span></td>
-                                <td><strong style="color: var(--success-text);">4.20 LPA</strong></td>
-                                <td>MA in Social Work (Rural Development)</td>
-                                <td>₹1.10 - 2.30 Lakhs</td>
-                                <td>NIRF Rank #72 (University) | Off-Campus Tuljapur</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </section>
-
-        <!-- Consolidated Student Explorer Section -->
-        <section id="explorer" class="explorer-section">
-            <div class="explorer-header">
-                <h2><i class="fa-solid fa-circle-nodes" style="color: var(--accent); margin-right: 0.6rem;"></i>Admitted Candidates & Merit Explorer (2024-25)</h2>
-                <p>Browse official allotments, check actual scores, and filter candidates by program or marks.</p>
-            </div>
-            <div class="mobile-scroll-hint">
-                <i class="fa-solid fa-right-left"></i> Swipe horizontally to view full directory details
-            </div>
-
-            <!-- Interactive Score Density Distribution Chart -->
-            <div class="density-chart-container">
-                <div class="density-chart-title">
-                    <span>📊 Candidate Score Density (Based on Admitted Candidates)</span>
-                    <span class="info-tag">Click any score band below to filter the merit explorer</span>
-                </div>
-                <div id="density-chart-bars">
-                    <!-- Chart rows injected dynamically -->
-                </div>
-            </div>
-
-            <!-- Advanced Filter Bar -->
-            <div class="filters-bar">
-                <div class="search-input-wrapper">
-                    <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <circle cx="11" cy="11" r="8"></circle>
-                        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-                    </svg>
-                    <input type="text" id="explorer-search" class="filter-input" placeholder="Search by name, app no, or course...">
-                </div>
-
-                <div>
-                    <select id="explorer-college" class="filter-input no-icon">
-                        <option value="all">All Colleges</option>
-                        <option value="tiss">TISS Mumbai</option>
-                        <option value="tiss_hyd">TISS Hyderabad</option>
-                        <option value="tiss_gwt">TISS Guwahati</option>
-                        <option value="tiss_tjp">TISS Tuljapur</option>
-                        <option value="sau">South Asian University</option>
-                        <option value="iiitl">IIIT Lucknow</option>
-                    </select>
-                </div>
-
-                <div>
-                    <select id="explorer-paper" class="filter-input no-icon">
-                        <option value="all">All Paper Codes</option>
-                        <option value="COQP11">COQP11 (General / SW)</option>
-                        <option value="COQP12">COQP12 (MBA)</option>
-                        <option value="COQP10">COQP10 (Commerce)</option>
-                        <option value="COQP08">COQP08 (Economics)</option>
-                        <option value="SCQP09">SCQP09 (MCA / Analytics)</option>
-                        <option value="HUQP18">HUQP18 (Political Science)</option>
-                        <option value="HUQP22">HUQP22 (Sociology)</option>
-                        <option value="HUQP20">HUQP20 (Applied Psychology)</option>
-                        <option value="HUQP21">HUQP21 (Social Work - Tuljapur/Gwt)</option>
-                        <option value="COQP14">COQP14 (LL.M Law)</option>
-                    </select>
-                </div>
-
-                <div>
-                    <select id="explorer-score" class="filter-input no-icon">
-                        <option value="all">All Score Ranges</option>
-                        <option value="250">250+ (Top Tier)</option>
-                        <option value="200">200+ (High Marks)</option>
-                        <option value="150">150+ (Average Range)</option>
-                        <option value="100">100+ (Secondary cutoff)</option>
-                    </select>
-                </div>
-            </div>
-
-            <!-- Results Table -->
-            <div class="table-container">
-                <div class="table-responsive">
-                    <table class="modern-table">
-                        <thead>
-                            <tr>
-                                <th>#</th>
-                                <th>Student Name</th>
-                                <th>College</th>
-                                <th>Course / Specialization</th>
-                                <th class="hide-mobile">Exam Code</th>
-                                <th class="hide-mobile">Percentile</th>
-                                <th class="hide-mobile">Application No</th>
-                                <th>CUET Score</th>
-                            </tr>
-                        </thead>
-                        <tbody id="explorer-list">
-                            <!-- Injected dynamically via JS -->
-                        </tbody>
-                    </table>
-                </div>
-
-                <!-- Empty State -->
-                <div id="explorer-no-data" class="hidden no-data-illustration">
-                    <div class="emoji">🔍</div>
-                    <h3>No Students Match Your Filters</h3>
-                    <p>Try clearing your filters or entering a different search keyword.</p>
-                </div>
-            </div>
-
-            <!-- Pagination bar -->
-            <div class="pagination-controls">
-                <div class="pagination-info" id="explorer-info">
-                    Showing 0 to 0 of 0 students
-                </div>
-                <div style="display: flex; gap: 0.5rem;">
-                    <button id="explorer-prev" class="pagination-btn" disabled>&larr; Previous</button>
-                    <button id="explorer-next" class="pagination-btn" disabled>Next &rarr;</button>
-                </div>
-            </div>
-        </section>
-
-        <!-- FAQ Section for High SEO Rankings -->
-        <section class="explorer-section" style="margin-top: 3rem; margin-bottom: 2rem;">
-            <div class="explorer-header">
-                <h2><i class="fa-solid fa-circle-question" style="color: var(--accent); margin-right: 0.6rem;"></i>Frequently Asked Questions (CUET PG Admissions)</h2>
-                <p>Find answers to common queries regarding safe scores, percentiles, and university counseling criteria.</p>
-            </div>
-            
-            <div class="faq-grid" style="display: grid; grid-template-columns: 1fr; gap: 1.25rem; margin-top: 1.5rem;">
-                <div class="card" style="padding: 1.25rem;">
-                    <h3 style="color: var(--primary); font-size: 1.1rem; margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.5rem;">
-                        <span style="color: var(--accent); font-weight: 800;">Q.</span> What is a safe score for TISS Mumbai in CUET PG 2026?
-                    </h3>
-                    <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.5; margin: 0;">
-                        For the flagship HRM & LR and Analytics programs (COQP12), a score of <strong>235+</strong> is considered highly safe for General category candidates. For COQP11 programs (Social Work, Public Health, and policy streams), a score of <strong>180+</strong> is generally safe.
-                    </p>
-                </div>
-                
-                <div class="card" style="padding: 1.25rem;">
-                    <h3 style="color: var(--primary); font-size: 1.1rem; margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.5rem;">
-                        <span style="color: var(--accent); font-weight: 800;">Q.</span> Which paper codes does South Asian University (SAU) accept for MBA?
-                    </h3>
-                    <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.5; margin: 0;">
-                        SAU accepts multiple paper codes for its MBA program: <strong>COQP12</strong> (General Management), <strong>COQP10</strong> (Commerce), and <strong>COQP08</strong> (Economics). Candidates who wrote multiple exams are ranked in the merit list based on their highest score among these paper codes.
-                    </p>
-                </div>
-
-                <div class="card" style="padding: 1.25rem;">
-                    <h3 style="color: var(--primary); font-size: 1.1rem; margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.5rem;">
-                        <span style="color: var(--accent); font-weight: 800;">Q.</span> How are the estimated percentiles calculated in the tracker?
-                    </h3>
-                    <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.5; margin: 0;">
-                        Percentiles are calculated using a data-driven piecewise linear interpolation formula. This formula is derived directly from the official NTA baseline ranking databases, mapping raw scores to their corresponding percentile rankings for each paper code (COQP11, COQP12, COQP10, and COQP08).
-                    </p>
-                </div>
-
-                <div class="card" style="padding: 1.25rem;">
-                    <h3 style="color: var(--primary); font-size: 1.1rem; margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.5rem;">
-                        <span style="color: var(--accent); font-weight: 800;">Q.</span> Can I get admission to SAU without writing the CUET PG exam?
-                    </h3>
-                    <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.5; margin: 0;">
-                        Yes, South Asian University (SAU) reserves seats for candidates entering through their own separate entrance examination (**SAU-ET**). In our tracker, these candidates are registered with a score status of "N/A" and the exam code "SAU-ET".
-                    </p>
-                </div>
-            </div>
-        </section>
-
-
-
-    </main>
-
-    <!-- Footer -->
-    <footer>
-        <div class="footer-counter" style="margin-bottom: 1.25rem; display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.4rem 1rem; background: rgba(255, 255, 255, 0.08); border-radius: var(--radius-full); border: 1px solid rgba(255, 255, 255, 0.15); font-size: 0.8rem; font-weight: 600; color: rgba(255, 255, 255, 0.95);">
-            <span class="pulse-dot"></span>
-            <span>Live Dashboard Visits: <strong id="visitor-count" style="color: var(--accent);">Loading...</strong></span>
-        </div>
-        <p>&copy; 2026 CUET PG Calculator. Empowering Indian Aspirants.</p>
-        <p style="font-size: 0.8rem; margin-top: 0.5rem; opacity: 0.7;">Cross-referenced with official NTA scores & counselling sheets.</p>
-        <div class="footer-links" style="margin-top: 0.75rem; display: flex; justify-content: center; gap: 1.5rem; font-size: 0.85rem;">
-            <a href="privacy.html" style="color: var(--text-muted); text-decoration: none; transition: color 0.2s;" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='var(--text-muted)'">Privacy Policy</a>
-            <a href="terms.html" style="color: var(--text-muted); text-decoration: none; transition: color 0.2s;" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='var(--text-muted)'">Terms & Conditions</a>
-        </div>
-    </footer>
-
-    <!-- Floating Back to Top Button -->
-    <button id="back-to-top-btn" class="back-to-top" aria-label="Back to top">
-        <svg style="width: 24px; height: 24px;" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"/>
-        </svg>
-    </button>
-
-    <!-- Floating Compare Drawer -->
-    <div id="compare-drawer" class="compare-drawer">
-        <span class="compare-info">⚖️ <span id="compare-count">0</span> / 4 Selected for Comparison</span>
-        <div style="display: flex; gap: 0.75rem;">
-            <button id="compare-btn" class="compare-btn">Compare Now</button>
-            <button id="clear-compare-btn" class="clear-compare-btn">Clear</button>
-        </div>
+<!-- ===== HEADER ===== -->
+<header class="fixed top-0 left-0 w-full z-50 shadow-[0_1px_8px_rgba(0,0,0,0.06)]">
+  <!-- Top Registry Bar -->
+  <div class="bg-deep-navy text-canvas-white px-8">
+    <div class="max-w-[1240px] mx-auto h-8 flex items-center justify-between text-label-sm font-label-sm tracking-wide">
+      <div class="flex items-center gap-2">
+        <span class="w-2 h-2 rounded-full bg-collegiate-gold animate-pulse"></span>
+        <span class="font-semibold text-collegiate-gold uppercase tracking-wider">Official Registry:</span>
+        <span>Session 2024-25 Data Active | Cross-referenced with official NTA scores &amp; counselling sheets</span>
+      </div>
+      <div class="hidden md:flex items-center gap-6 text-surface-container-low">
+        <span class="flex items-center gap-1"><span class="material-symbols-outlined text-[14px] text-collegiate-gold">verified</span>NTA Standardized</span>
+        <span>Updated Bi-weekly</span>
+      </div>
     </div>
-
-    <!-- Comparison Modal -->
-    <div id="compare-modal" class="modal-overlay">
-        <div class="modal-content">
-            <button id="close-modal" class="close-modal-btn">&times;</button>
-            <h2 style="font-size: 1.8rem; margin-bottom: 0.5rem; color: var(--accent);">🏛️ Side-by-Side College Comparison Matrix</h2>
-            <p style="color: var(--text-muted); margin-bottom: 1.5rem; font-size: 0.95rem;">Direct ROI assessment, packages breakdown, target scores, and ranking references (CUET PG 2025 Data).</p>
-            
-            <div class="table-responsive">
-                <table class="modern-table compare-table" style="width: 100%;">
-                    <thead id="compare-table-head">
-                        <!-- Injected dynamically -->
-                    </thead>
-                    <tbody id="compare-table-body">
-                        <!-- Injected dynamically -->
-                    </tbody>
-                </table>
-            </div>
-            <p style="font-size: 0.8rem; color: var(--text-muted); margin-top: 1.5rem; line-height: 1.4;">
-                * **ROI Score Index** is computed as `(Median Annual Placement Salary / Program Tuition Fee) * 10` for an immediate evaluation of financial returns.<br>
-                * **Rankings Credentials:** NIRF Management ranks represent official Ministry of Education standing. Program links connect directly to university verification portals.
-            </p>
+  </div>
+  <!-- Main Navbar -->
+  <div class="bg-surface-container-lowest/95 backdrop-blur-md">
+    <div class="max-w-[1240px] mx-auto px-8 h-20 flex items-center justify-between gap-4">
+      <a class="flex items-center gap-4 flex-shrink-0" href="#">
+        <div class="w-11 h-11 rounded-lg bg-deep-navy flex items-center justify-center text-collegiate-gold shadow-sm">
+          <span class="material-symbols-outlined text-[26px]">school</span>
         </div>
+        <div class="flex flex-col">
+          <div class="flex items-center gap-1">
+            <span class="text-deep-navy leading-none font-bold tracking-tight text-[24px]">CUET PG</span>
+            <span class="text-collegiate-gold leading-none font-bold text-[24px]">Tracker</span>
+          </div>
+          <span class="text-on-surface-variant uppercase tracking-widest mt-1 text-[11px] font-bold">Admission Probability &amp; Benchmarks</span>
+        </div>
+      </a>
+      <nav class="hidden lg:flex items-center gap-1 text-sm font-semibold">
+        <a class="px-3.5 py-2 rounded-lg text-on-surface-variant hover:text-primary hover:bg-surface-container-low transition-colors" href="#predictor">Predictor</a>
+        <a class="px-3.5 py-2 rounded-lg text-on-surface-variant hover:text-primary hover:bg-surface-container-low transition-colors" href="college.html#tiss">Directory</a>
+        <a class="px-3.5 py-2 rounded-lg text-on-surface-variant hover:text-primary hover:bg-surface-container-low transition-colors" href="counselling.html">Counselling Hub</a>
+        <a class="px-3.5 py-2 rounded-lg text-on-surface-variant hover:text-primary hover:bg-surface-container-low transition-colors" href="syllabus.html">Syllabus</a>
+        <a class="px-3.5 py-2 rounded-lg text-on-surface-variant hover:text-primary hover:bg-surface-container-low transition-colors" href="faq.html">FAQ</a>
+      </nav>
+      <div class="flex items-center gap-4">
+        <a class="hidden sm:inline-flex items-center justify-center bg-collegiate-gold hover:bg-amber-cta-hover text-on-primary font-semibold text-[16px] px-6 py-2.5 rounded-lg transition-colors shadow-sm whitespace-nowrap" href="#predictor">Calculate Safe Score</a>
+      </div>
     </div>
+  </div>
+</header>
 
-    <!-- Scripts -->
-    <script src="js/students_data.js"></script>
-    <script src="js/app.js"></script>
+<main class="w-full pt-28 bg-slate-surface min-h-screen">
+
+  <!-- ===== HERO ===== -->
+  <section class="relative w-full overflow-hidden bg-primary text-canvas-white shadow-md">
+    <div class="absolute inset-0 bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(243,161,62,0.18),rgba(4,21,46,0.95))] pointer-events-none"></div>
+    <div class="relative max-w-[1240px] mx-auto px-8 pt-10 pb-16 flex flex-col items-center text-center">
+      <!-- Badge -->
+      <div class="inline-flex items-center gap-2 px-4 py-1 rounded-full bg-primary-container text-collegiate-gold font-label-sm text-label-sm shadow-inner mb-6">
+        <span class="material-symbols-outlined text-[16px]">verified</span>
+        <span>AUDITED NTA NORMALIZATION • COUNSELLING REGISTRY 2024-25 ACTIVE</span>
+      </div>
+      <h1 class="text-headline-xl font-headline-xl text-canvas-white max-w-4xl tracking-tight mb-4 font-bold" style="font-family:'Source Serif 4',serif;">
+        Nail Your CUET PG Admissions
+      </h1>
+      <p class="text-body-lg font-body-lg text-surface-container max-w-3xl mb-10 leading-relaxed">
+        Calculate safe scores, evaluate admission probability safe zones, and compare top programs using real admitted student registers. Expected cutoffs active for <strong class="text-collegiate-gold font-semibold">COQP12</strong> (MBA), <strong class="text-collegiate-gold font-semibold">COQP11</strong> (General / Social Work), <strong class="text-collegiate-gold font-semibold">SCQP09</strong> (MCA), and more modeled on official centralized counselling baselines.
+      </p>
+      <!-- Search Bar -->
+      <div class="w-full max-w-2xl bg-surface-container-lowest rounded-xl p-1 shadow-xl flex flex-col sm:flex-row items-center gap-1 mb-10">
+        <div class="flex items-center gap-2 flex-1 px-4 py-2 w-full text-on-surface">
+          <span class="material-symbols-outlined text-secondary text-[22px]">search</span>
+          <input class="w-full bg-transparent text-on-surface placeholder:text-outline focus:outline-none text-[15px]" id="hero-quick-search" placeholder="Search Paper Code (e.g. COQP12) or University (TISS, SAU)..." type="text">
+        </div>
+        <button class="w-full sm:w-auto px-8 py-3 bg-collegiate-gold hover:bg-amber-cta-hover text-on-primary font-semibold text-[16px] rounded-lg flex items-center justify-center gap-2 transition-colors shadow-sm" id="hero-quick-search-btn">
+          <span>Search Benchmarks</span>
+          <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+        </button>
+      </div>
+      <!-- CTAs -->
+      <div class="flex flex-wrap items-center justify-center gap-4 mb-10">
+        <a class="px-8 py-3 rounded-lg bg-collegiate-gold hover:bg-amber-cta-hover text-on-primary font-semibold text-[16px] transition-all shadow-md flex items-center gap-2" href="#predictor">
+          <span class="material-symbols-outlined text-[20px]">calculate</span>Predict My Rank
+        </a>
+        <a class="px-8 py-3 rounded-lg bg-surface-container-lowest text-primary hover:bg-surface-container transition-all font-semibold text-[16px] shadow-md flex items-center gap-2" href="#merit-explorer">
+          <span class="material-symbols-outlined text-[20px]">groups</span>Explore Admitted Students
+        </a>
+        <a class="px-8 py-3 rounded-lg bg-primary-container text-canvas-white hover:bg-secondary transition-all font-semibold text-[16px] shadow-md flex items-center gap-2" href="#comparison-matrix">
+          <span class="material-symbols-outlined text-[20px]">balance</span>Compare Institutions
+        </a>
+      </div>
+      <!-- Stats -->
+      <div class="grid grid-cols-1 sm:grid-cols-4 gap-4 w-full max-w-3xl pt-6 text-canvas-white">
+        <div class="flex flex-col items-center p-4 rounded-lg bg-primary-container/60 backdrop-blur-sm shadow-sm">
+          <span class="text-headline-lg font-headline-lg font-bold text-collegiate-gold" style="font-family:'Source Serif 4',serif;">10+</span>
+          <span class="uppercase tracking-wider text-surface-container-high mt-1 text-[12px] font-bold">Paper Codes Covered</span>
+          <span class="text-[13px] text-surface-container-high/80">COQP11, COQP12, SCQP09 &amp; more</span>
+        </div>
+        <div class="flex flex-col items-center p-4 rounded-lg bg-primary-container/60 backdrop-blur-sm shadow-sm">
+          <span class="text-headline-lg font-headline-lg font-bold text-collegiate-gold" style="font-family:'Source Serif 4',serif;">6 Top</span>
+          <span class="uppercase tracking-wider text-surface-container-high mt-1 text-[12px] font-bold">Premier Institutes</span>
+          <span class="text-[13px] text-surface-container-high/80">TISS Campuses, SAU, IIIT-L</span>
+        </div>
+        <div class="flex flex-col items-center p-4 rounded-lg bg-primary-container/60 backdrop-blur-sm shadow-sm">
+          <span class="text-headline-lg font-headline-lg font-bold text-collegiate-gold" id="stat-verified-count" style="font-family:'Source Serif 4',serif;">2,757</span>
+          <span class="uppercase tracking-wider text-surface-container-high mt-1 text-[12px] font-bold">Verified Allotments</span>
+          <span class="text-[13px] text-surface-container-high/80">Cross-referenced with NTA ranks</span>
+        </div>
+        <div class="flex flex-col items-center p-4 rounded-lg bg-primary-container/60 backdrop-blur-sm shadow-sm">
+          <span class="text-headline-lg font-headline-lg font-bold text-collegiate-gold" id="visitor-count" style="font-family:'Source Serif 4',serif;">1,840+</span>
+          <span class="uppercase tracking-wider text-surface-container-high mt-1 text-[12px] font-bold">Live Aspirants Active</span>
+          <span class="text-[13px] text-surface-container-high/80">Right now on this tracker</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== NOTICE BANNER ===== -->
+  <div class="w-full bg-surface-container-high text-primary py-2 px-8 shadow-sm">
+    <div class="max-w-[1240px] mx-auto flex flex-col md:flex-row items-center justify-between gap-2 text-label-md font-label-md">
+      <div class="flex items-center gap-2">
+        <span class="px-2 py-0.5 rounded bg-collegiate-gold text-on-primary font-bold uppercase text-[10px]">NOTICE</span>
+        <span>Admissions Season 2025 Normalization Formula Live: Piecewise linear model mapped against 2,757 official admissions.</span>
+      </div>
+      <a class="text-secondary hover:text-primary font-semibold underline flex items-center gap-1" href="#comparison-matrix">
+        <span>Read Model Methodology</span>
+        <span class="material-symbols-outlined text-[14px]">arrow_forward</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- ===== TOOLS OVERVIEW GRID ===== -->
+  <section class="max-w-[1240px] mx-auto px-8 py-10 w-full">
+    <div class="text-center mb-10">
+      <span class="font-bold text-on-tertiary-container uppercase tracking-widest block mb-1 text-[14px]">EXPLORE &amp; EVALUATE ADMISSION PROSPECTS</span>
+      <h2 class="text-headline-lg font-headline-lg text-deep-navy font-bold" style="font-family:'Source Serif 4',serif;">CUET PG Decision &amp; Planning Tools</h2>
+      <p class="text-body-md text-on-surface-variant max-w-2xl mx-auto mt-2">Use our institutional tools to model your exam cutoffs, compare university placement benchmarks, and dissect historical rank distribution.</p>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div class="bg-surface-container-lowest rounded-xl p-6 shadow-sm flex flex-col items-center text-center hover:shadow-md transition-shadow group">
+        <div class="w-16 h-16 rounded-full bg-secondary text-canvas-white flex items-center justify-center mb-4 shadow-sm group-hover:scale-105 transition-transform">
+          <span class="material-symbols-outlined text-[32px]">query_stats</span>
+        </div>
+        <h3 class="text-title-lg font-bold text-deep-navy mb-1">Admissions Predictor</h3>
+        <p class="text-body-sm text-on-surface-variant mb-6 flex-1 leading-relaxed">Estimate your admission probability and safe score bands based on your raw marks out of 300 across categorized pools.</p>
+        <a class="w-full py-2.5 px-4 rounded-lg bg-primary text-on-primary font-semibold text-[16px] hover:bg-secondary transition-colors text-center" href="#predictor">Open Predictor</a>
+      </div>
+      <div class="bg-surface-container-lowest rounded-xl p-6 shadow-sm flex flex-col items-center text-center hover:shadow-md transition-shadow group">
+        <div class="w-16 h-16 rounded-full bg-collegiate-gold text-on-primary flex items-center justify-center mb-4 shadow-sm group-hover:scale-105 transition-transform">
+          <span class="material-symbols-outlined text-[32px]">compare_arrows</span>
+        </div>
+        <h3 class="text-title-lg font-bold text-deep-navy mb-1">Comparison Matrix</h3>
+        <p class="text-body-sm text-on-surface-variant mb-6 flex-1 leading-relaxed">Compare NIRF rank, median placement ROI, program fees, and cutoff metrics side-by-side across TISS, SAU, and IIIT-L.</p>
+        <a class="w-full py-2.5 px-4 rounded-lg bg-primary text-on-primary font-semibold text-[16px] hover:bg-secondary transition-colors text-center" href="#comparison-matrix">Launch Matrix</a>
+      </div>
+      <div class="bg-surface-container-lowest rounded-xl p-6 shadow-sm flex flex-col items-center text-center hover:shadow-md transition-shadow group">
+        <div class="w-16 h-16 rounded-full bg-secondary-fixed text-on-secondary-container flex items-center justify-center mb-4 shadow-sm group-hover:scale-105 transition-transform">
+          <span class="material-symbols-outlined text-[32px]">checklist_rtl</span>
+        </div>
+        <h3 class="text-title-lg font-bold text-deep-navy mb-1">Merit Explorer</h3>
+        <p class="text-body-sm text-on-surface-variant mb-6 flex-1 leading-relaxed">Filter 2,757+ verified admitted student records by score range, percentile distributions, and reservation category.</p>
+        <a class="w-full py-2.5 px-4 rounded-lg bg-primary text-on-primary font-semibold text-[16px] hover:bg-secondary transition-colors text-center" href="#merit-explorer">Browse Merit Registry</a>
+      </div>
+      <div class="bg-surface-container-lowest rounded-xl p-6 shadow-sm flex flex-col items-center text-center hover:shadow-md transition-shadow group">
+        <div class="w-16 h-16 rounded-full bg-surface-container-highest text-primary flex items-center justify-center mb-4 shadow-sm group-hover:scale-105 transition-transform">
+          <span class="material-symbols-outlined text-[32px]">menu_book</span>
+        </div>
+        <h3 class="text-title-lg font-bold text-deep-navy mb-1">College Directory</h3>
+        <p class="text-body-sm text-on-surface-variant mb-6 flex-1 leading-relaxed">Cross-reference programs, university eligibility clauses, and category-wise cutoffs across PG admitted students.</p>
+        <a class="w-full py-2.5 px-4 rounded-lg bg-primary text-on-primary font-semibold text-[16px] hover:bg-secondary transition-colors text-center" href="college.html#tiss">View Directory</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== ADMISSIONS PREDICTOR SECTION ===== -->
+  <section class="w-full bg-surface-container-low py-10" id="predictor">
+    <div class="max-w-[1240px] mx-auto px-8">
+      <div class="bg-surface-container-lowest rounded-xl p-6 md:p-10 shadow-md">
+        <div class="flex flex-col md:flex-row md:items-center justify-between pb-6 mb-6 gap-4">
+          <div>
+            <div class="flex items-center gap-2 mb-1">
+              <span class="w-7 h-7 rounded-lg bg-collegiate-gold text-on-primary flex items-center justify-center font-bold">
+                <span class="material-symbols-outlined text-[18px]">target</span>
+              </span>
+              <h2 class="text-headline-md font-headline-md font-bold text-deep-navy" style="font-family:'Source Serif 4',serif;">Rank &amp; Safe Zone Predictor</h2>
+            </div>
+            <p class="text-body-md text-on-surface-variant">Enter your score out of 300 to evaluate your expected admission eligibility and cutoff probability.</p>
+          </div>
+          <div class="flex items-center gap-2 bg-surface-container px-4 py-2 rounded-lg self-start md:self-auto">
+            <span class="material-symbols-outlined text-secondary text-[20px]">insights</span>
+            <span class="text-label-sm font-bold text-on-surface">Normalized Baseline: NTA 2024-25 Series</span>
+          </div>
+        </div>
+        <!-- Form -->
+        <form id="rank-form">
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
+            <!-- Controls -->
+            <div class="lg:col-span-7 space-y-6">
+              <!-- Paper Code -->
+              <div>
+                <label class="block font-semibold text-deep-navy mb-2 text-[16px]" for="paper-code">Target Exam Paper Code</label>
+                <div class="relative">
+                  <select class="w-full px-4 py-3 rounded-lg bg-slate-surface text-on-surface focus:bg-surface-container-lowest focus:shadow-md appearance-none text-[15px] focus:outline-none" id="paper-code">
+                    <option value="COQP12" selected>COQP12 - MBA / General Management (TISS Mumbai, SAU, IIIT-L)</option>
+                    <option value="COQP11">COQP11 - General / Social Work / Public Health (TISS Campuses)</option>
+                    <option value="COQP10">COQP10 - MBA / Commerce (South Asian University)</option>
+                    <option value="COQP08">COQP08 - MBA / Economics (South Asian University)</option>
+                    <option value="SCQP09">SCQP09 - MCA / Computer Science &amp; Data Analytics</option>
+                    <option value="HUQP18">HUQP18 - Political Science &amp; International Relations</option>
+                    <option value="HUQP22">HUQP22 - Sociology &amp; Social Anthropology</option>
+                    <option value="HUQP20">HUQP20 - Applied Psychology &amp; Counselling</option>
+                    <option value="HUQP21">HUQP21 - Social Work (TISS Tuljapur / Guwahati)</option>
+                    <option value="COQP14">COQP14 - LL.M (Access to Justice &amp; Corporate Laws)</option>
+                  </select>
+                  <span class="material-symbols-outlined text-on-surface-variant absolute right-4 top-3.5 pointer-events-none text-[20px]">expand_more</span>
+                </div>
+              </div>
+              <!-- Category -->
+              <div>
+                <label class="block font-semibold text-deep-navy mb-2 text-[16px]" for="category">Counselling Reservation Category</label>
+                <div class="relative">
+                  <select class="w-full px-4 py-3 rounded-lg bg-slate-surface text-on-surface focus:bg-surface-container-lowest appearance-none text-[15px] focus:outline-none" id="category">
+                    <option value="GEN" selected>General (UR)</option>
+                    <option value="OBC">OBC-NCL</option>
+                    <option value="EWS">EWS</option>
+                    <option value="SC">SC</option>
+                    <option value="ST">ST</option>
+                  </select>
+                  <span class="material-symbols-outlined text-on-surface-variant absolute right-4 top-3.5 pointer-events-none text-[20px]">expand_more</span>
+                </div>
+              </div>
+              <!-- Score -->
+              <div>
+                <label class="block font-semibold text-deep-navy mb-2 text-[16px]" for="score">Expected Raw Marks (Out of 300)</label>
+                <input type="number" id="score" min="0" max="300" placeholder="e.g. 220" required value="220"
+                  class="w-full px-4 py-3 rounded-lg bg-slate-surface text-on-surface text-[15px] focus:outline-none focus:shadow-md focus:bg-surface-container-lowest">
+              </div>
+              <!-- Submit -->
+              <div class="pt-1 flex flex-col sm:flex-row items-center gap-4">
+                <button type="submit" class="w-full sm:w-auto px-8 py-3.5 rounded-lg bg-collegiate-gold hover:bg-amber-cta-hover text-on-primary font-bold text-[18px] shadow-md transition-all flex items-center justify-center gap-2">
+                  <span class="material-symbols-outlined text-[20px]">analytics</span>
+                  <span>Predict Admission Odds</span>
+                </button>
+                <span class="text-body-sm text-on-surface-variant flex items-center gap-1">
+                  <span class="material-symbols-outlined text-[16px] text-collegiate-gold">info</span>
+                  Calculations refresh in real time
+                </span>
+              </div>
+              <!-- Disclaimer -->
+              <p class="text-body-sm text-on-surface-variant bg-surface-container p-4 rounded-lg flex items-start gap-2">
+                <span class="material-symbols-outlined text-collegiate-gold text-[20px] flex-shrink-0">report</span>
+                <span><strong>Note:</strong> Predictor calculations are modeled on last year's official NTA percentile mapping, normalization spread across shifts, and official opening-closing cutoffs across 2,757 verified allotments.</span>
+              </p>
+            </div>
+            <!-- Result Panel -->
+            <div class="lg:col-span-5 bg-slate-surface rounded-xl p-6 shadow-sm flex flex-col justify-between min-h-[300px]">
+              <div id="result" class="hidden"><!-- JS-populated --></div>
+              <div id="result-placeholder" class="flex flex-col items-center justify-center h-full text-center py-8">
+                <span class="material-symbols-outlined text-[48px] text-on-surface-variant mb-3">query_stats</span>
+                <p class="text-on-surface-variant text-[15px]">Enter your score and click<br><strong class="text-deep-navy">"Predict Admission Odds"</strong><br>to see your results here.</p>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== COLLEGE GRID SECTION ===== -->
+  <section class="max-w-[1240px] mx-auto px-8 py-10 w-full" id="colleges">
+    <div class="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-4">
+      <div>
+        <div class="flex items-center gap-2 mb-1">
+          <span class="w-8 h-8 rounded-lg bg-deep-navy text-canvas-white flex items-center justify-center">
+            <span class="material-symbols-outlined text-[20px]">account_balance</span>
+          </span>
+          <h2 class="text-headline-lg font-headline-lg font-bold text-deep-navy" style="font-family:'Source Serif 4',serif;">Premier Universities</h2>
+        </div>
+        <p class="text-body-md text-on-surface-variant">Select any program to view detailed fees, placement reports, and category-wise student cutoffs.</p>
+      </div>
+      <a href="college.html#tiss" class="inline-flex items-center gap-2 px-4 py-2 bg-surface-container-lowest text-primary rounded-lg shadow-sm hover:bg-surface-container text-[14px] font-semibold transition-colors">
+        <span class="material-symbols-outlined text-[18px]">open_in_new</span>Full Directory
+      </a>
+    </div>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6" id="college-grid">
+      <!-- Dynamically rendered by app.js -->
+    </div>
+  </section>
+
+  <!-- ===== ROI COMPARISON MATRIX ===== -->
+  <section class="max-w-[1240px] mx-auto px-8 py-10 w-full" id="comparison-matrix">
+    <div class="flex flex-col md:flex-row md:items-end justify-between mb-6 gap-4">
+      <div>
+        <div class="flex items-center gap-2 mb-1">
+          <span class="w-8 h-8 rounded-lg bg-deep-navy text-canvas-white flex items-center justify-center">
+            <span class="material-symbols-outlined text-[20px]">balance</span>
+          </span>
+          <h2 class="text-headline-lg font-headline-lg font-bold text-deep-navy" style="font-family:'Source Serif 4',serif;">CUET PG Admissions &amp; ROI Comparison Matrix</h2>
+        </div>
+        <p class="text-body-md text-on-surface-variant">Direct ROI assessment, packages breakdown, safe cutoff benchmarks, and ranking credentials across premier campuses.</p>
+      </div>
+      <div class="bg-surface-container px-4 py-2.5 rounded-lg flex items-center gap-4 shadow-sm">
+        <div class="flex items-center gap-2 font-bold text-deep-navy text-[16px]">
+          <span class="material-symbols-outlined text-collegiate-gold text-[20px]">inventory_2</span>
+          <span id="compare-count-display">0 / 4 Selected</span>
+        </div>
+        <button class="text-label-sm uppercase tracking-wider text-secondary hover:underline font-bold" id="clear-compare-btn">Reset</button>
+      </div>
+    </div>
+    <!-- ROI Formula card -->
+    <div class="bg-primary-container text-surface-container p-4 rounded-xl mb-6 shadow-sm flex flex-col md:flex-row md:items-center justify-between gap-4" id="matrix-roi-formula">
+      <div class="flex items-center gap-4">
+        <span class="material-symbols-outlined text-[28px] text-collegiate-gold">calculate</span>
+        <div>
+          <span class="font-bold text-canvas-white text-[16px] block">ROI Score Index Formula</span>
+          <p class="text-body-sm text-surface-container-high leading-relaxed">Index computed as <code class="bg-primary px-1.5 py-0.5 rounded text-collegiate-gold font-mono font-bold">(Median Annual Placement / Program Tuition Fee) × 10</code> to gauge capital return velocity.</p>
+        </div>
+      </div>
+      <div class="flex items-center gap-1 text-label-sm text-collegiate-gold flex-shrink-0">
+        <span class="material-symbols-outlined text-[16px]">verified</span>
+        <span>NIRF 2024 Audited Packages</span>
+      </div>
+    </div>
+    <!-- Comparison Table -->
+    <div class="bg-surface-container-lowest rounded-xl shadow-md overflow-hidden">
+      <div class="overflow-x-auto">
+        <table class="w-full text-left border-collapse merit-table">
+          <thead>
+            <tr class="bg-slate-surface text-deep-navy text-label-md uppercase tracking-wider">
+              <th class="p-4 w-12 text-center">Pin</th>
+              <th class="p-4">University &amp; Campus</th>
+              <th class="p-4">Exam Code</th>
+              <th class="p-4">Safe Target Score</th>
+              <th class="p-4">Median Placement</th>
+              <th class="p-4">Approx. Tuition</th>
+              <th class="p-4">Rank / Status</th>
+              <th class="p-4 text-right">ROI Rating</th>
+            </tr>
+          </thead>
+          <tbody id="compare-matrix-body">
+            <!-- Row 1: TISS Mumbai -->
+            <tr class="hover:bg-slate-surface transition-colors">
+              <td class="p-4 text-center"><input class="compare-checkbox accent-collegiate-gold w-4 h-4 cursor-pointer" type="checkbox" data-id="tiss"></td>
+              <td class="p-4">
+                <div class="flex flex-col">
+                  <div class="flex items-center gap-2">
+                    <span class="font-bold text-deep-navy text-[16px]">TISS Mumbai</span>
+                    <button type="button" onclick="window.location.href='college.html#tiss'" class="inline-flex items-center gap-0.5 px-2 py-0.5 rounded bg-primary text-collegiate-gold hover:bg-secondary text-[11px] font-bold cursor-pointer transition-colors shadow-sm"><span class="material-symbols-outlined text-[13px]">open_in_new</span> Deep Dive</button>
+                  </div>
+                  <span class="text-label-sm text-on-surface-variant">Tata Institute of Social Sciences</span>
+                </div>
+              </td>
+              <td class="p-4"><div class="flex flex-wrap gap-1"><span class="px-2 py-0.5 rounded text-[11px] font-bold bg-primary-container text-canvas-white">COQP12</span><span class="px-2 py-0.5 rounded text-[11px] font-bold bg-secondary-fixed text-on-secondary-container">COQP11</span></div></td>
+              <td class="p-4"><div class="flex flex-col"><span class="font-bold text-deep-navy">235+ <span class="font-normal text-[13px] text-on-surface-variant">(HRM)</span></span><span class="text-[13px] text-on-surface-variant">180+ (Social Work)</span></div></td>
+              <td class="p-4"><span class="font-bold text-deep-navy">₹28.00 LPA <span class="text-[11px] text-collegiate-gold font-bold">Flagship HRM</span></span></td>
+              <td class="p-4 font-semibold text-deep-navy">₹1.15 - 3.20 Lakhs</td>
+              <td class="p-4"><span class="px-2 py-1 rounded bg-slate-surface text-[11px] font-bold text-deep-navy inline-block">NIRF #72 Overall</span></td>
+              <td class="p-4 text-right"><span class="px-2.5 py-1 rounded-full bg-collegiate-gold text-on-primary text-[12px] font-bold shadow-sm whitespace-nowrap">92.4 / 100 (Elite)</span></td>
+            </tr>
+            <!-- Row 2: SAU -->
+            <tr class="bg-surface-bright hover:bg-slate-surface transition-colors">
+              <td class="p-4 text-center"><input class="compare-checkbox accent-collegiate-gold w-4 h-4 cursor-pointer" type="checkbox" data-id="sau"></td>
+              <td class="p-4">
+                <div class="flex flex-col">
+                  <div class="flex items-center gap-2">
+                    <span class="font-bold text-deep-navy text-[16px]">South Asian University (SAU)</span>
+                    <button type="button" onclick="window.location.href='college.html#sau'" class="inline-flex items-center gap-0.5 px-2 py-0.5 rounded bg-primary text-collegiate-gold hover:bg-secondary text-[11px] font-bold cursor-pointer transition-colors shadow-sm"><span class="material-symbols-outlined text-[13px]">open_in_new</span> Deep Dive</button>
+                  </div>
+                  <span class="text-label-sm text-on-surface-variant">New Delhi • SAARC Established</span>
+                </div>
+              </td>
+              <td class="p-4"><div class="flex flex-wrap gap-1"><span class="px-2 py-0.5 rounded text-[11px] font-bold bg-primary-container text-canvas-white">COQP12</span><span class="px-2 py-0.5 rounded text-[11px] font-bold bg-slate-surface text-on-surface">COQP10</span><span class="px-2 py-0.5 rounded text-[11px] font-bold bg-slate-surface text-on-surface">COQP08</span></div></td>
+              <td class="p-4"><div class="flex flex-col"><span class="font-bold text-deep-navy">140+ <span class="font-normal text-[13px] text-on-surface-variant">(COQP12)</span></span><span class="text-[13px] text-on-surface-variant">120+ (COQP10) / 110+ (COQP08)</span></div></td>
+              <td class="p-4"><span class="font-bold text-deep-navy">₹5.50 LPA</span></td>
+              <td class="p-4 font-semibold text-deep-navy">₹5.88 - 6.61 Lakhs</td>
+              <td class="p-4"><span class="px-2 py-1 rounded bg-surface-container text-[11px] font-bold text-secondary inline-block">International Treaty Body</span></td>
+              <td class="p-4 text-right"><span class="px-2.5 py-1 rounded-full bg-secondary-fixed text-on-secondary-container text-[12px] font-bold shadow-sm whitespace-nowrap">64.2 / 100</span></td>
+            </tr>
+            <!-- Row 3: IIIT Lucknow -->
+            <tr class="hover:bg-slate-surface transition-colors">
+              <td class="p-4 text-center"><input class="compare-checkbox accent-collegiate-gold w-4 h-4 cursor-pointer" type="checkbox" data-id="iiitl"></td>
+              <td class="p-4">
+                <div class="flex flex-col">
+                  <div class="flex items-center gap-2">
+                    <span class="font-bold text-deep-navy text-[16px]">IIIT Lucknow</span>
+                    <button type="button" onclick="window.location.href='college.html#iiitl'" class="inline-flex items-center gap-0.5 px-2 py-0.5 rounded bg-primary text-collegiate-gold hover:bg-secondary text-[11px] font-bold cursor-pointer transition-colors shadow-sm"><span class="material-symbols-outlined text-[13px]">open_in_new</span> Deep Dive</button>
+                  </div>
+                  <span class="text-label-sm text-on-surface-variant">Indian Institute of Information Technology</span>
+                </div>
+              </td>
+              <td class="p-4"><span class="px-2 py-0.5 rounded text-[11px] font-bold bg-primary-container text-canvas-white">COQP12</span></td>
+              <td class="p-4"><span class="font-bold text-deep-navy">161+</span></td>
+              <td class="p-4"><span class="font-bold text-deep-navy">₹11.00 LPA</span></td>
+              <td class="p-4 font-semibold text-deep-navy">₹3.02 - 4.64 Lakhs</td>
+              <td class="p-4"><span class="px-2 py-1 rounded bg-slate-surface text-[11px] font-bold text-deep-navy inline-block">National Importance (INI)</span></td>
+              <td class="p-4 text-right"><span class="px-2.5 py-1 rounded-full bg-collegiate-gold text-on-primary text-[12px] font-bold shadow-sm whitespace-nowrap">88.5 / 100</span></td>
+            </tr>
+            <!-- Row 4: TISS Hyderabad -->
+            <tr class="bg-surface-bright hover:bg-slate-surface transition-colors">
+              <td class="p-4 text-center"><input class="compare-checkbox accent-collegiate-gold w-4 h-4 cursor-pointer" type="checkbox" data-id="tiss_hyd"></td>
+              <td class="p-4">
+                <div class="flex flex-col">
+                  <span class="font-bold text-deep-navy text-[16px]">TISS Hyderabad</span>
+                  <span class="text-label-sm text-on-surface-variant">Off-Campus Center • Telangana</span>
+                </div>
+              </td>
+              <td class="p-4"><span class="px-2 py-0.5 rounded text-[11px] font-bold bg-secondary-fixed text-on-secondary-container">COQP11</span></td>
+              <td class="p-4"><span class="font-bold text-deep-navy">165+</span></td>
+              <td class="p-4"><span class="font-bold text-deep-navy">₹8.00 LPA</span></td>
+              <td class="p-4 font-semibold text-deep-navy">₹1.45 - 2.80 Lakhs</td>
+              <td class="p-4"><span class="px-2 py-1 rounded bg-slate-surface text-[11px] font-bold text-deep-navy inline-block">Central Deemed Off-Campus</span></td>
+              <td class="p-4 text-right"><span class="px-2.5 py-1 rounded-full bg-collegiate-gold text-on-primary text-[12px] font-bold shadow-sm whitespace-nowrap">79.0 / 100</span></td>
+            </tr>
+            <!-- Row 5: TISS Guwahati -->
+            <tr class="hover:bg-slate-surface transition-colors">
+              <td class="p-4 text-center"><input class="compare-checkbox accent-collegiate-gold w-4 h-4 cursor-pointer" type="checkbox" data-id="tiss_gwt"></td>
+              <td class="p-4">
+                <div class="flex flex-col">
+                  <span class="font-bold text-deep-navy text-[16px]">TISS Guwahati</span>
+                  <span class="text-label-sm text-on-surface-variant">Off-Campus Center • Assam</span>
+                </div>
+              </td>
+              <td class="p-4"><span class="px-2 py-0.5 rounded text-[11px] font-bold bg-secondary-fixed text-on-secondary-container">COQP11</span></td>
+              <td class="p-4"><span class="font-bold text-deep-navy">155+</span></td>
+              <td class="p-4"><span class="font-bold text-deep-navy">₹5.80 LPA</span></td>
+              <td class="p-4 font-semibold text-deep-navy">₹1.05 - 2.20 Lakhs</td>
+              <td class="p-4"><span class="px-2 py-1 rounded bg-slate-surface text-[11px] font-bold text-deep-navy inline-block">Central Deemed Off-Campus</span></td>
+              <td class="p-4 text-right"><span class="px-2.5 py-1 rounded-full bg-secondary-fixed text-on-secondary-container text-[12px] font-bold shadow-sm whitespace-nowrap">72.5 / 100</span></td>
+            </tr>
+            <!-- Row 6: TISS Tuljapur -->
+            <tr class="bg-surface-bright hover:bg-slate-surface transition-colors">
+              <td class="p-4 text-center"><input class="compare-checkbox accent-collegiate-gold w-4 h-4 cursor-pointer" type="checkbox" data-id="tiss_tjp"></td>
+              <td class="p-4">
+                <div class="flex flex-col">
+                  <span class="font-bold text-deep-navy text-[16px]">TISS Tuljapur</span>
+                  <span class="text-label-sm text-on-surface-variant">Off-Campus Center • Maharashtra</span>
+                </div>
+              </td>
+              <td class="p-4"><span class="px-2 py-0.5 rounded text-[11px] font-bold bg-secondary-fixed text-on-secondary-container">COQP11</span></td>
+              <td class="p-4"><span class="font-bold text-deep-navy">150+</span></td>
+              <td class="p-4"><span class="font-bold text-deep-navy">₹4.20 LPA</span></td>
+              <td class="p-4 font-semibold text-deep-navy">₹1.10 - 2.30 Lakhs</td>
+              <td class="p-4"><span class="px-2 py-1 rounded bg-slate-surface text-[11px] font-bold text-deep-navy inline-block">Central Deemed Off-Campus</span></td>
+              <td class="p-4 text-right"><span class="px-2.5 py-1 rounded-full bg-secondary-fixed text-on-secondary-container text-[12px] font-bold shadow-sm whitespace-nowrap">65.0 / 100</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== MERIT EXPLORER ===== -->
+  <section class="max-w-[1240px] mx-auto px-8 py-10 w-full" id="merit-explorer">
+    <div class="bg-surface-container-lowest rounded-xl shadow-md p-6 md:p-8">
+      <!-- Header -->
+      <div class="flex flex-col md:flex-row md:items-center justify-between mb-6 gap-4">
+        <div>
+          <div class="flex items-center gap-2 mb-1">
+            <span class="w-8 h-8 rounded-lg bg-deep-navy text-canvas-white flex items-center justify-center">
+              <span class="material-symbols-outlined text-[20px]">groups</span>
+            </span>
+            <h2 class="text-headline-md font-headline-md font-bold text-deep-navy" style="font-family:'Source Serif 4',serif;">Admitted Candidates &amp; Merit Explorer (2024-25)</h2>
+          </div>
+          <p class="text-body-md text-on-surface-variant">Filter 2,757 verified allotments, compare actual score benchmarks, and search candidates by course or score range.</p>
+        </div>
+      </div>
+      <!-- Filters -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
+        <div>
+          <label class="block text-label-sm font-bold text-on-surface-variant uppercase tracking-wider mb-1" for="explorer-search">Candidate Search</label>
+          <input type="text" id="explorer-search" placeholder="Search name, app no, or course..." class="w-full px-3 py-2 bg-slate-surface text-on-surface rounded text-[15px] focus:outline-none focus:bg-surface-container-lowest focus:shadow-sm">
+        </div>
+        <div>
+          <label class="block text-label-sm font-bold text-on-surface-variant uppercase tracking-wider mb-1" for="explorer-college">University</label>
+          <select id="explorer-college" class="w-full px-3 py-2 bg-slate-surface text-on-surface rounded text-[15px] focus:outline-none">
+            <option value="all">All Universities</option>
+            <option value="tiss">TISS Mumbai</option>
+            <option value="tiss_hyd">TISS Hyderabad</option>
+            <option value="tiss_gwt">TISS Guwahati</option>
+            <option value="tiss_tjp">TISS Tuljapur</option>
+            <option value="sau">South Asian University</option>
+            <option value="iiitl">IIIT Lucknow</option>
+          </select>
+        </div>
+        <div>
+          <label class="block text-label-sm font-bold text-on-surface-variant uppercase tracking-wider mb-1" for="explorer-paper">Paper Code</label>
+          <select id="explorer-paper" class="w-full px-3 py-2 bg-slate-surface text-on-surface rounded text-[15px] focus:outline-none">
+            <option value="all">All Paper Codes</option>
+            <option value="COQP12">COQP12 (MBA)</option>
+            <option value="COQP11">COQP11 (Gen/SW)</option>
+            <option value="COQP10">COQP10 (Commerce)</option>
+            <option value="COQP08">COQP08 (Economics)</option>
+            <option value="SCQP09">SCQP09 (MCA)</option>
+          </select>
+        </div>
+        <div>
+          <label class="block text-label-sm font-bold text-on-surface-variant uppercase tracking-wider mb-1" for="explorer-score">Score Band</label>
+          <select id="explorer-score" class="w-full px-3 py-2 bg-slate-surface text-on-surface rounded text-[15px] focus:outline-none">
+            <option value="all">All Scores</option>
+            <option value="250">250+ Marks (Top Tier)</option>
+            <option value="200">200+ Marks (High)</option>
+            <option value="150">150+ Marks (Average)</option>
+            <option value="100">100+ Marks (Secondary)</option>
+          </select>
+        </div>
+      </div>
+      <!-- Table -->
+      <div class="overflow-x-auto rounded-lg border border-border-subtle">
+        <table class="w-full text-left border-collapse merit-table">
+          <thead>
+            <tr>
+              <th>Rank</th>
+              <th>Candidate Name</th>
+              <th>Allotted College</th>
+              <th>Program Specialization</th>
+              <th class="hidden md:table-cell">Paper</th>
+              <th class="hidden md:table-cell">Percentile</th>
+              <th class="hidden md:table-cell">App Token</th>
+              <th>CUET Score</th>
+            </tr>
+          </thead>
+          <tbody id="explorer-list">
+            <!-- Populated by app.js -->
+          </tbody>
+        </table>
+      </div>
+      <!-- No data message -->
+      <div id="explorer-no-data" class="hidden text-center py-8 text-on-surface-variant">
+        <span class="material-symbols-outlined text-[40px] block mb-2">search_off</span>
+        No candidate records match your selected filters.
+      </div>
+      <!-- Pagination -->
+      <div class="flex justify-between items-center mt-6 flex-wrap gap-4">
+        <span id="explorer-info" class="text-body-sm text-on-surface-variant">Showing 0 of 0 candidates</span>
+        <div class="flex gap-2">
+          <button id="explorer-prev" class="px-4 py-2 bg-surface-container text-primary rounded hover:bg-surface-variant text-[14px] font-semibold transition-colors disabled:opacity-40" disabled>Previous</button>
+          <button id="explorer-next" class="px-4 py-2 bg-surface-container text-primary rounded hover:bg-surface-variant text-[14px] font-semibold transition-colors">Next</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ===== FOOTER ===== -->
+<footer class="w-full bg-deep-navy text-surface-container-highest mt-10 shadow-[0_-1px_12px_rgba(0,0,0,0.08)]">
+  <div class="max-w-[1240px] mx-auto px-8 py-10">
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-10 pb-10">
+      <div class="md:col-span-1">
+        <div class="flex items-center gap-2 mb-4">
+          <div class="w-8 h-8 rounded-lg bg-collegiate-gold flex items-center justify-center text-primary">
+            <span class="material-symbols-outlined text-[20px]">school</span>
+          </div>
+          <span class="font-bold text-canvas-white text-[20px]">CUET PG Tracker</span>
+        </div>
+        <p class="text-body-sm text-surface-container mb-4 leading-relaxed">Standardized admission benchmarks, normalization distributions, and rank predictors across Central, State, and Deemed Indian Universities.</p>
+        <div class="flex items-center gap-1 text-label-sm text-collegiate-gold">
+          <span class="material-symbols-outlined text-[16px]">verified_user</span>
+          <span>Audited Cutoff Aggregations</span>
+        </div>
+      </div>
+      <div>
+        <h4 class="font-bold text-canvas-white mb-4 text-[16px] uppercase tracking-wider">Intelligence Tools</h4>
+        <ul class="space-y-2">
+          <li><a class="text-surface-container hover:text-collegiate-gold transition-colors text-[13px]" href="#predictor">Admissions Predictor</a></li>
+          <li><a class="text-surface-container hover:text-collegiate-gold transition-colors text-[13px]" href="#comparison-matrix">Institutional Comparison</a></li>
+          <li><a class="text-surface-container hover:text-collegiate-gold transition-colors text-[13px]" href="#merit-explorer">Category Merit Explorer</a></li>
+          <li><a class="text-surface-container hover:text-collegiate-gold transition-colors text-[13px]" href="faq.html">Admissions FAQ</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="font-bold text-canvas-white mb-4 text-[16px] uppercase tracking-wider">Academic Data</h4>
+        <ul class="space-y-2">
+          <li><a class="text-surface-container hover:text-collegiate-gold transition-colors text-[13px]" href="college.html#tiss">Central University Directory</a></li>
+          <li><a class="text-surface-container hover:text-collegiate-gold transition-colors text-[13px]" href="counselling.html">Samarth Counselling Hub</a></li>
+          <li><a class="text-surface-container hover:text-collegiate-gold transition-colors text-[13px]" href="syllabus.html">Syllabus &amp; Paper Codes</a></li>
+          <li><a class="text-surface-container hover:text-collegiate-gold transition-colors text-[13px]" href="#matrix-roi-formula">Normalization Methodology</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="font-bold text-canvas-white mb-4 text-[16px] uppercase tracking-wider">Compliance</h4>
+        <div class="bg-primary-container p-4 rounded-lg mb-4">
+          <p class="text-body-sm text-surface-container leading-relaxed">CUET PG Tracker compiles publicly announced counselling lists, open seat registers, and NTA press releases for informational guidance only.</p>
+        </div>
+        <div class="flex flex-col space-y-1 text-label-md text-surface-container-high">
+          <a class="hover:text-collegiate-gold transition-colors" href="privacy.html">Privacy Policy</a>
+          <a class="hover:text-collegiate-gold transition-colors" href="terms.html">Terms of Service &amp; Disclaimer</a>
+        </div>
+      </div>
+    </div>
+    <div class="pt-6 border-t border-primary-container flex flex-col md:flex-row items-center justify-between gap-4">
+      <p class="text-body-sm text-surface-container">© 2026 CUET PG Calculator. Empowering Indian Aspirants. All rights reserved.</p>
+      <div class="flex items-center gap-6 text-label-sm text-surface-container">
+        <a class="hover:text-collegiate-gold transition-colors" href="privacy.html">Privacy Policy</a>
+        <a class="hover:text-collegiate-gold transition-colors" href="terms.html">Terms</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- ===== COMPARE FLOATING DRAWER ===== -->
+<div id="compare-drawer" class="compare-drawer">
+  <span>Selected <strong id="compare-count" style="color:#F3A13E;">0</strong> programs to compare</span>
+  <div style="display:flex;gap:0.5rem;">
+    <button id="compare-btn" style="background:#F3A13E;color:#04152e;border:none;padding:0.5rem 1.25rem;border-radius:8px;font-weight:700;cursor:pointer;">Compare Now</button>
+  </div>
+</div>
+
+<!-- ===== COMPARE MODAL ===== -->
+<div id="compare-modal" class="compare-modal" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.6);z-index:200;align-items:center;justify-content:center;padding:1rem;">
+  <div class="modal-card" style="background:#fff;border-radius:12px;max-width:900px;width:100%;max-height:85vh;overflow-y:auto;padding:2rem;">
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:1.5rem;">
+      <h2 style="font-family:'Source Serif 4',serif;font-size:24px;color:#0C2340;font-weight:700;">⚖ Program Comparison Matrix</h2>
+      <button id="close-modal" style="background:none;border:none;font-size:1.5rem;color:#44474d;cursor:pointer;">✕</button>
+    </div>
+    <div style="overflow-x:auto;">
+      <table class="merit-table" style="width:100%;">
+        <thead id="compare-table-head"></thead>
+        <tbody id="compare-table-body"></tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<!-- ===== BACK TO TOP ===== -->
+<button id="back-to-top-btn" class="back-to-top" aria-label="Back to top">
+  <span class="material-symbols-outlined" style="font-size:20px;">arrow_upward</span>
+</button>
+
+<!-- ===== SCRIPTS ===== -->
+<script src="js/students_data.js"></script>
+<script src="js/app.js"></script>
+
+<!-- Quick Search hero wiring -->
+<script>
+(function() {
+  const heroBtn = document.getElementById('hero-quick-search-btn');
+  const heroInput = document.getElementById('hero-quick-search');
+  if (heroBtn && heroInput) {
+    heroBtn.addEventListener('click', function() {
+      const q = heroInput.value.trim();
+      if (!q) return;
+      // Try scrolling to merit explorer and pre-fill search
+      const searchEl = document.getElementById('explorer-search');
+      if (searchEl) {
+        searchEl.value = q;
+        searchEl.dispatchEvent(new Event('input'));
+      }
+      const target = document.getElementById('merit-explorer');
+      if (target) target.scrollIntoView({ behavior: 'smooth' });
+    });
+    heroInput.addEventListener('keydown', function(e) {
+      if (e.key === 'Enter') heroBtn.click();
+    });
+  }
+
+  // Compare Matrix pin counter (separate from app.js compare)
+  const matrixCheckboxes = document.querySelectorAll('#compare-matrix-body .compare-checkbox');
+  const displayEl = document.getElementById('compare-count-display');
+  matrixCheckboxes.forEach(cb => {
+    cb.addEventListener('change', function() {
+      const checked = document.querySelectorAll('#compare-matrix-body .compare-checkbox:checked').length;
+      if (displayEl) displayEl.textContent = checked + ' / 4 Selected';
+    });
+  });
+  const clearMatrixBtn = document.getElementById('clear-compare-btn');
+  if (clearMatrixBtn) {
+    clearMatrixBtn.addEventListener('click', function() {
+      matrixCheckboxes.forEach(cb => cb.checked = false);
+      if (displayEl) displayEl.textContent = '0 / 4 Selected';
+    });
+  }
+
+  // Result placeholder hide when result shown
+  const rankForm = document.getElementById('rank-form');
+  if (rankForm) {
+    rankForm.addEventListener('submit', function() {
+      const ph = document.getElementById('result-placeholder');
+      if (ph) ph.style.display = 'none';
+    });
+  }
+})();
+</script>
+
 </body>
 </html>
